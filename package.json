@@ -8,11 +8,10 @@
     "dev": "concurrently \"bun run gen:posts:watch\" \"vite\" --names \"posts,vite\" --prefix-colors \"blue,green\"",
     "build:local:client": "VITE_BASE=/ bun vite build --mode client",
     "build:local": "bun run gen:posts && bun run gen:sitemap && bun run build:local:client && VITE_BASE=/ bun vite build",
-    "build:prod:client": "VITE_BASE=/your-repo/ bun vite build --mode client",
-    "build:prod": "bun run gen:posts && bun run gen:sitemap && bun run build:prod:client && VITE_BASE=/your-repo/ bun vite build",
+    "build:prod:client": "VITE_BASE=/ bun vite build --mode client",
+    "build:prod": "bun run gen:posts && bun run gen:sitemap && bun run build:prod:client && VITE_BASE=/ bun vite build",
     "preview": "vite preview",
-    "serve:local": "bun run build:local && bun run preview",
-    "serve:prod": "bun run build:prod && bun run preview"
+    "serve:local": "bun run build:local && bun run preview"
   },
   "private": true,
   "dependencies": {

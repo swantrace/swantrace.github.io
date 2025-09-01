@@ -1,18 +1,3 @@
-# Robots.txt for Personal Portfolio & Blog
-# This file tells search engine crawlers which parts of the site they can access
-
-# Allow all web crawlers to access the entire site
 User-agent: *
-Allow: /
-
-# Disallow access to any potential admin or private areas (if they exist)
-# User-agent: *
-# Disallow: /admin/
-# Disallow: /private/
-
-# Specify the location of the sitemap for better crawling
-# Replace 'yourdomain.com' with your actual domain
-Sitemap: https://yourdomain.com/sitemap.xml
-
-# Optional: Add a crawl delay if the site gets too much traffic
-# Crawl-delay: 1
+Disallow: /
+Sitemap: http://swantrace.github.io/sitemap.xml
