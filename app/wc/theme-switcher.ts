@@ -22,50 +22,60 @@ function ThemeSwitcher() {
 
   return html`
     <fieldset
-      class="border-0 p-0 whitespace-nowrap flex justify-center mb-8"
+      class="border-0 p-0 flex items-center justify-center gap-0 mb-8"
       id="mode-switcher"
     >
       <legend class="text-[2px] opacity-0 absolute">Color Scheme</legend>
 
+      <!-- Light Label -->
       <input
         type="radio"
         name="color-scheme"
         id="light"
-        class="opacity-0 absolute"
+        class="sr-only"
         ?checked=${theme === "light"}
         @change=${() => setTheme("light")}
       />
       <label
         for="light"
-        class="inline-block leading-8 text-[0.9rem] relative z-[2] pr-[4.5em]
-               /* KNOB (::before) */
-               before:content-[''] before:bg-whiteish before:border before:border-onyx before:rounded-full 
-               before:absolute before:right-[-0.075em] before:h-[2em] before:w-[2em] before:z-[2]
-               before:transform before:transition-transform before:duration-200 before:ease-in-out
-               before:top-1/2 before:-translate-y-1/2
-               /* TRACK (::after) */
-               after:content-[''] after:border after:border-onyx after:rounded-[1em]
-               after:h-[2em] after:w-[4em] after:absolute after:right-[-0.075em] after:top-1/2 after:-translate-y-1/2
-               after:transition-colors after:duration-200 after:ease-in-out after:pointer-events-none
-               ${theme === "light"
-          ? "after:bg-marina before:-translate-x-[2em]"
-          : "after:bg-[#777] before:translate-x-0"}"
+        class="px-3 py-2 text-[0.9rem] cursor-pointer transition-colors duration-200
+               text-gray-700 dark:text-gray-300"
       >
         Light
       </label>
 
+      <!-- Toggle Container -->
+      <div
+        class="relative flex items-center cursor-pointer"
+        @click=${() => setTheme(theme === "light" ? "dark" : "light")}
+      >
+        <!-- Track -->
+        <div
+          class="w-12 h-6 rounded-full border border-onyx transition-colors duration-200
+                 ${theme === "light" ? "bg-marina" : "bg-gray-400"}"
+        ></div>
+
+        <!-- Knob -->
+        <div
+          class="absolute w-5 h-5 bg-whiteish border border-onyx rounded-full 
+                 transition-transform duration-200 ease-in-out
+                 ${theme === "light" ? "translate-x-0.5" : "translate-x-6"}"
+        ></div>
+      </div>
+
+      <!-- Dark Label -->
       <input
         type="radio"
         name="color-scheme"
         id="dark"
-        class="opacity-0 absolute"
+        class="sr-only"
         ?checked=${theme === "dark"}
         @change=${() => setTheme("dark")}
       />
       <label
         for="dark"
-        class="inline-block leading-8 text-[0.9rem] relative -ml-[4.25em] pl-[5em]
-               ${theme === "dark" ? "z-[1]" : "z-[2]"}"
+        class="px-3 py-2 text-[0.9rem] cursor-pointer transition-colors duration-200
+               text-gray-700 dark:text-gray-300"
       >
         Dark
       </label>
