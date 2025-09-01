@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import "tailwindcss" source("../app");
+
+/* Optional: brand tokens so you can use text-windsurfing, border-onyx, etc. */
+@theme {
+  --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  --color-whiteish: #f9faff;
+  --color-platinum: #e3e4e8;
+  --color-windsurfing: #32779b; /* primary blue (light) */
+  --color-marina: #5a91c7; /* hover blue */
+  --color-grayish: #9a9a9a;
+  --color-onyx: #3c3d44;
+  --color-charcoal: #343c47;
+
+  --color-projects-dark: #2e313d; /* project card bg in dark */
+  --color-blue-dark: #6dadd0; /* primary blue (dark) */
+  --base-font-size: 1rem;
+}
+
+/* Make dark: utilities use <html class="dark"> instead of media query */
+@custom-variant dark (&:where(.dark, .dark *));

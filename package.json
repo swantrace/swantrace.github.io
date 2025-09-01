@@ -1,0 +1,41 @@
+{
+  "name": "my-portfolio",
+  "type": "module",
+  "scripts": {
+    "gen:posts": "bun run scripts/gen-posts.ts",
+    "gen:posts:watch": "bun run scripts/gen-posts.ts --watch",
+    "gen:sitemap": "bun run scripts/gen-sitemap.ts",
+    "dev": "concurrently \"bun run gen:posts:watch\" \"vite\" --names \"posts,vite\" --prefix-colors \"blue,green\"",
+    "build:local:client": "VITE_BASE=/ bun vite build --mode client",
+    "build:local": "bun run gen:posts && bun run gen:sitemap && bun run build:local:client && VITE_BASE=/ bun vite build",
+    "build:prod:client": "VITE_BASE=/your-repo/ bun vite build --mode client",
+    "build:prod": "bun run gen:posts && bun run gen:sitemap && bun run build:prod:client && VITE_BASE=/your-repo/ bun vite build",
+    "preview": "vite preview",
+    "serve:local": "bun run build:local && bun run preview",
+    "serve:prod": "bun run build:prod && bun run preview"
+  },
+  "private": true,
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "haunted": "^6.1.0",
+    "highlight.js": "^11.11.1",
+    "hono": "^4.9.5",
+    "honox": "^0.1.45",
+    "lit-html": "^3.3.1",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "@hono/vite-build": "^1.3.0",
+    "@hono/vite-dev-server": "^0.18.2",
+    "@hono/vite-ssg": "^0.2.0",
+    "@tailwindcss/vite": "^4.0.9",
+    "@types/bun": "^1.2.21",
+    "@types/highlight.js": "^10.1.0",
+    "@types/markdown-it": "^14.1.2",
+    "chokidar": "^4.0.3",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.0.9",
+    "typescript": "~5.5.0",
+    "vite": "^7.1.3"
+  }
+}
