@@ -35,6 +35,14 @@ jobs:
 
       - name: Build for production
         run: bun run build:prod
+        env:
+          VITE_SITE_URL: https://swantrace.github.io
+
+      - name: Configure SPA routing
+        run: cp dist/index.html dist/404.html
+
+      - name: Add .nojekyll file
+        run: touch dist/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
