@@ -54,13 +54,13 @@
   </url>
   <url>
     <loc>http://localhost:4173/blog/css-foundations</loc>
-    <lastmod>2025-09-24</lastmod>
+    <lastmod>2025-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>http://localhost:4173/blog/vite</loc>
-    <lastmod>2025-09-24</lastmod>
+    <lastmod>2025-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

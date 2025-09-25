@@ -1,7 +1,10 @@
 import { createRequire } from "node:module";
 import MarkdownIt from "markdown-it";
-import { htmlDemoPlugin } from "../plugins/html-demo";
-import { preprocessJsRun } from "../plugins/js-run";
+import {
+  htmlDemoPlugin,
+  preprocessJsRun,
+  katexPlugin,
+} from "../markdown-plugins";
 
 const require = createRequire(import.meta.url);
 const hljs = require("highlight.js");
@@ -32,6 +35,7 @@ const md = new MarkdownIt({
 
 // Apply plugins
 htmlDemoPlugin(md);
+katexPlugin(md);
 
 // Override fence renderer to add line numbers class
 const defaultFenceRenderer =

@@ -59,9 +59,9 @@ This is a **static portfolio site** built with:
 
 ### Interactive Code Blocks
 
-- **HTML Demos**: Use ````html demo` in markdown to create interactive HTML previews via `<html-demo>` WC
+- **HTML Demos**: Use ````html demo` in markdown to create HTML previews via `<html-demo>` WC
 - **JS Execution**: Use ````js run` to execute JavaScript at build time and display results via `<js-run>` WC
-- **Plugins**: Located in `app/plugins/` with markdown-it integration, VM execution, and base64 encoding
+- **Plugins**: Located in `app/markdown-plugins/` with markdown-it integration, VM execution, and base64 encoding
 
 ### Styling Conventions
 
@@ -76,7 +76,7 @@ This is a **static portfolio site** built with:
 - `app/client.ts`: WC lazy loading system
 - `app/utils/posts.ts`: Content parsing utilities
 - `app/utils/markdown.ts`: Enhanced markdown processing with plugins
-- `app/plugins/`: Markdown-it plugins for interactive code blocks
+- `app/markdown-plugins/`: Markdown-it plugins for interactive code blocks
 - `public/posts.json`: Generated content index
 
 ## Deployment

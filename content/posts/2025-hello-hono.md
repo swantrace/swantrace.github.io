@@ -23,10 +23,30 @@ This is my first blog post demonstrating the static site generation capabilities
 - **TypeScript** for type safety
 
 Stay tuned for more posts!
-<preview-html>
 
-```html
+## Math Support with KaTeX
+
+This blog now supports beautiful math equations! Here are some examples:
+
+Inline math like $E = mc^2$ and $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ works great.
+
+Display math also works:
+
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+Complex equations are supported too:
+
+$$
+\begin{aligned}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &= \frac{4\pi}{c}\vec{\mathbf{j}} \\
+\nabla \cdot \vec{\mathbf{E}} &= 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &= \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} &= 0
+\end{aligned}
+$$
+
+```html demo
 <h1>Hello Hono!</h1>
 ```
-
-</preview-html>
