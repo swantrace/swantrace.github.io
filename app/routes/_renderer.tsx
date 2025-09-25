@@ -32,10 +32,10 @@ export default jsxRenderer(({ children }) => {
           ></script>
         )}
       </head>
-      <body className="font-sans bg-platinum text-onyx dark:bg-charcoal dark:text-whiteish text-base md:text-lg">
+      <body className="bg-platinum text-onyx dark:bg-charcoal dark:text-whiteish font-sans text-base md:text-lg">
         <div id="wrapper" className="mx-auto max-w-[1200px] p-4 md:p-20">
           {/* Theme switcher */}
-          <div className="flex justify-center md:justify-end mb-8">
+          <div className="mb-8 flex justify-center md:justify-end">
             <theme-switcher></theme-switcher>
           </div>
 

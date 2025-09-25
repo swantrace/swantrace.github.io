@@ -1,1 +1,15 @@
+# Dependencies
+node_modules/
+bun.lockb
+
+# Build outputs
 dist/
+.vite/
+
+# Generated files
+public/posts.json
+public/sitemap.xml
+
+# Config files that shouldn't be formatted
+*.min.js
+*.min.css

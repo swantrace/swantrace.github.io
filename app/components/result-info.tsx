@@ -16,7 +16,7 @@ export const ResultInfo = ({ posts }: ResultInfoProps) => {
   const postsCount = posts.length;
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex items-center justify-between">
       <div className="text-gray-600">
         {postsCount} post{postsCount !== 1 ? "s" : ""} found
       </div>
@@ -27,7 +27,7 @@ export const ResultInfo = ({ posts }: ResultInfoProps) => {
         </label>
         <select
           id="posts-per-page"
-          className="border border-gray-300 rounded px-2 py-1 text-sm cursor-not-allowed opacity-75"
+          className="cursor-not-allowed rounded border border-gray-300 px-2 py-1 text-sm opacity-75"
           disabled
         >
           <option value="10">10</option>

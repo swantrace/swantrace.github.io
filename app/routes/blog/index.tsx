@@ -26,21 +26,21 @@ export default createRoute(async (c) => {
         name="description"
         content="Thoughts, tutorials, and insights on web development, technology, and more."
       />
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto max-w-4xl px-4 py-8">
         <nav className="mb-6">
           <a
             href="/"
-            className="inline-flex items-center text-windsurfing hover:text-marina transition-colors"
+            className="text-windsurfing hover:text-marina inline-flex items-center transition-colors"
           >
             ← Back to Home
           </a>
         </nav>
 
         <header className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2 dark:text-white">
+          <h1 className="mb-2 text-4xl font-bold text-gray-900 dark:text-white">
             Blog
           </h1>
-          <p className="text-lg text-gray-600 dark:text-blue-dark">
+          <p className="dark:text-blue-dark text-lg text-gray-600">
             Thoughts, tutorials, and insights on web development, technology,
             and more.
           </p>

@@ -46,21 +46,21 @@ function JsRun(this: HTMLElement) {
 
   return html`
     <div
-      class="border rounded-lg overflow-hidden my-4 bg-white dark:bg-gray-900"
+      class="my-4 overflow-hidden rounded-lg border bg-white dark:bg-gray-900"
     >
       <!-- Header with badge and controls -->
       <div
-        class="flex items-center justify-between bg-gray-50 dark:bg-gray-800 px-4 py-2 border-b"
+        class="flex items-center justify-between border-b bg-gray-50 px-4 py-2 dark:bg-gray-800"
       >
         <span
-          class="text-xs font-medium text-gray-600 dark:text-gray-300 uppercase tracking-wide"
+          class="text-xs font-medium tracking-wide text-gray-600 uppercase dark:text-gray-300"
         >
           ${badge}
         </span>
         <div class="flex gap-2">
           <button
             @click=${copySource}
-            class="text-xs text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
+            class="rounded px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
           >
             ${copied ? "Copied!" : "Copy"}
           </button>
@@ -70,25 +70,25 @@ function JsRun(this: HTMLElement) {
       <!-- Code view -->
       <div class="border-b bg-gray-50 dark:bg-gray-800">
         <pre
-          class="code-with-lines text-sm overflow-x-auto p-4 m-0"
+          class="code-with-lines m-0 overflow-x-auto p-4 text-sm"
         ><code class="hljs text-wrap" .innerHTML=${codeWithLines}></code></pre>
       </div>
 
       <!-- Output section -->
       ${hasOutput
         ? html`
-            <div class="p-4 space-y-3">
+            <div class="space-y-3 p-4">
               <!-- Console logs -->
               ${logs.length > 0
                 ? html`
                     <div>
                       <h4
-                        class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
                       >
                         Console Output:
                       </h4>
                       <div
-                        class="bg-black text-green-400 text-sm p-3 rounded font-mono overflow-x-auto"
+                        class="overflow-x-auto rounded bg-black p-3 font-mono text-sm text-green-400"
                       >
                         ${logs.map((log: string) => html`<div>${log}</div>`)}
                       </div>
@@ -101,12 +101,12 @@ function JsRun(this: HTMLElement) {
                 ? html`
                     <div>
                       <h4
-                        class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                        class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
                       >
                         Return Value:
                       </h4>
                       <div
-                        class="bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 text-sm p-3 rounded font-mono overflow-x-auto"
+                        class="overflow-x-auto rounded bg-blue-50 p-3 font-mono text-sm text-blue-800 dark:bg-blue-900/20 dark:text-blue-200"
                       >
                         ${typeof value === "string"
                           ? value
@@ -121,12 +121,12 @@ function JsRun(this: HTMLElement) {
                 ? html`
                     <div>
                       <h4
-                        class="text-sm font-medium text-red-700 dark:text-red-300 mb-2"
+                        class="mb-2 text-sm font-medium text-red-700 dark:text-red-300"
                       >
                         Error:
                       </h4>
                       <div
-                        class="bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 text-sm p-3 rounded font-mono overflow-x-auto whitespace-pre-wrap"
+                        class="overflow-x-auto rounded bg-red-50 p-3 font-mono text-sm whitespace-pre-wrap text-red-800 dark:bg-red-900/20 dark:text-red-200"
                       >
                         ${error}
                       </div>

@@ -24,12 +24,12 @@ const formatDate = (dateString: string | null) => {
 
 export const PostListItem = ({ post }: PostListItemProps) => {
   return (
-    <article className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+    <article className="rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md">
       <header className="space-y-2">
         <h2 className="text-2xl font-bold">
           <a
             href={`/blog/${post.slug}`}
-            className="text-blue-600 hover:text-blue-800 transition-colors"
+            className="text-blue-600 transition-colors hover:text-blue-800"
           >
             {post.title}
           </a>
@@ -39,7 +39,7 @@ export const PostListItem = ({ post }: PostListItemProps) => {
           <time dateTime={post.date || ""}>{formatDate(post.date)}</time>
 
           {post.topic && (
-            <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full">
+            <span className="rounded-full bg-purple-100 px-2 py-1 text-purple-800">
               📚 {post.topic[0]}
             </span>
           )}
@@ -50,7 +50,7 @@ export const PostListItem = ({ post }: PostListItemProps) => {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm"
+                className="rounded bg-gray-100 px-2 py-1 text-sm text-gray-700"
               >
                 #{tag}
               </span>
@@ -60,10 +60,10 @@ export const PostListItem = ({ post }: PostListItemProps) => {
       </header>
 
       <div className="mt-4">
-        <p className="text-gray-700 leading-relaxed">{post.excerpt}</p>
+        <p className="leading-relaxed text-gray-700">{post.excerpt}</p>
         <a
           href={`/blog/${post.slug}`}
-          className="inline-block mt-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+          className="mt-2 inline-block font-medium text-blue-600 transition-colors hover:text-blue-800"
         >
           Read more →
         </a>

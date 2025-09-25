@@ -15,7 +15,7 @@ This post demonstrates the new interactive code demo and JavaScript execution fe
 Here's an interactive HTML demo you can view and copy:
 
 ```html demo
-<div class="p-4 border border-onyx rounded bg-gray-50 dark:bg-gray-900">
+<div class="border-onyx rounded border bg-gray-50 p-4 dark:bg-gray-900">
   <h2>Hello, World!</h2>
   <p>This is an interactive HTML demo!</p>
   <button onclick="alert('Button clicked!')">Click me!</button>

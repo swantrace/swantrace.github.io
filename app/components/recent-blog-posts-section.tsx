@@ -22,7 +22,7 @@ export const RecentBlogPostsSection = ({ posts }: { posts: PostMeta[] }) => {
       <div className="mt-8 text-center">
         <a
           href="/blog"
-          className="inline-block bg-windsurfing hover:bg-marina text-white px-6 py-3 rounded-lg font-medium transition-colors"
+          className="bg-windsurfing hover:bg-marina inline-block rounded-lg px-6 py-3 font-medium text-white transition-colors"
         >
           View all articles
         </a>

@@ -7,8 +7,9 @@
 /* Optional: brand tokens so you can use text-windsurfing, border-onyx, etc. */
 @theme {
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas,
-    "Liberation Mono", Menlo, monospace;
+  --font-mono:
+    "JetBrains Mono", "Fira Code", "SF Mono", Consolas, "Liberation Mono",
+    Menlo, monospace;
 
   --color-whiteish: #f9faff;
   --color-platinum: #e3e4e8;
@@ -79,9 +80,11 @@
 @layer components {
   /* Code block component styling */
   .hljs {
-    @apply p-4 rounded-lg text-sm leading-relaxed overflow-x-auto;
+    @apply overflow-x-auto rounded-lg p-4 text-sm leading-relaxed;
     font-family: var(--font-mono);
-    font-feature-settings: "liga" 1, "calt" 1;
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1;
     font-variant-ligatures: common-ligatures;
   }
 
@@ -102,7 +105,7 @@
 
   .code-with-lines code .line::before {
     content: counter(line-number);
-    @apply inline-block w-6 text-right text-gray-500 text-xs leading-relaxed select-none pr-3;
+    @apply inline-block w-6 pr-3 text-right text-xs leading-relaxed text-gray-500 select-none;
     font-family: var(--font-mono);
     font-feature-settings: "tnum" 1;
   }

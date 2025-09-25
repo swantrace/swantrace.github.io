@@ -25,13 +25,13 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
   const { allTags, allTopics } = getAllTagsAndTopics();
 
   return (
-    <div className="bg-gray-50 rounded-lg p-4 space-y-4">
+    <div className="space-y-4 rounded-lg bg-gray-50 p-4">
       <div className="flex flex-wrap items-center gap-2">
         <span className="font-medium text-gray-700">Filter by tags:</span>
         {allTags.map((tag) => (
           <button
             key={tag}
-            className="px-3 py-1 text-sm rounded-full border bg-white text-gray-700 border-gray-300 hover:border-blue-300 transition-colors cursor-not-allowed opacity-75"
+            className="cursor-not-allowed rounded-full border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 opacity-75 transition-colors hover:border-blue-300"
             disabled
           >
             {tag}
@@ -42,7 +42,7 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
       <div className="flex flex-wrap items-center gap-2">
         <span className="font-medium text-gray-700">Filter by topic:</span>
         <button
-          className="px-3 py-1 text-sm rounded-full border bg-blue-500 text-white border-blue-500 cursor-not-allowed opacity-75"
+          className="cursor-not-allowed rounded-full border border-blue-500 bg-blue-500 px-3 py-1 text-sm text-white opacity-75"
           disabled
         >
           All Topics
@@ -50,7 +50,7 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
         {allTopics.map((topic) => (
           <button
             key={topic}
-            className="px-3 py-1 text-sm rounded-full border bg-white text-gray-700 border-gray-300 hover:border-blue-300 transition-colors cursor-not-allowed opacity-75"
+            className="cursor-not-allowed rounded-full border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 opacity-75 transition-colors hover:border-blue-300"
             disabled
           >
             {topic}

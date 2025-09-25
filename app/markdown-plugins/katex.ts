@@ -10,7 +10,7 @@ export function katexPlugin(md: MarkdownIt) {
     "math_inline",
     function math_inline(state, silent) {
       const start = state.pos;
-      
+
       if (state.src[start] !== "$") {
         return false;
       }
@@ -26,24 +26,27 @@ export function katexPlugin(md: MarkdownIt) {
       }
 
       // Don't match $$ (that's block math)
-      if (pos === start + 1 || (pos < state.posMax - 1 && state.src[pos + 1] === "$")) {
+      if (
+        pos === start + 1 ||
+        (pos < state.posMax - 1 && state.src[pos + 1] === "$")
+      ) {
         return false;
       }
 
       const content = state.src.slice(start + 1, pos);
-      
+
       if (!silent) {
         try {
           const rendered = katex.renderToString(content, {
             throwOnError: false,
             displayMode: false,
           });
-          
+
           const token = state.push("math_inline", "span", 0);
           token.content = content;
           token.markup = "$";
           token.map = [start, pos + 1];
-          
+
           // Store rendered HTML
           token.attrSet("class", "katex-inline");
           token.meta = { rendered };
@@ -65,14 +68,14 @@ export function katexPlugin(md: MarkdownIt) {
     "math_block",
     function math_block(state, start, end, silent) {
       const startLine = state.getLines(start, start + 1, 0, false);
-      
+
       if (!startLine.startsWith("$$")) {
         return false;
       }
 
       let nextLine = start + 1;
       let endLine = -1;
-      
+
       // Look for closing $$
       while (nextLine < end) {
         const line = state.getLines(nextLine, nextLine + 1, 0, false);
@@ -101,7 +104,7 @@ export function katexPlugin(md: MarkdownIt) {
           token.content = content;
           token.markup = "$$";
           token.map = [start, endLine + 1];
-          
+
           // Store rendered HTML
           token.attrSet("class", "katex-display");
           token.meta = { rendered };
@@ -128,6 +131,9 @@ export function katexPlugin(md: MarkdownIt) {
   // Render block math
   md.renderer.rules.math_block = function (tokens, idx) {
     const token = tokens[idx];
-    return token.meta?.rendered || `<div class="math-block">$$\n${token.content}\n$$</div>`;
+    return (
+      token.meta?.rendered ||
+      `<div class="math-block">$$\n${token.content}\n$$</div>`
+    );
   };
 }

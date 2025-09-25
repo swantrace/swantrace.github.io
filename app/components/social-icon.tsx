@@ -17,11 +17,11 @@ export const SocialIcon = ({
       aria-label={label}
     >
       <span className="sr-only">{label}</span>
-      <span className="h-9 w-9 inline-flex items-center justify-center">
+      <span className="inline-flex h-9 w-9 items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox={viewBox}
-          className="w-full h-full"
+          className="h-full w-full"
           role="img"
           aria-hidden={label ? "false" : "true"}
         >

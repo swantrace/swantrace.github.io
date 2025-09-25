@@ -22,10 +22,10 @@ function ThemeSwitcher() {
 
   return html`
     <fieldset
-      class="border-0 p-0 flex items-center justify-center gap-0 mb-8"
+      class="mb-8 flex items-center justify-center gap-0 border-0 p-0"
       id="mode-switcher"
     >
-      <legend class="text-[2px] opacity-0 absolute">Color Scheme</legend>
+      <legend class="absolute text-[2px] opacity-0">Color Scheme</legend>
 
       <!-- Light Label -->
       <input
@@ -38,28 +38,28 @@ function ThemeSwitcher() {
       />
       <label
         for="light"
-        class="px-3 py-2 text-[0.9rem] cursor-pointer transition-colors duration-200
-               text-gray-700 dark:text-gray-300"
+        class="cursor-pointer px-3 py-2 text-[0.9rem] text-gray-700 transition-colors duration-200 dark:text-gray-300"
       >
         Light
       </label>
 
       <!-- Toggle Container -->
       <div
-        class="relative flex items-center cursor-pointer"
+        class="relative flex cursor-pointer items-center"
         @click=${() => setTheme(theme === "light" ? "dark" : "light")}
       >
         <!-- Track -->
         <div
-          class="w-12 h-6 rounded-full border border-onyx transition-colors duration-200
-                 ${theme === "light" ? "bg-marina" : "bg-gray-400"}"
+          class="border-onyx ${theme === "light"
+            ? "bg-marina"
+            : "bg-gray-400"} h-6 w-12 rounded-full border transition-colors duration-200"
         ></div>
 
         <!-- Knob -->
         <div
-          class="absolute w-5 h-5 bg-whiteish border border-onyx rounded-full 
-                 transition-transform duration-200 ease-in-out
-                 ${theme === "light" ? "translate-x-0.5" : "translate-x-6"}"
+          class="bg-whiteish border-onyx ${theme === "light"
+            ? "translate-x-0.5"
+            : "translate-x-6"} absolute h-5 w-5 rounded-full border transition-transform duration-200 ease-in-out"
         ></div>
       </div>
 
@@ -74,8 +74,7 @@ function ThemeSwitcher() {
       />
       <label
         for="dark"
-        class="px-3 py-2 text-[0.9rem] cursor-pointer transition-colors duration-200
-               text-gray-700 dark:text-gray-300"
+        class="cursor-pointer px-3 py-2 text-[0.9rem] text-gray-700 transition-colors duration-200 dark:text-gray-300"
       >
         Dark
       </label>

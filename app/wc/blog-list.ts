@@ -179,17 +179,15 @@ function BlogList(element: HTMLElement) {
   return html`
     <div class="space-y-6">
       <!-- Filters Section -->
-      <div class="bg-gray-50 rounded-lg p-4 space-y-4">
+      <div class="space-y-4 rounded-lg bg-gray-50 p-4">
         <div class="flex flex-wrap items-center gap-2">
           <span class="font-medium text-gray-700">Filter by tags:</span>
           ${allTags.map(
             (tag) => html`
               <button
-                class="px-3 py-1 text-sm rounded-full border transition-colors ${selectedTags.includes(
-                  tag
-                )
+                class="${selectedTags.includes(tag)
                   ? "bg-blue-500 text-white border-blue-500"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"}"
+                  : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"} rounded-full border px-3 py-1 text-sm transition-colors"
                 @click=${() => handleTagToggle(tag)}
               >
                 ${tag}
@@ -201,9 +199,9 @@ function BlogList(element: HTMLElement) {
         <div class="flex flex-wrap items-center gap-2">
           <span class="font-medium text-gray-700">Filter by topic:</span>
           <button
-            class="px-3 py-1 text-sm rounded-full border transition-colors ${!selectedTopic
+            class="${!selectedTopic
               ? "bg-blue-500 text-white border-blue-500"
-              : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"}"
+              : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"} rounded-full border px-3 py-1 text-sm transition-colors"
             @click=${() => handleTopicChange(null)}
           >
             All Topics
@@ -211,10 +209,9 @@ function BlogList(element: HTMLElement) {
           ${allTopics.map(
             (topic) => html`
               <button
-                class="px-3 py-1 text-sm rounded-full border transition-colors ${selectedTopic ===
-                topic
+                class="${selectedTopic === topic
                   ? "bg-blue-500 text-white border-blue-500"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"}"
+                  : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"} rounded-full border px-3 py-1 text-sm transition-colors"
                 @click=${() => handleTopicChange(topic)}
               >
                 ${topic}
@@ -226,7 +223,7 @@ function BlogList(element: HTMLElement) {
         ${selectedTags.length > 0 || selectedTopic
           ? html`
               <button
-                class="px-4 py-2 text-sm bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+                class="rounded bg-gray-200 px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-300"
                 @click=${clearFilters}
               >
                 Clear Filters
@@ -236,7 +233,7 @@ function BlogList(element: HTMLElement) {
       </div>
 
       <!-- Results Info -->
-      <div class="flex justify-between items-center">
+      <div class="flex items-center justify-between">
         <div class="text-gray-600">
           ${filteredPosts.length} post${filteredPosts.length !== 1 ? "s" : ""}
           found
@@ -255,7 +252,7 @@ function BlogList(element: HTMLElement) {
           >
           <select
             id="posts-per-page"
-            class="border border-gray-300 rounded px-2 py-1 text-sm"
+            class="rounded border border-gray-300 px-2 py-1 text-sm"
             .value=${perPage.toString()}
             @change=${(e: Event) =>
               handlePerPageChange(
@@ -274,20 +271,20 @@ function BlogList(element: HTMLElement) {
       <div class="space-y-6">
         ${paginatedPosts.length === 0
           ? html`
-              <div class="text-center py-8 text-gray-500">
+              <div class="py-8 text-center text-gray-500">
                 No posts found matching your filters.
               </div>
             `
           : paginatedPosts.map(
               (post) => html`
                 <article
-                  class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+                  class="rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
                 >
                   <header class="space-y-2">
                     <h2 class="text-2xl font-bold">
                       <a
                         href="/blog/${post.slug}"
-                        class="text-blue-600 hover:text-blue-800 transition-colors"
+                        class="text-blue-600 transition-colors hover:text-blue-800"
                       >
                         ${post.title}
                       </a>
@@ -303,7 +300,7 @@ function BlogList(element: HTMLElement) {
                       ${post.topic
                         ? html`
                             <span
-                              class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full"
+                              class="rounded-full bg-purple-100 px-2 py-1 text-purple-800"
                             >
                               📚 ${post.topic[0]}
                             </span>
@@ -317,7 +314,7 @@ function BlogList(element: HTMLElement) {
                             ${post.tags.map(
                               (tag) => html`
                                 <span
-                                  class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm"
+                                  class="rounded bg-gray-100 px-2 py-1 text-sm text-gray-700"
                                 >
                                   #${tag}
                                 </span>
@@ -329,10 +326,10 @@ function BlogList(element: HTMLElement) {
                   </header>
 
                   <div class="mt-4">
-                    <p class="text-gray-700 leading-relaxed">${post.excerpt}</p>
+                    <p class="leading-relaxed text-gray-700">${post.excerpt}</p>
                     <a
                       href="/blog/${post.slug}"
-                      class="inline-block mt-2 text-blue-600 hover:text-blue-800 font-medium transition-colors"
+                      class="mt-2 inline-block font-medium text-blue-600 transition-colors hover:text-blue-800"
                     >
                       Read more →
                     </a>
@@ -345,9 +342,9 @@ function BlogList(element: HTMLElement) {
       <!-- Pagination -->
       ${totalPages > 1
         ? html`
-            <div class="flex justify-center items-center space-x-2">
+            <div class="flex items-center justify-center space-x-2">
               <button
-                class="px-3 py-2 text-sm border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                 ?disabled=${currentPage === 1}
                 @click=${() => handlePageChange(currentPage - 1)}
               >
@@ -370,9 +367,9 @@ function BlogList(element: HTMLElement) {
 
                   return html`
                     <button
-                      class="px-3 py-2 text-sm border rounded transition-colors ${isCurrentPage
+                      class="${isCurrentPage
                         ? "bg-blue-500 text-white border-blue-500"
-                        : "border-gray-300 hover:bg-gray-50"}"
+                        : "border-gray-300 hover:bg-gray-50"} rounded border px-3 py-2 text-sm transition-colors"
                       @click=${() => handlePageChange(page)}
                     >
                       ${page}
@@ -382,7 +379,7 @@ function BlogList(element: HTMLElement) {
               )}
 
               <button
-                class="px-3 py-2 text-sm border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
                 ?disabled=${currentPage === totalPages}
                 @click=${() => handlePageChange(currentPage + 1)}
               >

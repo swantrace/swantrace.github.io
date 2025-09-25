@@ -4,7 +4,7 @@ export const HeroSection = () => {
   return (
     <section className="grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:items-center md:text-left">
       <div>
-        <h3 className="m-0 text-base uppercase tracking-[0.25em] text-windsurfing dark:text-blue-dark">
+        <h3 className="text-windsurfing dark:text-blue-dark m-0 text-base tracking-[0.25em] uppercase">
           Frontend Developer
         </h3>
         <h2 className="m-0 text-[calc(var(--base-font-size)*2.9)] md:ml-[-3px]">
