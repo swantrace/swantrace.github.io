@@ -1,25 +1,7 @@
-import { createRequire } from "node:module";
 import { createRoute } from "honox/factory";
-import MarkdownIt from "markdown-it";
 import { getPostBySlug } from "../../utils/posts";
+import { processMarkdown } from "../../utils/markdown";
 import { url } from "../../utils/url";
-
-const require = createRequire(import.meta.url);
-const hljs = require("highlight.js");
-
-const md = new MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true,
-  highlight: function (str: string, lang: string) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return hljs.highlight(str, { language: lang }).value;
-      } catch (__) {}
-    }
-    return "";
-  },
-});
 
 export default createRoute(async (c) => {
   const slug = c.req.param("slug");
@@ -28,7 +10,7 @@ export default createRoute(async (c) => {
     return c.notFound();
   }
   const { content, frontmatter } = post;
-  const htmlContent = md.render(content);
+  const htmlContent = await processMarkdown(content);
   if (frontmatter.draft && import.meta.env.PROD) {
     return c.notFound();
   }

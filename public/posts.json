@@ -1,5 +1,18 @@
 [
   {
+    "slug": "2025-interactive-demos",
+    "title": "Interactive Code Demos",
+    "date": "2025-09-24T00:00:00.000Z",
+    "tags": [
+      "demo",
+      "javascript",
+      "html"
+    ],
+    "topic": null,
+    "draft": false,
+    "excerpt": "Testing the new interactive code demo and execution features in blog posts."
+  },
+  {
     "slug": "2025-knife-skills-basics",
     "title": "Essential Knife Skills for Home Cooks",
     "date": "2025-02-10T00:00:00.000Z",
@@ -108,5 +121,14 @@
     "topic": null,
     "draft": false,
     "excerpt": "box-sizing"
+  },
+  {
+    "slug": "vite",
+    "title": "vite",
+    "date": null,
+    "tags": [],
+    "topic": null,
+    "draft": false,
+    "excerpt": ""
   }
 ]

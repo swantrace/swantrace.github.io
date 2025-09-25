@@ -23,3 +23,10 @@ This is my first blog post demonstrating the static site generation capabilities
 - **TypeScript** for type safety
 
 Stay tuned for more posts!
+<preview-html>
+
+```html
+<h1>Hello Hono!</h1>
+```
+
+</preview-html>

@@ -82,6 +82,16 @@ onDomReady(() => {
   lazyDefine("theme-switcher", () => import("./wc/theme-switcher"), {
     whenVisible: true,
   });
+
+  // Code demo and execution components
+  lazyDefine("html-demo", () => import("./wc/html-demo"), {
+    whenVisible: true,
+  });
+
+  lazyDefine("js-run", () => import("./wc/js-run"), {
+    whenVisible: true,
+  });
+
   // Enhanced div with is="blog-list-div" attribute
   lazyDefine('div[is="blog-list-div"]', () => import("./wc/blog-list"), {
     whenVisible: true,
@@ -114,9 +124,11 @@ onDomReady(() => {
 
 // 4) （可选）空闲时预热最常用组件，减少用户滚动到时的等待
 idle(() => {
-  // 预热 copy-button（若用户从未滚到也不会阻塞首屏）
+  // 预热 theme-switcher（若用户从未滚到也不会阻塞首屏）
   import("./wc/theme-switcher");
   // Preload blog-list-div component for better UX on blog pages
   import("./wc/blog-list");
-  // import("./wc/theme-toggle");
+  // Preload demo components for blog posts with interactive content
+  import("./wc/html-demo");
+  import("./wc/js-run");
 });
