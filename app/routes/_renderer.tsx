@@ -1,6 +1,6 @@
 import { jsxRenderer } from "hono/jsx-renderer";
-import { url } from "../utils/url";
 import { Footer } from "../components/footer";
+import { url } from "../utils/url";
 
 declare const __BUILD_ID__: string;
 

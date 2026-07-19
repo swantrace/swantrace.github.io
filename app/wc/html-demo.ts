@@ -1,4 +1,4 @@
-import { html, component, useState } from "haunted";
+import { component, html, useState } from "haunted";
 
 // Utility to decode base64 attributes
 function b64dec(s: string): string {
@@ -54,8 +54,9 @@ function HtmlDemo(this: HTMLElement) {
           ${badge}
         </span>
         <div class="flex gap-2">
-          ${showCode
-            ? html`
+          ${
+            showCode
+              ? html`
                 <button
                   @click=${copySource}
                   class="rounded px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
@@ -63,7 +64,8 @@ function HtmlDemo(this: HTMLElement) {
                   ${copied ? "Copied!" : "Copy"}
                 </button>
               `
-            : ""}
+              : ""
+          }
           <button
             @click=${toggleCode}
             class="rounded px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
@@ -80,13 +82,15 @@ function HtmlDemo(this: HTMLElement) {
       ></div>
 
       <!-- Code view -->
-      ${showCode
-        ? html`
+      ${
+        showCode
+          ? html`
             <pre
               class="code-with-lines not-prose"
             ><code class="hljs" .innerHTML=${codeWithLines}></code></pre>
           `
-        : ""}
+          : ""
+      }
     </div>
   `;
 }
@@ -99,5 +103,3 @@ if (!customElements.get("html-demo")) {
     })
   );
 }
-
-export {};

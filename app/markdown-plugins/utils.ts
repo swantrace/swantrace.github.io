@@ -68,8 +68,7 @@ export async function runJsInVm(
 
   const script = new vm.Script(wrapped, { filename: "snippet.js" });
 
-  let value: any = undefined,
-    error: string | undefined;
+  let value: any, error: string | undefined;
   try {
     const result = script.runInContext(context, { timeout: timeoutMs });
     if (result && typeof result.then === "function") {

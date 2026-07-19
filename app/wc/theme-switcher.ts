@@ -1,4 +1,4 @@
-import { html, component, useEffect, useState } from "haunted";
+import { component, html, useEffect, useState } from "haunted";
 
 function ThemeSwitcher() {
   const [theme, setTheme] = useState<string>(() => {
@@ -44,5 +44,3 @@ if (!customElements.get("theme-switcher")) {
     })
   );
 }
-
-export {};

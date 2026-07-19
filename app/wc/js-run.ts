@@ -1,4 +1,4 @@
-import { html, component, useState } from "haunted";
+import { component, html, useState } from "haunted";
 
 // Utility to decode base64 attributes
 function b64dec(s: string): string {
@@ -73,12 +73,14 @@ function JsRun(this: HTMLElement) {
       ><code class="hljs" .innerHTML=${codeWithLines}></code></pre>
 
       <!-- Output section -->
-      ${hasOutput
-        ? html`
+      ${
+        hasOutput
+          ? html`
             <div class="space-y-3 p-4">
               <!-- Console logs -->
-              ${logs.length > 0
-                ? html`
+              ${
+                logs.length > 0
+                  ? html`
                     <div>
                       <h4
                         class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -92,11 +94,13 @@ function JsRun(this: HTMLElement) {
                       </div>
                     </div>
                   `
-                : ""}
+                  : ""
+              }
 
               <!-- Return value -->
-              ${value !== undefined
-                ? html`
+              ${
+                value !== undefined
+                  ? html`
                     <div>
                       <h4
                         class="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300"
@@ -106,17 +110,21 @@ function JsRun(this: HTMLElement) {
                       <div
                         class="overflow-x-auto rounded bg-blue-50 p-3 font-mono text-sm text-blue-800 dark:bg-blue-900/20 dark:text-blue-200"
                       >
-                        ${typeof value === "string"
-                          ? value
-                          : JSON.stringify(value, null, 2)}
+                        ${
+                          typeof value === "string"
+                            ? value
+                            : JSON.stringify(value, null, 2)
+                        }
                       </div>
                     </div>
                   `
-                : ""}
+                  : ""
+              }
 
               <!-- Error -->
-              ${error
-                ? html`
+              ${
+                error
+                  ? html`
                     <div>
                       <h4
                         class="mb-2 text-sm font-medium text-red-700 dark:text-red-300"
@@ -130,10 +138,12 @@ function JsRun(this: HTMLElement) {
                       </div>
                     </div>
                   `
-                : ""}
+                  : ""
+              }
             </div>
           `
-        : ""}
+          : ""
+      }
     </div>
   `;
 }
@@ -146,5 +156,3 @@ if (!customElements.get("js-run")) {
     })
   );
 }
-
-export {};

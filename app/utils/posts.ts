@@ -1,6 +1,6 @@
-import path from "node:path";
 import fs from "node:fs/promises";
 import { createRequire } from "node:module";
+import path from "node:path";
 
 const require = createRequire(import.meta.url);
 const matter = require("gray-matter");

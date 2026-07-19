@@ -47,6 +47,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://swantrace.github.io/blog/html-form-controls-guide</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://swantrace.github.io/blog/2025-hello-hono</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -54,13 +60,13 @@
   </url>
   <url>
     <loc>https://swantrace.github.io/blog/css-foundations</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://swantrace.github.io/blog/vite</loc>
-    <lastmod>2025-09-25</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

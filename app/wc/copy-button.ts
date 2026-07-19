@@ -1,4 +1,4 @@
-import { html, component, useState } from "haunted";
+import { component, html, useState } from "haunted";
 
 // 自定义元素：<copy-button text="要复制的文本"></copy-button>
 function CopyButton(this: HTMLElement) {
@@ -25,5 +25,3 @@ function CopyButton(this: HTMLElement) {
 if (!customElements.get("copy-button")) {
   customElements.define("copy-button", component(CopyButton));
 }
-
-export {};

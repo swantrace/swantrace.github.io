@@ -1,6 +1,6 @@
 import { createRoute } from "honox/factory";
-import { getPostBySlug } from "../../utils/posts";
 import { processMarkdown } from "../../utils/markdown";
+import { getPostBySlug } from "../../utils/posts";
 import { url } from "../../utils/url";
 
 export default createRoute(async (c) => {

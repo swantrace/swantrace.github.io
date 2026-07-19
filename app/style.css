@@ -11,7 +11,11 @@
    ============================================================================ */
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
 
 @source "../app/**/*.{js,ts,jsx,tsx}";
 @source "../content/**/*.md";
@@ -168,7 +172,7 @@
     color: rgb(229, 231, 235) !important; /* text-gray-200 */
   }
 
-  .dark .katex .rule {
+  [data-theme="dark"] .katex .rule {
     border-color: rgb(156, 163, 175) !important; /* gray-400 */
   }
 }

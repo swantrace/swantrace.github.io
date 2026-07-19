@@ -1,5 +1,5 @@
-import { SectionTitle } from "./section-title";
 import { ProjectCard } from "./project-card";
+import { SectionTitle } from "./section-title";
 
 export const ProjectsSection = ({ projects }: { projects: ProjectMeta[] }) => {
   return (

@@ -1,4 +1,4 @@
-import { html, component, useState, useEffect } from "haunted";
+import { component, html, useEffect, useState } from "haunted";
 
 interface PostMeta {
   slug: string;
@@ -102,7 +102,9 @@ function BlogList(element: HTMLElement) {
   // Update URL
   useEffect(() => {
     const params = new URLSearchParams();
-    selectedTags.forEach((tag) => params.append("tag", tag));
+    selectedTags.forEach((tag) => {
+      params.append("tag", tag);
+    });
     if (selectedTopic) params.set("topic", selectedTopic);
     if (currentPage > 1) params.set("current_page", currentPage.toString());
     if (perPage !== 10) params.set("per_page", perPage.toString());
@@ -117,7 +119,11 @@ function BlogList(element: HTMLElement) {
   // Helper functions
   const getAllTags = () => {
     const tags = new Set<string>();
-    posts.forEach((post) => post.tags.forEach((tag) => tags.add(tag)));
+    posts.forEach((post) => {
+      post.tags.forEach((tag) => {
+        tags.add(tag);
+      });
+    });
     return Array.from(tags).sort();
   };
 
@@ -187,9 +193,9 @@ function BlogList(element: HTMLElement) {
               ${allTags.map(
                 (tag) => html`
                   <button
-                    class="btn btn-sm ${selectedTags.includes(tag)
-                      ? "btn-primary"
-                      : "btn-outline"}"
+                    class="btn btn-sm ${
+                      selectedTags.includes(tag) ? "btn-primary" : "btn-outline"
+                    }"
                     @click=${() => handleTagToggle(tag)}
                   >
                     ${tag}
@@ -209,9 +215,9 @@ function BlogList(element: HTMLElement) {
               ${allTopics.map(
                 (topic) => html`
                   <button
-                    class="btn btn-sm ${selectedTopic === topic
-                      ? "btn-primary"
-                      : "btn-outline"}"
+                    class="btn btn-sm ${
+                      selectedTopic === topic ? "btn-primary" : "btn-outline"
+                    }"
                     @click=${() => handleTopicChange(topic)}
                   >
                     ${topic}
@@ -367,9 +373,11 @@ function BlogList(element: HTMLElement) {
 
                     return html`
                       <button
-                        class="${isCurrentPage
-                          ? "bg-blue-500 text-white border-blue-500"
-                          : "border-gray-300 hover:bg-gray-50"} rounded border px-3 py-2 text-sm transition-colors"
+                        class="${
+                          isCurrentPage
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "border-gray-300 hover:bg-gray-50"
+                        } rounded border px-3 py-2 text-sm transition-colors"
                         @click=${() => handlePageChange(page)}
                       >
                         ${page}

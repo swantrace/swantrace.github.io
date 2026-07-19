@@ -1,5 +1,5 @@
-import { b64, hl, runJsInVm } from "./utils";
 import { parseFenceInfo } from "./flags";
+import { b64, hl, runJsInVm } from "./utils";
 
 // Preprocess string: convert ```js run …``` → <js-run …>
 export async function preprocessJsRun(
@@ -14,11 +14,9 @@ export async function preprocessJsRun(
 
   let out = "";
   let last = 0;
-  let m: RegExpExecArray | null;
-
-  while ((m = fenceRe.exec(source)) !== null) {
+  for (const m of source.matchAll(fenceRe)) {
     out += source.slice(last, m.index);
-    last = fenceRe.lastIndex;
+    last = (m.index ?? 0) + m[0].length;
 
     const infoRaw = m[1]; // e.g. "js run" / "javascript {run}"
     const code = m[2] || "";
