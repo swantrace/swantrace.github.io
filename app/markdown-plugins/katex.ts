@@ -1,5 +1,5 @@
-import type MarkdownIt from "markdown-it";
 import katex from "katex";
+import type MarkdownIt from "markdown-it";
 
 // KaTeX plugin for markdown-it
 // Supports both inline math $..$ and display math $$..$$
@@ -123,13 +123,13 @@ export function katexPlugin(md: MarkdownIt) {
   );
 
   // Render inline math
-  md.renderer.rules.math_inline = function (tokens, idx) {
+  md.renderer.rules.math_inline = (tokens, idx) => {
     const token = tokens[idx];
     return token.meta?.rendered || `$${token.content}$`;
   };
 
   // Render block math
-  md.renderer.rules.math_block = function (tokens, idx) {
+  md.renderer.rules.math_block = (tokens, idx) => {
     const token = tokens[idx];
     return (
       token.meta?.rendered ||

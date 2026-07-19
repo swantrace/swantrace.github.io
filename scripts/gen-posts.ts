@@ -1,7 +1,7 @@
-import fg from "fast-glob";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { watch } from "chokidar";
+import fg from "fast-glob";
 import {
   getSlugFromFilename,
   parseFrontmatter,
@@ -85,7 +85,7 @@ function startWatch(): void {
   console.log(`👀 Watching ${POSTS_DIR} for changes...`);
 
   const watcher = watch(`${POSTS_DIR}/**/*.md`, {
-    ignored: /(^|[\/\\])\../, // ignore dotfiles
+    ignored: /(^|[/\\])\../, // ignore dotfiles
     persistent: true,
   });
 

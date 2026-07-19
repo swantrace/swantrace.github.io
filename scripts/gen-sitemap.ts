@@ -1,5 +1,5 @@
-import { readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { readFile, writeFile } from "node:fs/promises";
 import { urlAbs } from "../app/utils/url.js";
 
 const POSTS_JSON_PATH = "./public/posts.json";

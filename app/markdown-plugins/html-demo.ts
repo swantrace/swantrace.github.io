@@ -1,6 +1,6 @@
 import type MarkdownIt from "markdown-it";
-import { b64, hl } from "./utils";
 import { parseFenceInfo } from "./flags";
+import { b64, hl } from "./utils";
 
 export function htmlDemoPlugin(
   md: MarkdownIt,

@@ -1,8 +1,8 @@
-import { defineConfig } from "vite";
-import honox from "honox/vite";
-import client from "honox/vite/client";
 import ssg from "@hono/vite-ssg";
 import tailwindcss from "@tailwindcss/vite";
+import honox from "honox/vite";
+import client from "honox/vite/client";
+import { defineConfig } from "vite";
 
 const BUILD_ID = process.env.BUILD_ID ?? String(Date.now());
 const BASE = process.env.VITE_BASE ?? "/";

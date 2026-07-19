@@ -1,9 +1,9 @@
 import { createRoute } from "honox/factory";
 import { HeroSection } from "../components/hero-section";
-import { RecentBlogPostsSection } from "../components/recent-blog-posts-section";
 import { ProjectsSection } from "../components/projects-section";
-import { getAllProjects } from "../utils/projects";
+import { RecentBlogPostsSection } from "../components/recent-blog-posts-section";
 import { getRecentPosts } from "../utils/posts";
+import { getAllProjects } from "../utils/projects";
 
 export default createRoute(async (c) => {
   // Load recent blog posts

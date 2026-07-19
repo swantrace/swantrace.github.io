@@ -1,9 +1,9 @@
-import { createRoute } from "honox/factory";
 import fs from "node:fs";
 import path from "node:path";
+import { createRoute } from "honox/factory";
 import { FiltersSection } from "../../components/filters-section";
-import { ResultInfo } from "../../components/result-info";
 import { PostList } from "../../components/post-list";
+import { ResultInfo } from "../../components/result-info";
 
 export default createRoute(async (c) => {
   // Load posts data at build time
@@ -20,7 +20,7 @@ export default createRoute(async (c) => {
   }
 
   return c.render(
-    <>
+    <main className="blog-index">
       <title>Blog</title>
       <meta
         name="description"
@@ -46,7 +46,7 @@ export default createRoute(async (c) => {
           </p>
         </header>
 
-        <main>
+        <section aria-label="Blog posts">
           {/* Progressive enhancement: Static content with JavaScript enhancement */}
           <div
             className="space-y-6"
@@ -64,8 +64,8 @@ export default createRoute(async (c) => {
             {/* Posts List */}
             <PostList posts={posts} />
           </div>
-        </main>
+        </section>
       </div>
-    </>
+    </main>
   );
 });

@@ -9,9 +9,11 @@ excerpt: Welcome to my first blog post using Hono and Bun!
 
 # Hello Hono!
 
-Welcome to my personal portfolio and blog built with **Bun**, **Hono**, **Vite**, and **Tailwind CSS v4**.
+Welcome to my personal portfolio and blog built with **Bun**,
+**Hono**, **Vite**, and **Tailwind CSS v4**.
 
-This is my first blog post demonstrating the static site generation capabilities of this setup.
+This is my first blog post demonstrating the static site generation
+capabilities of this setup.
 
 ## What this project includes:
 
@@ -26,9 +28,11 @@ Stay tuned for more posts!
 
 ## Math Support with KaTeX
 
-This blog now supports beautiful math equations! Here are some examples:
+This blog now supports beautiful math equations! Here are some
+examples:
 
-Inline math like $E = mc^2$ and $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ works great.
+Inline math like $E = mc^2$ and
+$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$ works great.
 
 Display math also works:
 

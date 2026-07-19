@@ -1,4 +1,4 @@
-import { html, component, useState, useEffect } from "haunted";
+import { component, html, useEffect, useState } from "haunted";
 
 interface PostMeta {
   slug: string;
@@ -102,7 +102,9 @@ function BlogList(element: HTMLElement) {
   // Update URL
   useEffect(() => {
     const params = new URLSearchParams();
-    selectedTags.forEach((tag) => params.append("tag", tag));
+    selectedTags.forEach((tag) => {
+      params.append("tag", tag);
+    });
     if (selectedTopic) params.set("topic", selectedTopic);
     if (currentPage > 1) params.set("current_page", currentPage.toString());
     if (perPage !== 10) params.set("per_page", perPage.toString());
@@ -117,7 +119,11 @@ function BlogList(element: HTMLElement) {
   // Helper functions
   const getAllTags = () => {
     const tags = new Set<string>();
-    posts.forEach((post) => post.tags.forEach((tag) => tags.add(tag)));
+    posts.forEach((post) => {
+      post.tags.forEach((tag) => {
+        tags.add(tag);
+      });
+    });
     return Array.from(tags).sort();
   };
 
@@ -179,80 +185,84 @@ function BlogList(element: HTMLElement) {
   return html`
     <div class="space-y-6">
       <!-- Filters Section -->
-      <div class="space-y-4 rounded-lg bg-gray-50 p-4">
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="font-medium text-gray-700">Filter by tags:</span>
-          ${allTags.map(
-            (tag) => html`
-              <button
-                class="${selectedTags.includes(tag)
-                  ? "bg-blue-500 text-white border-blue-500"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"} rounded-full border px-3 py-1 text-sm transition-colors"
-                @click=${() => handleTagToggle(tag)}
-              >
-                ${tag}
-              </button>
-            `
-          )}
-        </div>
+      <div class="card bg-base-200 shadow-xl">
+        <div class="card-body">
+          <div class="space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-semibold">Filter by tags:</span>
+              ${allTags.map(
+                (tag) => html`
+                  <button
+                    class="btn btn-sm ${
+                      selectedTags.includes(tag) ? "btn-primary" : "btn-outline"
+                    }"
+                    @click=${() => handleTagToggle(tag)}
+                  >
+                    ${tag}
+                  </button>
+                `
+              )}
+            </div>
 
-        <div class="flex flex-wrap items-center gap-2">
-          <span class="font-medium text-gray-700">Filter by topic:</span>
-          <button
-            class="${!selectedTopic
-              ? "bg-blue-500 text-white border-blue-500"
-              : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"} rounded-full border px-3 py-1 text-sm transition-colors"
-            @click=${() => handleTopicChange(null)}
-          >
-            All Topics
-          </button>
-          ${allTopics.map(
-            (topic) => html`
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="font-semibold">Filter by topic:</span>
               <button
-                class="${selectedTopic === topic
-                  ? "bg-blue-500 text-white border-blue-500"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-blue-300"} rounded-full border px-3 py-1 text-sm transition-colors"
-                @click=${() => handleTopicChange(topic)}
+                class="btn btn-sm ${!selectedTopic ? "btn-primary" : "btn-outline"}"
+                @click=${() => handleTopicChange(null)}
               >
-                ${topic}
+                All Topics
               </button>
-            `
-          )}
-        </div>
+              ${allTopics.map(
+                (topic) => html`
+                  <button
+                    class="btn btn-sm ${
+                      selectedTopic === topic ? "btn-primary" : "btn-outline"
+                    }"
+                    @click=${() => handleTopicChange(topic)}
+                  >
+                    ${topic}
+                  </button>
+                `
+              )}
+            </div>
 
-        ${selectedTags.length > 0 || selectedTopic
-          ? html`
-              <button
-                class="rounded bg-gray-200 px-4 py-2 text-sm text-gray-700 transition-colors hover:bg-gray-300"
-                @click=${clearFilters}
-              >
-                Clear Filters
-              </button>
-            `
-          : ""}
+            ${
+              selectedTags.length > 0 || selectedTopic
+                ? html`
+                    <button
+                      class="btn btn-secondary btn-sm"
+                      @click=${clearFilters}
+                    >
+                      Clear Filters
+                    </button>
+                  `
+                : ""
+            }
+          </div>
+        </div>
       </div>
 
       <!-- Results Info -->
       <div class="flex items-center justify-between">
-        <div class="text-gray-600">
-          ${filteredPosts.length} post${filteredPosts.length !== 1 ? "s" : ""}
-          found
-          ${selectedTags.length > 0 || selectedTopic
-            ? html`
-                <span class="text-sm">
-                  (filtered from ${posts.length} total)
-                </span>
-              `
-            : ""}
+        <div class="stat">
+          <div class="stat-value text-lg">
+            ${filteredPosts.length} post${filteredPosts.length !== 1 ? "s" : ""}
+          </div>
+          <div class="stat-desc">
+            ${
+              selectedTags.length > 0 || selectedTopic
+                ? html`filtered from ${posts.length} total`
+                : "found"
+            }
+          </div>
         </div>
 
-        <div class="flex items-center gap-2">
-          <label for="posts-per-page" class="text-sm font-medium"
-            >Posts per page:</label
-          >
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Posts per page:</span>
+          </label>
           <select
-            id="posts-per-page"
-            class="rounded border border-gray-300 px-2 py-1 text-sm"
+            class="select select-bordered select-sm"
             .value=${perPage.toString()}
             @change=${(e: Event) =>
               handlePerPageChange(
@@ -269,125 +279,124 @@ function BlogList(element: HTMLElement) {
 
       <!-- Posts List -->
       <div class="space-y-6">
-        ${paginatedPosts.length === 0
-          ? html`
-              <div class="py-8 text-center text-gray-500">
-                No posts found matching your filters.
-              </div>
-            `
-          : paginatedPosts.map(
-              (post) => html`
-                <article
-                  class="rounded-lg border border-gray-200 bg-white p-6 transition-shadow hover:shadow-md"
-                >
-                  <header class="space-y-2">
-                    <h2 class="text-2xl font-bold">
+        ${
+          paginatedPosts.length === 0
+            ? html`
+                <div class="alert alert-info">
+                  <span>No posts found matching your filters.</span>
+                </div>
+              `
+            : paginatedPosts.map(
+                (post) => html`
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+                  <div class="card-body">
+                    <h2 class="card-title">
                       <a
                         href="/blog/${post.slug}"
-                        class="text-blue-600 transition-colors hover:text-blue-800"
+                        class="link link-hover"
                       >
                         ${post.title}
                       </a>
                     </h2>
 
-                    <div
-                      class="flex flex-wrap items-center gap-4 text-sm text-gray-600"
-                    >
-                      <time datetime="${post.date}"
-                        >${formatDate(post.date)}</time
-                      >
+                    <div class="flex flex-wrap items-center gap-2">
+                      <div class="text-sm opacity-70">
+                        <time datetime="${post.date}">${formatDate(post.date)}</time>
+                      </div>
 
-                      ${post.topic
-                        ? html`
-                            <span
-                              class="rounded-full bg-purple-100 px-2 py-1 text-purple-800"
-                            >
-                              📚 ${post.topic[0]}
-                            </span>
-                          `
-                        : ""}
+                      ${
+                        post.topic
+                          ? html`
+                              <div class="badge badge-secondary">
+                                📚 ${post.topic[0]}
+                              </div>
+                            `
+                          : ""
+                      }
                     </div>
 
-                    ${post.tags.length > 0
-                      ? html`
-                          <div class="flex flex-wrap gap-2">
-                            ${post.tags.map(
-                              (tag) => html`
-                                <span
-                                  class="rounded bg-gray-100 px-2 py-1 text-sm text-gray-700"
-                                >
-                                  #${tag}
-                                </span>
-                              `
-                            )}
-                          </div>
-                        `
-                      : ""}
-                  </header>
-
-                  <div class="mt-4">
-                    <p class="leading-relaxed text-gray-700">${post.excerpt}</p>
-                    <a
-                      href="/blog/${post.slug}"
-                      class="mt-2 inline-block font-medium text-blue-600 transition-colors hover:text-blue-800"
-                    >
-                      Read more →
-                    </a>
+                    ${
+                      post.tags.length > 0
+                        ? html`
+                            <div class="flex flex-wrap gap-2">
+                              ${post.tags.map(
+                                (tag) => html`
+                                  <div class="badge badge-outline">#${tag}</div>
+                                `
+                              )}
+                            </div>
+                          `
+                        : ""
+                    }
+                    <p class="text-base-content/70">${post.excerpt}</p>
+                    <div class="card-actions justify-end">
+                      <a
+                        href="/blog/${post.slug}"
+                        class="btn btn-primary btn-sm"
+                      >
+                        Read more →
+                      </a>
+                    </div>
                   </div>
-                </article>
+                </div>
               `
-            )}
+              )
+        }
       </div>
 
       <!-- Pagination -->
-      ${totalPages > 1
-        ? html`
-            <div class="flex items-center justify-center space-x-2">
-              <button
-                class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-                ?disabled=${currentPage === 1}
-                @click=${() => handlePageChange(currentPage - 1)}
-              >
-                Previous
-              </button>
+      ${
+        totalPages > 1
+          ? html`
+              <div class="flex items-center justify-center space-x-2">
+                <button
+                  class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  ?disabled=${currentPage === 1}
+                  @click=${() => handlePageChange(currentPage - 1)}
+                >
+                  Previous
+                </button>
 
-              ${Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (page) => {
-                  const isCurrentPage = page === currentPage;
-                  const showPage =
-                    page === 1 ||
-                    page === totalPages ||
-                    Math.abs(page - currentPage) <= 2;
+                ${Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page) => {
+                    const isCurrentPage = page === currentPage;
+                    const showPage =
+                      page === 1 ||
+                      page === totalPages ||
+                      Math.abs(page - currentPage) <= 2;
 
-                  if (!showPage && page !== 2 && page !== totalPages - 1) {
-                    return page === 3 || page === totalPages - 2
-                      ? html`<span class="px-2">...</span>`
-                      : "";
+                    if (!showPage && page !== 2 && page !== totalPages - 1) {
+                      return page === 3 || page === totalPages - 2
+                        ? html`<span class="px-2">...</span>`
+                        : "";
+                    }
+
+                    return html`
+                      <button
+                        class="${
+                          isCurrentPage
+                            ? "bg-blue-500 text-white border-blue-500"
+                            : "border-gray-300 hover:bg-gray-50"
+                        } rounded border px-3 py-2 text-sm transition-colors"
+                        @click=${() => handlePageChange(page)}
+                      >
+                        ${page}
+                      </button>
+                    `;
                   }
+                )}
 
-                  return html`
-                    <button
-                      class="${isCurrentPage
-                        ? "bg-blue-500 text-white border-blue-500"
-                        : "border-gray-300 hover:bg-gray-50"} rounded border px-3 py-2 text-sm transition-colors"
-                      @click=${() => handlePageChange(page)}
-                    >
-                      ${page}
-                    </button>
-                  `;
-                }
-              )}
-
-              <button
-                class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
-                ?disabled=${currentPage === totalPages}
-                @click=${() => handlePageChange(currentPage + 1)}
-              >
-                Next
-              </button>
-            </div>
-          `
-        : ""}
+                <button
+                  class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  ?disabled=${currentPage === totalPages}
+                  @click=${() => handlePageChange(currentPage + 1)}
+                >
+                  Next
+                </button>
+              </div>
+            `
+          : ""
+      }
     </div>
   `;
 }

@@ -14,35 +14,31 @@ export const ProjectCard = ({
   const projectUrl = github || demo;
 
   return (
-    <article className="bg-whiteish rounded-[24px_0] p-6 dark:bg-[var(--color-projects-dark)]">
-      <h3 className="m-0 text-xl">{title}</h3>
-      <div className="mt-4">
-        <p className="mb-3 text-sm text-gray-600 dark:text-gray-300">
-          {description}
-        </p>
-        <div className="flex flex-wrap gap-2">
+    <div className="card bg-base-100 shadow-xl">
+      <div className="card-body">
+        <h2 className="card-title">{title}</h2>
+        <p className="text-base-content/70">{description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <span
-              key={tag}
-              className="rounded-md bg-gray-100 px-2 py-1 text-xs dark:bg-gray-800"
-            >
+            <div key={tag} className="badge badge-secondary">
               {tag}
-            </span>
+            </div>
           ))}
         </div>
+        {projectUrl && (
+          <div className="card-actions mt-4 justify-end">
+            <a
+              className="btn btn-primary"
+              href={projectUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              View Project
+            </a>
+          </div>
+        )}
       </div>
-      {projectUrl ? (
-        <p className="mt-4">
-          <a
-            className="text-windsurfing hover:text-marina"
-            href={projectUrl}
-            target="_blank"
-          >
-            View project
-          </a>
-        </p>
-      ) : null}
-    </article>
+    </div>
   );
 };
 

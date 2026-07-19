@@ -1,5 +1,5 @@
-import { SectionTitle } from "./section-title";
 import { RecentPostCard } from "./recent-post-card";
+import { SectionTitle } from "./section-title";
 
 export const RecentBlogPostsSection = ({ posts }: { posts: PostMeta[] }) => {
   return (

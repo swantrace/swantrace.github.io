@@ -10,7 +10,9 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
 
     posts.forEach((post) => {
       // Collect tags
-      post.tags.forEach((tag) => tags.add(tag));
+      post.tags.forEach((tag) => {
+        tags.add(tag);
+      });
 
       // Collect topics
       if (post.topic) topics.add(post.topic[0]);
@@ -30,6 +32,7 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
         <span className="font-medium text-gray-700">Filter by tags:</span>
         {allTags.map((tag) => (
           <button
+            type="button"
             key={tag}
             className="cursor-not-allowed rounded-full border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 opacity-75 transition-colors hover:border-blue-300"
             disabled
@@ -42,6 +45,7 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
       <div className="flex flex-wrap items-center gap-2">
         <span className="font-medium text-gray-700">Filter by topic:</span>
         <button
+          type="button"
           className="cursor-not-allowed rounded-full border border-blue-500 bg-blue-500 px-3 py-1 text-sm text-white opacity-75"
           disabled
         >
@@ -49,6 +53,7 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
         </button>
         {allTopics.map((topic) => (
           <button
+            type="button"
             key={topic}
             className="cursor-not-allowed rounded-full border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 opacity-75 transition-colors hover:border-blue-300"
             disabled
