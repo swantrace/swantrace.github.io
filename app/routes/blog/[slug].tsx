@@ -15,7 +15,7 @@ export default createRoute(async (c) => {
     return c.notFound();
   }
   return c.render(
-    <>
+    <main className="blog-post">
       <title>{frontmatter.title} — Blog</title>
       <meta name="description" content={frontmatter.excerpt} />
       <div class="mx-auto max-w-3xl px-4 py-8">
@@ -60,7 +60,7 @@ export default createRoute(async (c) => {
             )}
           </header>
           <div
-            class="prose prose-slate max-w-none"
+            class="blog-content prose prose-slate max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
           <footer class="mt-12 flex justify-between border-t border-gray-200 pt-6">
@@ -73,6 +73,6 @@ export default createRoute(async (c) => {
           </footer>
         </article>
       </div>
-    </>
+    </main>
   );
 });

@@ -98,6 +98,23 @@
     "excerpt": "Learn how to build scalable web applications using React, covering best practices, architecture patterns, and performance optimization."
   },
   {
+    "slug": "html-form-controls-guide",
+    "title": "Complete Guide to HTML Form Controls",
+    "date": "2025-01-15T00:00:00.000Z",
+    "tags": [
+      "html",
+      "forms",
+      "web-development",
+      "validation"
+    ],
+    "topic": [
+      "frontend",
+      2
+    ],
+    "draft": false,
+    "excerpt": "A comprehensive guide to all HTML form input types with interactive demos, validation examples, and modern web APIs."
+  },
+  {
     "slug": "2025-hello-hono",
     "title": "Hello Hono",
     "date": "2025-01-01T00:00:00.000Z",

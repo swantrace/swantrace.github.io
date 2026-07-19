@@ -4,5 +4,15 @@
   "tabWidth": 2,
   "trailingComma": "es5",
   "printWidth": 80,
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "printWidth": 70,
+        "proseWrap": "always",
+        "htmlWhitespaceSensitivity": "ignore"
+      }
+    }
+  ]
 }

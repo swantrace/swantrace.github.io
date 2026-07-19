@@ -4,12 +4,15 @@ date: "2025-02-10"
 tags: ["cooking", "knife-skills", "basics", "technique"]
 topic: ["how_to_cook", 2]
 draft: false
-excerpt: "Learn fundamental knife skills that will make you faster, safer, and more confident in the kitchen."
+excerpt:
+  "Learn fundamental knife skills that will make you faster, safer,
+  and more confident in the kitchen."
 ---
 
 # Essential Knife Skills for Home Cooks
 
-Good knife skills are the foundation of efficient cooking. Here's everything you need to know to improve your technique.
+Good knife skills are the foundation of efficient cooking. Here's
+everything you need to know to improve your technique.
 
 ## Choosing the Right Knife
 

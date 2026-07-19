@@ -3,11 +3,14 @@ import { SocialIcons } from "./social-icons";
 
 export const Footer = () => {
   return (
-    <footer id="contact" className="text-center md:text-left">
-      <SectionTitle>Contact</SectionTitle>
-      <div className="grid grid-cols-1 gap-8">
+    <footer
+      id="contact"
+      className="footer footer-center bg-base-200 text-base-content rounded p-10"
+    >
+      <nav>
+        <SectionTitle>Contact</SectionTitle>
         <SocialIcons />
-      </div>
+      </nav>
     </footer>
   );
 };

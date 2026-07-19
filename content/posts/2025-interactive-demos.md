@@ -3,19 +3,22 @@ title: Interactive Code Demos
 date: 2025-09-24
 tags: [demo, javascript, html]
 draft: false
-excerpt: Testing the new interactive code demo and execution features in blog posts.
+excerpt:
+  Testing the new interactive code demo and execution features in blog
+  posts.
 ---
 
 # Interactive Code Demos
 
-This post demonstrates the new interactive code demo and JavaScript execution features.
+This post demonstrates the new interactive code demo and JavaScript
+execution features.
 
 ## HTML Demo Example
 
 Here's an interactive HTML demo you can view and copy:
 
 ```html demo
-<div class="border-onyx rounded border bg-gray-50 p-4 dark:bg-gray-900">
+<div class="border-onyx rounded border bg-gray-50 p-4 text-black">
   <h2>Hello, World!</h2>
   <p>This is an interactive HTML demo!</p>
   <button onclick="alert('Button clicked!')">Click me!</button>
@@ -69,4 +72,5 @@ console.log("Result:", validOperation);
 throw new Error("This is a demonstration error!");
 ```
 
-These interactive examples make it easy to understand code by seeing both the source and the execution results!
+These interactive examples make it easy to understand code by seeing
+both the source and the execution results!

@@ -16,10 +16,7 @@ function CopyButton(this: HTMLElement) {
   };
 
   return html`
-    <button
-      class="rounded border px-2 py-1 text-sm hover:bg-gray-100"
-      @click=${onClick}
-    >
+    <button class="btn btn-sm btn-outline" @click=${onClick}>
       ${copied ? "Copied!" : "Copy"}
     </button>
   `;

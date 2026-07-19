@@ -1,86 +1,108 @@
+/* ============================================================================
+   EXTERNAL IMPORTS
+   ============================================================================ */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css");
 @import url("https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css");
-@import "tailwindcss" source("../app") source("../content");
 
-/* Optional: brand tokens so you can use text-windsurfing, border-onyx, etc. */
+/* ============================================================================
+   TAILWIND CSS SETUP
+   ============================================================================ */
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
+
+@source "../app/**/*.{js,ts,jsx,tsx}";
+@source "../content/**/*.md";
+
+/* ============================================================================
+   THEME CONFIGURATION
+   ============================================================================ */
 @theme {
   --font-sans: Inter, ui-sans-serif, system-ui, sans-serif;
   --font-mono:
     "JetBrains Mono", "Fira Code", "SF Mono", Consolas, "Liberation Mono",
     Menlo, monospace;
-
-  --color-whiteish: #f9faff;
-  --color-platinum: #e3e4e8;
-  --color-windsurfing: #32779b; /* primary blue (light) */
-  --color-marina: #5a91c7; /* hover blue */
-  --color-grayish: #9a9a9a;
-  --color-onyx: #3c3d44;
-  --color-charcoal: #343c47;
-
-  --color-projects-dark: #2e313d; /* project card bg in dark */
-  --color-blue-dark: #6dadd0; /* primary blue (dark) */
-  --base-font-size: 1rem;
 }
 
-/* Make dark: utilities use <html class="dark"> instead of media query */
-@custom-variant dark (&:where(.dark, .dark *));
+/* ============================================================================
+   CUSTOM VARIANTS
+   ============================================================================ */
+/* Make dark: utilities follow the DaisyUI theme attribute. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
+/* ============================================================================
+   BASE LAYER - Global element styles and resets
+   ============================================================================ */
 @layer base {
-  /* Base styles for syntax highlighting - override highlight.js theme */
+  /* Base syntax highlighting styles - override highlight.js theme */
   .hljs {
     background: #f6f8fa !important;
     color: #24292e !important;
   }
 
-  .dark .hljs {
+  /* Dark mode syntax highlighting */
+  [data-theme="dark"] .hljs {
     background: #0d1117 !important;
     color: #e6edf3 !important;
   }
 
-  .dark .hljs-comment,
-  .dark .hljs-quote {
+  [data-theme="dark"] .hljs-comment,
+  [data-theme="dark"] .hljs-quote {
     color: #8b949e !important;
   }
 
-  .dark .hljs-keyword,
-  .dark .hljs-selector-tag,
-  .dark .hljs-literal,
-  .dark .hljs-section,
-  .dark .hljs-link {
+  [data-theme="dark"] .hljs-keyword,
+  [data-theme="dark"] .hljs-selector-tag,
+  [data-theme="dark"] .hljs-literal,
+  [data-theme="dark"] .hljs-section,
+  [data-theme="dark"] .hljs-link {
     color: #ff7b72 !important;
   }
 
-  .dark .hljs-string {
+  [data-theme="dark"] .hljs-string {
     color: #a5d6ff !important;
   }
 
-  .dark .hljs-title,
-  .dark .hljs-name,
-  .dark .hljs-type,
-  .dark .hljs-attribute {
+  [data-theme="dark"] .hljs-title,
+  [data-theme="dark"] .hljs-name,
+  [data-theme="dark"] .hljs-type,
+  [data-theme="dark"] .hljs-attribute {
     color: #ffa657 !important;
   }
 
-  .dark .hljs-symbol,
-  .dark .hljs-bullet,
-  .dark .hljs-built_in,
-  .dark .hljs-builtin-name {
+  [data-theme="dark"] .hljs-symbol,
+  [data-theme="dark"] .hljs-bullet,
+  [data-theme="dark"] .hljs-built_in,
+  [data-theme="dark"] .hljs-builtin-name {
     color: #79c0ff !important;
   }
 
-  .dark .hljs-number,
-  .dark .hljs-variable,
-  .dark .hljs-template-variable {
+  [data-theme="dark"] .hljs-number,
+  [data-theme="dark"] .hljs-variable,
+  [data-theme="dark"] .hljs-template-variable {
     color: #79c0ff !important;
   }
 }
 
+/* ============================================================================
+   COMPONENTS LAYER - Reusable component styles
+   ============================================================================ */
 @layer components {
-  /* Code block component styling */
-  .hljs {
-    @apply overflow-x-auto rounded-lg p-4 text-sm leading-relaxed;
+  /* ========================================
+     Code Block Components
+     ======================================== */
+
+  /* Line numbers container */
+  pre.code-with-lines {
+    counter-reset: line-number;
+    @apply relative p-0;
+  }
+
+  /* Code block with line numbers */
+  pre.code-with-lines code.hljs {
+    @apply overflow-x-auto rounded-lg pl-14 text-sm leading-relaxed;
     font-family: var(--font-mono);
     font-feature-settings:
       "liga" 1,
@@ -88,43 +110,61 @@
     font-variant-ligatures: common-ligatures;
   }
 
-  /* Line numbers component */
-  .code-with-lines {
-    counter-reset: line-number;
-    @apply relative;
-  }
-
-  .code-with-lines code {
-    @apply pl-14;
-  }
-
-  .code-with-lines code .line {
+  /* Individual code lines */
+  pre.code-with-lines code.hljs .line {
     counter-increment: line-number;
     @apply relative;
   }
 
-  .code-with-lines code .line::before {
+  /* Line number styling */
+  pre.code-with-lines code.hljs .line::before {
     content: counter(line-number);
     @apply inline-block w-6 pr-3 text-right text-xs leading-relaxed text-gray-500 select-none;
     font-family: var(--font-mono);
     font-feature-settings: "tnum" 1;
   }
 
-  .dark .code-with-lines code .line::before {
+  /* Dark mode line numbers */
+  [data-theme="dark"] pre.code-with-lines code.hljs .line::before {
     @apply text-gray-500;
   }
 
-  /* KaTeX styling */
+  /* ========================================
+     Math (KaTeX) Components
+     ======================================== */
+
+  /* Display math blocks */
   .katex-display {
     @apply my-4 text-center;
   }
 
+  /* Inline math expressions */
   .katex-inline {
     @apply mx-1;
   }
 
+  /* ========================================
+     Typography Components
+     ======================================== */
+
+  /* Apply prose styles to blog-content and all children except code-with-lines */
+  .blog-content {
+    @apply prose prose-gray max-w-none;
+    font-family: var(--font-sans);
+  }
+
+  /* Dark mode typography - same selector pattern */
+  [data-theme="dark"] .blog-content {
+    @apply prose-invert;
+  }
+}
+
+/* ============================================================================
+   UTILITIES LAYER - Override utilities and custom one-offs
+   ============================================================================ */
+@layer utilities {
   /* Dark mode KaTeX adjustments */
-  .dark .katex {
+  [data-theme="dark"] .katex {
     color: rgb(229, 231, 235) !important; /* text-gray-200 */
   }
 

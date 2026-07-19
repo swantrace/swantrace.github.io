@@ -60,7 +60,7 @@ md.renderer.rules.fence = function (tokens, idx, options, env, renderer) {
     : token.content;
   const langClass = langName ? ` language-${langName}` : "";
 
-  return `<pre class="code-with-lines"><code class="hljs${langClass}">${highlighted}</code></pre>\n`;
+  return `<pre class="code-with-lines not-prose"><code class="hljs${langClass}">${highlighted}</code></pre>\n`;
 };
 
 /**

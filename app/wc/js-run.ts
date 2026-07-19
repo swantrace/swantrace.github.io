@@ -50,7 +50,7 @@ function JsRun(this: HTMLElement) {
     >
       <!-- Header with badge and controls -->
       <div
-        class="flex items-center justify-between border-b bg-gray-50 px-4 py-2 dark:bg-gray-800"
+        class="flex items-center justify-between border-b border-b-gray-800 bg-gray-50 px-4 py-2 dark:bg-gray-800"
       >
         <span
           class="text-xs font-medium tracking-wide text-gray-600 uppercase dark:text-gray-300"
@@ -68,11 +68,9 @@ function JsRun(this: HTMLElement) {
       </div>
 
       <!-- Code view -->
-      <div class="border-b bg-gray-50 dark:bg-gray-800">
-        <pre
-          class="code-with-lines m-0 overflow-x-auto p-4 text-sm"
-        ><code class="hljs text-wrap" .innerHTML=${codeWithLines}></code></pre>
-      </div>
+      <pre
+        class="code-with-lines not-prose"
+      ><code class="hljs" .innerHTML=${codeWithLines}></code></pre>
 
       <!-- Output section -->
       ${hasOutput

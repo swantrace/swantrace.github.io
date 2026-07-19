@@ -11,6 +11,7 @@ function b64dec(s: string): string {
 // Custom element: <html-demo src="base64" code="base64" badge="html"></html-demo>
 function HtmlDemo(this: HTMLElement) {
   const [copied, setCopied] = useState(false);
+  const [showCode, setShowCode] = useState(false);
 
   const srcAttr = this.getAttribute("src") ?? "";
   const codeAttr = this.getAttribute("code") ?? "";
@@ -35,13 +36,17 @@ function HtmlDemo(this: HTMLElement) {
     }
   };
 
+  const toggleCode = () => {
+    setShowCode(!showCode);
+  };
+
   return html`
     <div
       class="my-4 overflow-hidden rounded-lg border bg-white dark:bg-gray-900"
     >
       <!-- Header with badge and controls -->
       <div
-        class="flex items-center justify-between border-b bg-gray-50 px-4 py-2 dark:bg-gray-800"
+        class="flex items-center justify-between border-b border-b-gray-800 bg-gray-50 px-4 py-2 dark:bg-gray-800"
       >
         <span
           class="text-xs font-medium tracking-wide text-gray-600 uppercase dark:text-gray-300"
@@ -49,27 +54,39 @@ function HtmlDemo(this: HTMLElement) {
           ${badge}
         </span>
         <div class="flex gap-2">
+          ${showCode
+            ? html`
+                <button
+                  @click=${copySource}
+                  class="rounded px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
+                >
+                  ${copied ? "Copied!" : "Copy"}
+                </button>
+              `
+            : ""}
           <button
-            @click=${copySource}
+            @click=${toggleCode}
             class="rounded px-2 py-1 text-xs text-gray-600 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-100"
           >
-            ${copied ? "Copied!" : "Copy"}
+            ${showCode ? "Hide Code" : "Show Code"}
           </button>
         </div>
       </div>
 
       <!-- Demo preview -->
       <div
-        class="bg-gray-50 p-4 dark:bg-gray-800"
+        class="not-prose bg-gray-50 p-4 dark:bg-gray-800"
         .innerHTML=${sourceCode}
       ></div>
 
       <!-- Code view -->
-      <div class="border-t bg-gray-50 dark:bg-gray-800">
-        <pre
-          class="code-with-lines m-0 overflow-x-auto p-4 text-sm"
-        ><code class="hljs text-wrap" .innerHTML=${codeWithLines}></code></pre>
-      </div>
+      ${showCode
+        ? html`
+            <pre
+              class="code-with-lines not-prose"
+            ><code class="hljs" .innerHTML=${codeWithLines}></code></pre>
+          `
+        : ""}
     </div>
   `;
 }
