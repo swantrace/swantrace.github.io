@@ -32,6 +32,14 @@ export function parseProjectFrontmatter(
     demo: data.demo || null,
     image: data.image || null,
     featured: Boolean(data.featured),
+    draft: Boolean(data.draft),
+    sourceVisibility:
+      data.sourceVisibility === "public" || data.sourceVisibility === "private"
+        ? data.sourceVisibility
+        : data.github
+          ? "public"
+          : null,
+    sourceNote: data.sourceNote || null,
     order: typeof data.order === "number" ? data.order : 999,
   };
 }
@@ -101,6 +109,46 @@ export async function getAllProjectSlugs(): Promise<string[]> {
 }
 
 /**
+ * Load one project, including its Markdown body.
+ */
+export async function getProjectBySlug(
+  slug: string
+): Promise<ProjectDocument | null> {
+  if (!/^[a-z0-9-]+$/i.test(slug)) {
+    return null;
+  }
+
+  const filePath = path.join("./content/projects", `${slug}.md`);
+  const parsed = await parseProjectMarkdownFile(filePath);
+
+  if (!parsed) {
+    return null;
+  }
+
+  return {
+    frontmatter: parseProjectFrontmatter(parsed.data, slug, parsed.content),
+    content: parsed.content,
+  };
+}
+
+/**
+ * Return only slugs that are safe to emit during a production SSG build.
+ */
+export async function getPublishedProjectSlugs(): Promise<string[]> {
+  const slugs = await getAllProjectSlugs();
+  const publishedSlugs: string[] = [];
+
+  for (const slug of slugs) {
+    const project = await getProjectBySlug(slug);
+    if (project && !project.frontmatter.draft) {
+      publishedSlugs.push(slug);
+    }
+  }
+
+  return publishedSlugs;
+}
+
+/**
  * Load all projects from content/projects
  */
 export async function getAllProjects(): Promise<ProjectMeta[]> {
@@ -108,20 +156,10 @@ export async function getAllProjects(): Promise<ProjectMeta[]> {
   const projects: ProjectMeta[] = [];
 
   for (const slug of slugs) {
-    const filePath = path.join("./content/projects", `${slug}.md`);
-    const parsed = await parseProjectMarkdownFile(filePath);
+    const project = await getProjectBySlug(slug);
 
-    if (parsed) {
-      if (parsed.data.draft === true) {
-        continue;
-      }
-
-      const project = parseProjectFrontmatter(
-        parsed.data,
-        slug,
-        parsed.content
-      );
-      projects.push(project);
+    if (project && !project.frontmatter.draft) {
+      projects.push(project.frontmatter);
     }
   }
 

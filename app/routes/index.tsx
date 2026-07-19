@@ -10,7 +10,9 @@ export default createRoute(async (c) => {
   const recentPosts = getRecentPosts(3);
 
   // Load projects using the utility function
-  const projects = await getAllProjects();
+  const projects = (await getAllProjects()).filter(
+    (project) => project.featured
+  );
 
   return c.render(
     <>
