@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "React Component Library"
 description: "A comprehensive React component library with TypeScript, Storybook, and automated testing."
 github: "https://github.com/user/react-components"

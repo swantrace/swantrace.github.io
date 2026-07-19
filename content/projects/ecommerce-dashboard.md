@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "E-commerce Dashboard"
 description: "Full-stack dashboard for managing online store operations"
 tags: ["react", "node", "mongodb", "tailwind"]

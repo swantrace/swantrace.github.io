@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Personal Portfolio Website"
 description: "A modern portfolio built with Hono, Vite, and Tailwind CSS featuring SSG, progressive enhancement, and dark mode."
 github: "https://github.com/user/portfolio"

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "Task Management App"
 description: "Collaborative task management application with real-time updates"
 tags: ["vue", "express", "postgresql", "socket.io"]
