@@ -5,6 +5,10 @@ import { url } from "../../utils/url";
 
 export default createRoute(async (c) => {
   const slug = c.req.param("slug");
+  if (!slug) {
+    return c.notFound();
+  }
+
   const post = await getPostBySlug(slug);
   if (!post) {
     return c.notFound();
