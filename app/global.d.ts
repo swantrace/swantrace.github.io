@@ -27,7 +27,15 @@ declare global {
     demo: string | null;
     image: string | null;
     featured: boolean;
+    draft: boolean;
+    sourceVisibility: "public" | "private" | null;
+    sourceNote: string | null;
     order: number;
+  }
+
+  interface ProjectDocument {
+    frontmatter: ProjectMeta;
+    content: string;
   }
   namespace JSX {
     interface IntrinsicElements {
