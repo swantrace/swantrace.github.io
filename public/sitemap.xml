@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:4173/</loc>
+    <loc>https://swantrace.github.io/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog</loc>
+    <loc>https://swantrace.github.io/blog</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/2025-interactive-demos</loc>
+    <loc>https://swantrace.github.io/blog/2025-interactive-demos</loc>
     <lastmod>2025-09-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/2025-knife-skills-basics</loc>
+    <loc>https://swantrace.github.io/blog/2025-knife-skills-basics</loc>
     <lastmod>2025-02-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/2025-typescript-best-practices</loc>
+    <loc>https://swantrace.github.io/blog/2025-typescript-best-practices</loc>
     <lastmod>2025-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/2025-vite-getting-started</loc>
+    <loc>https://swantrace.github.io/blog/2025-vite-getting-started</loc>
     <lastmod>2025-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/2025-perfect-pasta-cooking</loc>
+    <loc>https://swantrace.github.io/blog/2025-perfect-pasta-cooking</loc>
     <lastmod>2025-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/2025-react-scalable-apps</loc>
+    <loc>https://swantrace.github.io/blog/2025-react-scalable-apps</loc>
     <lastmod>2025-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/2025-hello-hono</loc>
+    <loc>https://swantrace.github.io/blog/2025-hello-hono</loc>
     <lastmod>2025-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/css-foundations</loc>
+    <loc>https://swantrace.github.io/blog/css-foundations</loc>
     <lastmod>2025-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/vite</loc>
+    <loc>https://swantrace.github.io/blog/vite</loc>
     <lastmod>2025-09-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

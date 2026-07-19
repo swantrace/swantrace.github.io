@@ -2,35 +2,24 @@ import { SocialIcons } from "./social-icons";
 
 export const HeroSection = () => {
   return (
-    <section className="grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:items-center md:text-left">
-      <div>
-        <h3 className="text-windsurfing dark:text-blue-dark m-0 text-base tracking-[0.25em] uppercase">
-          Frontend Developer
-        </h3>
-        <h2 className="m-0 text-[calc(var(--base-font-size)*2.9)] md:ml-[-3px]">
-          Fred Hong
-        </h2>
-        <p className="leading-[1.5]">
-          Briefly describe your role, expertise, and location. Need help writing
-          your bio?
-          <a
-            className="text-windsurfing hover:text-marina"
-            href="#"
-            target="_blank"
-          >
-            Check Jen's worksheet
-          </a>
-          .
-        </p>
-
-        <SocialIcons />
+    <section className="hero bg-base-100 min-h-[60vh]">
+      <div className="hero-content max-w-3xl px-0 text-center lg:text-left">
+        <div>
+          <p className="text-primary mb-4 font-semibold tracking-wide uppercase">
+            Full-stack engineer
+          </p>
+          <h1 className="text-5xl font-bold">Fred Hong</h1>
+          <p className="text-base-content/75 max-w-2xl py-6 text-xl leading-relaxed">
+            Full-stack engineer specializing in React, TypeScript, and FHIR
+            interoperability.
+          </p>
+          <p className="text-base-content/65 mb-6">
+            Based in Edmonton, Canada, with 8+ years of experience. Available
+            for long-term full-time opportunities.
+          </p>
+          <SocialIcons />
+        </div>
       </div>
-
-      <img
-        src="https://assets.codepen.io/296057/fem-brissa.jpg"
-        alt="Brissa Isidro."
-        className="mx-auto h-[175px] w-[300px] overflow-hidden rounded-[24px_0] object-cover object-top md:ml-auto md:h-auto md:w-auto md:object-none"
-      />
     </section>
   );
 };

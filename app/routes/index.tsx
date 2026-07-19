@@ -14,11 +14,14 @@ export default createRoute(async (c) => {
 
   return c.render(
     <>
-      <title>Portfolio — Home</title>
-      <meta name="description" content="Welcome to my portfolio website." />
+      <title>Fred Hong — Full-stack Engineer</title>
+      <meta
+        name="description"
+        content="Fred Hong is a full-stack engineer specializing in React, TypeScript, and FHIR interoperability."
+      />
       <HeroSection />
       <RecentBlogPostsSection posts={recentPosts} />
-      <ProjectsSection projects={projects} />
+      {projects.length > 0 ? <ProjectsSection projects={projects} /> : null}
     </>
   );
 });

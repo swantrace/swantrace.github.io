@@ -11,23 +11,21 @@ export const SocialIcon = ({
 }) => {
   return (
     <a
-      className="text-windsurfing hover:text-marina dark:text-blue-dark transition-colors"
+      className="btn btn-ghost btn-circle"
       href={href}
       target="_blank"
+      rel="noreferrer"
       aria-label={label}
     >
-      <span className="sr-only">{label}</span>
-      <span className="inline-flex h-9 w-9 items-center justify-center">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox={viewBox}
-          className="h-full w-full"
-          role="img"
-          aria-hidden={label ? "false" : "true"}
-        >
-          <path d={d} className="social fill-windsurfing hover:fill-marina" />
-        </svg>
-      </span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox={viewBox}
+        className="h-5 w-5 fill-current"
+        role="img"
+        aria-hidden={label ? "false" : "true"}
+      >
+        <path d={d} />
+      </svg>
     </a>
   );
 };

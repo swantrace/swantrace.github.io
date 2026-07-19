@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "E-commerce Platform"
 description: "Full-stack e-commerce solution with payment processing, inventory management, and admin dashboard."
 github: "https://github.com/user/ecommerce-platform"

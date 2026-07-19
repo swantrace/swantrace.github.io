@@ -112,6 +112,10 @@ export async function getAllProjects(): Promise<ProjectMeta[]> {
     const parsed = await parseProjectMarkdownFile(filePath);
 
     if (parsed) {
+      if (parsed.data.draft === true) {
+        continue;
+      }
+
       const project = parseProjectFrontmatter(
         parsed.data,
         slug,
