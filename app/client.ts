@@ -84,6 +84,10 @@ onDomReady(() => {
   });
 
   // Code demo and execution components
+  lazyDefine("copy-button", () => import("./wc/copy-button"), {
+    whenVisible: true,
+  });
+
   lazyDefine("html-demo", () => import("./wc/html-demo"), {
     whenVisible: true,
   });
@@ -129,6 +133,7 @@ idle(() => {
   // Preload blog-list-div component for better UX on blog pages
   import("./wc/blog-list");
   // Preload demo components for blog posts with interactive content
+  import("./wc/copy-button");
   import("./wc/html-demo");
   import("./wc/js-run");
 });
