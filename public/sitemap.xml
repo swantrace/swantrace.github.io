@@ -16,63 +16,18 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swantrace.github.io/blog/2025-interactive-demos</loc>
-    <lastmod>2025-09-24</lastmod>
+    <loc>https://swantrace.github.io/projects/consent-aware-ehr-data-exchange</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://swantrace.github.io/blog/2025-knife-skills-basics</loc>
-    <lastmod>2025-02-10</lastmod>
+    <loc>https://swantrace.github.io/projects/english-speaking-coach</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://swantrace.github.io/blog/2025-typescript-best-practices</loc>
-    <lastmod>2025-02-01</lastmod>
+    <loc>https://swantrace.github.io/projects/healthcare-consent-management-dashboard</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://swantrace.github.io/blog/2025-vite-getting-started</loc>
-    <lastmod>2025-01-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://swantrace.github.io/blog/2025-perfect-pasta-cooking</loc>
-    <lastmod>2025-01-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://swantrace.github.io/blog/2025-react-scalable-apps</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://swantrace.github.io/blog/html-form-controls-guide</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://swantrace.github.io/blog/2025-hello-hono</loc>
-    <lastmod>2025-01-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://swantrace.github.io/blog/css-foundations</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://swantrace.github.io/blog/vite</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>

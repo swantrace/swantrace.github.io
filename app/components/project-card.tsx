@@ -8,8 +8,6 @@ export const ProjectCard = ({
   github,
   demo,
   image,
-  sourceVisibility,
-  sourceNote,
 }: ProjectMeta) => {
   const imageUrl = image
     ? /^(https?:)?\/\//.test(image) || image.startsWith("data:")
@@ -43,12 +41,6 @@ export const ProjectCard = ({
             </div>
           ))}
         </div>
-        {sourceVisibility === "private" && (
-          <p className="text-base-content/60 mt-4 text-sm">
-            {sourceNote ||
-              "Source code is private. Architecture and implementation decisions are shared with permission."}
-          </p>
-        )}
         <div className="card-actions mt-4 items-center justify-end">
           {github && (
             <a
