@@ -206,6 +206,26 @@ JavaScript runs during Markdown processing in a Node.js VM—not in the reader's
 
 The Markdown preprocessor converts the fence into a `js-run` element with Base64URL-encoded source, highlighted code, logs, return value, and error attributes. Those attributes are an internal rendering format; content authors should use the fenced-code form.
 
+`js-run` uses Shadow DOM and exposes these parts for site-level styling:
+`frame`, `toolbar`, `badge`, `actions`, `control`, `copy-button`, `code`,
+`code-content`, `output`, `output-group`, `console-group`, `console-output`,
+`console-line`, `return-group`, `return-output`, `error-group`,
+`error-heading`, and `error-output`.
+
+For example:
+
+```css
+@layer components {
+  js-run::part(frame) {
+    @apply rounded-xl shadow-sm;
+  }
+
+  js-run::part(error-output) {
+    @apply border border-red-300;
+  }
+}
+```
+
 ## Deployment
 
 Pushes to `main` run the GitHub Actions workflow in `.github/workflows/deploy.yml`. The workflow installs dependencies, runs Biome and TypeScript checks, creates the static production build, and deploys `dist/` to GitHub Pages.
