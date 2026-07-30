@@ -140,6 +140,8 @@ describe("JS run Markdown preprocessor", () => {
     const html = await preprocessJsRun(markdown);
 
     expect(html).toContain("<js-run ");
+    expect(html).toStartWith('<div class="demo-component not-prose">');
+    expect(html).not.toStartWith("<p>");
     expect(html).toContain('class="demo-fallback not-prose"');
     expect(html).toContain("Console Output:");
     expect(html).toContain("Return Value:");
@@ -157,9 +159,18 @@ describe("JS run Markdown preprocessor", () => {
     const error = JSON.parse(decodedAttribute(html, "error") ?? "");
 
     expect(error).toContain("Error: broken");
+    expect(error).not.toContain(process.cwd());
     expect(html).toContain('class="demo-fallback not-prose"');
     expect(html).toContain("Error:");
     expect(html).toContain("Error: broken");
+  });
+
+  test("captures syntax errors without aborting Markdown processing", async () => {
+    const html = await preprocessJsRun("```js run\nconst = broken;\n```");
+    const error = JSON.parse(decodedAttribute(html, "error") ?? "");
+
+    expect(error).toStartWith("SyntaxError:");
+    expect(html).toContain("<js-run ");
   });
 
   test("supports awaited snippets", async () => {
@@ -168,6 +179,22 @@ describe("JS run Markdown preprocessor", () => {
     );
 
     expect(JSON.parse(decodedAttribute(html, "value") ?? "")).toBe("ready");
+  });
+
+  test("supports tilde and longer backtick fences", async () => {
+    const tilde = await preprocessJsRun("~~~js run\nreturn 'tilde';\n~~~");
+    const longer = await preprocessJsRun(
+      [
+        "````javascript {run}",
+        'const fence = "```";',
+        "return fence.length;",
+        "````",
+      ].join("\n")
+    );
+
+    expect(JSON.parse(decodedAttribute(tilde, "value") ?? "")).toBe("tilde");
+    expect(JSON.parse(decodedAttribute(longer, "value") ?? "")).toBe(3);
+    expect(decodedAttribute(longer, "src")).toContain('const fence = "```";');
   });
 
   test("stops synchronous snippets that exceed the timeout", async () => {

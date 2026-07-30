@@ -1,10 +1,9 @@
-import { component, html, useState } from "haunted";
+import { component, html } from "haunted";
 import { decodeBase64Url, decodeJsonAttribute } from "./encoded-attributes";
+import { useCopyFeedback } from "./use-copy-feedback";
 
 function JsRun(this: HTMLElement) {
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
-    "idle"
-  );
+  const { copy, copyStatus } = useCopyFeedback();
 
   const sourceCode = decodeBase64Url(this.getAttribute("src"));
   const highlightedCode = decodeBase64Url(this.getAttribute("code"));
@@ -22,17 +21,6 @@ function JsRun(this: HTMLElement) {
     .split("\n")
     .map((line) => `<span class="line">${line}</span>`)
     .join("\n");
-
-  const copySource = async () => {
-    try {
-      await navigator.clipboard.writeText(sourceCode);
-      setCopyStatus("copied");
-      setTimeout(() => setCopyStatus("idle"), 2000);
-    } catch {
-      setCopyStatus("error");
-      setTimeout(() => setCopyStatus("idle"), 2000);
-    }
-  };
 
   const hasOutput = logs.length > 0 || value !== undefined || Boolean(error);
   const formattedValue =
@@ -202,7 +190,7 @@ function JsRun(this: HTMLElement) {
           <button
             type="button"
             part="control copy-button"
-            @click=${copySource}
+            @click=${() => copy(sourceCode)}
             aria-label=${
               copyStatus === "copied"
                 ? "JavaScript source copied to clipboard"

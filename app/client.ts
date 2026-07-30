@@ -128,12 +128,10 @@ onDomReady(() => {
 
 // 4) （可选）空闲时预热最常用组件，减少用户滚动到时的等待
 idle(() => {
-  // 预热 theme-switcher（若用户从未滚到也不会阻塞首屏）
-  import("./wc/theme-switcher");
-  // Preload blog-list-div component for better UX on blog pages
-  import("./wc/blog-list");
-  // Preload demo components for blog posts with interactive content
-  import("./wc/copy-button");
-  import("./wc/html-demo");
-  import("./wc/js-run");
+  if (document.querySelector("theme-switcher")) import("./wc/theme-switcher");
+  if (document.querySelector('div[is="blog-list-div"]'))
+    import("./wc/blog-list");
+  if (document.querySelector("copy-button")) import("./wc/copy-button");
+  if (document.querySelector("html-demo")) import("./wc/html-demo");
+  if (document.querySelector("js-run")) import("./wc/js-run");
 });

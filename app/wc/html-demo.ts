@@ -4,6 +4,7 @@ import {
   blockedDemoElements,
   shouldRemoveDemoAttribute,
 } from "./html-demo-safety";
+import { useCopyFeedback } from "./use-copy-feedback";
 
 /**
  * Keep HTML demos declarative: scripts, embedded documents, inline event
@@ -67,9 +68,7 @@ if (!customElements.get("html-demo-preview")) {
 }
 
 function HtmlDemo(this: HTMLElement) {
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
-    "idle"
-  );
+  const { copy, copyStatus } = useCopyFeedback();
   const [showCode, setShowCode] = useState(false);
 
   const srcAttr = this.getAttribute("src") ?? "";
@@ -81,17 +80,6 @@ function HtmlDemo(this: HTMLElement) {
     .split("\n")
     .map((line) => `<span class="line">${line}</span>`)
     .join("\n");
-
-  const copySource = async () => {
-    try {
-      await navigator.clipboard.writeText(sourceCode);
-      setCopyStatus("copied");
-      setTimeout(() => setCopyStatus("idle"), 2000);
-    } catch {
-      setCopyStatus("error");
-      setTimeout(() => setCopyStatus("idle"), 2000);
-    }
-  };
 
   return html`
     <style>
@@ -200,7 +188,7 @@ function HtmlDemo(this: HTMLElement) {
                 <button
                   type="button"
                   part="control copy-button"
-                  @click=${copySource}
+                  @click=${() => copy(sourceCode)}
                   aria-label=${
                     copyStatus === "copied"
                       ? "HTML source copied to clipboard"

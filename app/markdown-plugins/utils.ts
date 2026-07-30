@@ -48,16 +48,17 @@ export async function runJsInVm(
   const timeoutMs = opts.timeoutMs ?? 2000;
   const logs: string[] = [];
   const consoleShim = {
-    log: (...a: any[]) => logs.push(stringify(a)),
-    info: (...a: any[]) => logs.push(stringify(a)),
-    warn: (...a: any[]) => logs.push("[warn] " + stringify(a)),
-    error: (...a: any[]) => logs.push("[error] " + stringify(a)),
+    log: (...values: unknown[]) => logs.push(stringify(values)),
+    info: (...values: unknown[]) => logs.push(stringify(values)),
+    warn: (...values: unknown[]) => logs.push(`[warn] ${stringify(values)}`),
+    error: (...values: unknown[]) => logs.push(`[error] ${stringify(values)}`),
   };
-  const sandbox: any = { console: consoleShim };
+  const sandbox: Record<string, unknown> = { console: consoleShim };
   if (opts.allowRequire) {
+    const moduleRecord = { exports: {} };
     sandbox.require = require;
-    sandbox.module = { exports: {} };
-    sandbox.exports = sandbox.module.exports;
+    sandbox.module = moduleRecord;
+    sandbox.exports = moduleRecord.exports;
   }
   const context = vm.createContext(sandbox, { name: "js-run-ssg" });
 
@@ -66,12 +67,14 @@ export async function runJsInVm(
     ? `(async()=>{ ${code}\n})()`
     : `(function(){ ${code}\n})()`;
 
-  const script = new vm.Script(wrapped, { filename: "snippet.js" });
-
-  let value: any, error: string | undefined;
+  let value: unknown;
+  let error: string | undefined;
   try {
-    const result = script.runInContext(context, { timeout: timeoutMs });
-    if (result && typeof result.then === "function") {
+    const script = new vm.Script(wrapped, { filename: "snippet.js" });
+    const result: unknown = script.runInContext(context, {
+      timeout: timeoutMs,
+    });
+    if (isPromiseLike(result)) {
       value = await Promise.race([
         result,
         new Promise((_r, rej) =>
@@ -84,20 +87,46 @@ export async function runJsInVm(
     } else {
       value = result;
     }
-  } catch (e: any) {
-    error = String(e && (e.stack || e.message) ? e.stack || e.message : e);
+  } catch (caught) {
+    error = formatExecutionError(caught);
   }
   return { logs, value, error };
 }
 
-function stringify(a: any[]) {
-  return a
-    .map((x) => {
-      if (typeof x === "string") return x;
+function isPromiseLike(value: unknown): value is PromiseLike<unknown> {
+  if (
+    (typeof value !== "object" && typeof value !== "function") ||
+    value === null
+  ) {
+    return false;
+  }
+  return typeof (value as { then?: unknown }).then === "function";
+}
+
+function formatExecutionError(caught: unknown): string {
+  if (
+    (typeof caught === "object" || typeof caught === "function") &&
+    caught !== null
+  ) {
+    const errorLike = caught as { name?: unknown; message?: unknown };
+    const name = typeof errorLike.name === "string" ? errorLike.name : "Error";
+    const message =
+      typeof errorLike.message === "string"
+        ? errorLike.message
+        : String(caught);
+    return `${name}: ${message}`;
+  }
+  return String(caught);
+}
+
+function stringify(values: unknown[]) {
+  return values
+    .map((value) => {
+      if (typeof value === "string") return value;
       try {
-        return JSON.stringify(x);
+        return JSON.stringify(value);
       } catch {
-        return String(x);
+        return String(value);
       }
     })
     .join(" ");

@@ -153,6 +153,14 @@
     --copy-button-focus: var(--color-blue-600);
   }
 
+  copy-button:not(:defined) > button {
+    @apply cursor-not-allowed rounded-md border border-gray-300 bg-transparent px-3 py-1.5 text-sm font-medium text-gray-500;
+  }
+
+  [data-theme="dark"] copy-button:not(:defined) > button {
+    @apply border-gray-600 text-gray-400;
+  }
+
   copy-button::part(button) {
     @apply rounded-md;
   }

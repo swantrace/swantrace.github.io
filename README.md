@@ -27,7 +27,7 @@ The site is designed to give hiring teams more than a list of technologies. It c
 | Content | Markdown, gray-matter, and markdown-it |
 | Technical writing | highlight.js, KaTeX, and custom Markdown plugins |
 | Browser interactivity | Web Components, Haunted, and lit-html |
-| Code quality | Biome and TypeScript |
+| Testing and code quality | Bun Test, Playwright, Biome, and TypeScript |
 | Hosting and CI/CD | GitHub Pages and GitHub Actions |
 
 ## Project structure
@@ -51,11 +51,13 @@ scripts/                Post index and sitemap generators
 ### Requirements
 
 - [Bun](https://bun.sh/) installed locally
+- Chromium installed through Playwright for browser tests
 
 ### Install and run
 
 ```bash
 bun install
+bunx playwright install chromium
 bun run dev
 ```
 
@@ -71,6 +73,10 @@ The development server watches the post directory and regenerates `public/posts.
 | `bun run preview` | Preview the generated site |
 | `bun run check` | Run Biome formatting and lint checks |
 | `bun run check:fix` | Apply safe Biome formatting and lint fixes |
+| `bun run test` | Run fast Markdown and component utility tests |
+| `bun run test:e2e` | Run interactive demo tests in Chromium |
+| `bun run test:e2e:all` | Run the browser suite in Chromium, Firefox, WebKit, and mobile Chromium |
+| `bun run test:all` | Run unit tests followed by Chromium browser tests |
 | `bun run typecheck` | Run TypeScript without emitting files |
 | `bun run gen:posts` | Regenerate the published post index |
 | `bun run gen:sitemap` | Regenerate the sitemap |
@@ -114,10 +120,16 @@ fallback displays escaped source only; it never mounts the authored preview.
 Use `copy-button` when a reader should be able to copy a short, fixed value. Set the text to copy with the `text` attribute:
 
 ```html
-<copy-button text="bun run dev"></copy-button>
+<copy-button text="bun run dev">
+  <button type="button" disabled>Copy unavailable</button>
+</copy-button>
 ```
 
 Raw HTML is enabled in the Markdown renderer, so the same markup works directly in a Markdown file. Escape characters such as `&`, `<`, and quotes when they appear inside the attribute. The button uses the browser Clipboard API and briefly changes its label to `Copied!` after a successful copy.
+
+The disabled light-DOM button is a no-JavaScript fallback. Shadow DOM hides it
+when `copy-button` upgrades; without JavaScript, it remains visible without
+misleading the reader that copying is available.
 
 Clipboard access requires a secure browser context, such as HTTPS or localhost.
 
@@ -254,6 +266,9 @@ For example:
 
 ## Deployment
 
-Pushes to `main` run the GitHub Actions workflow in `.github/workflows/deploy.yml`. The workflow installs dependencies, runs Biome and TypeScript checks, creates the static production build, and deploys `dist/` to GitHub Pages.
+Pull requests run unit, cross-browser, type, lint, and production-build checks
+through `.github/workflows/ci.yml`. Pushes to `main` run the GitHub Actions
+workflow in `.github/workflows/deploy.yml`; deployment repeats the core checks
+and Chromium suite before publishing `dist/` to GitHub Pages.
 
 The production site URL is configured through `VITE_SITE_URL` in the deployment workflow.

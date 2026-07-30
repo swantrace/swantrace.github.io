@@ -1,21 +1,9 @@
-import { component, html, useState } from "haunted";
+import { component, html } from "haunted";
+import { useCopyFeedback } from "./use-copy-feedback";
 
 function CopyButton(this: HTMLElement) {
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
-    "idle"
-  );
-
-  const onClick = async () => {
-    const text = this.getAttribute("text") ?? "";
-    try {
-      await navigator.clipboard.writeText(text);
-      setCopyStatus("copied");
-      setTimeout(() => setCopyStatus("idle"), 1200);
-    } catch {
-      setCopyStatus("error");
-      setTimeout(() => setCopyStatus("idle"), 2000);
-    }
-  };
+  const { copy, copyStatus } = useCopyFeedback();
+  const text = this.getAttribute("text") ?? "";
 
   const label =
     copyStatus === "copied"
@@ -59,7 +47,7 @@ function CopyButton(this: HTMLElement) {
     <button
       type="button"
       part="button"
-      @click=${onClick}
+      @click=${() => copy(text)}
       aria-label=${
         copyStatus === "copied"
           ? "Copied to clipboard"

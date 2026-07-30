@@ -18,6 +18,15 @@ excerpt: "Verify HTML preview isolation, native form validation, code controls, 
 This draft is a visual test page for the custom `html demo` and `js run`
 Markdown fences. It is intentionally excluded from production builds.
 
+## Copy button
+
+The standalone component should copy the configured `text` attribute and
+announce success or failure.
+
+<copy-button text="bun run test:all">
+  <button type="button" disabled>Copy unavailable</button>
+</copy-button>
+
 ## HTML demo
 
 The following example tests:
