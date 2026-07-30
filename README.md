@@ -115,6 +115,17 @@ Raw HTML is enabled in the Markdown renderer, so the same markup works directly 
 
 Clipboard access requires a secure browser context, such as HTTPS or localhost.
 
+`copy-button` uses Shadow DOM and exposes `button` and `label` parts. Its
+appearance can be customized from the Tailwind component layer:
+
+```css
+@layer components {
+  copy-button::part(button) {
+    @apply rounded-lg border-blue-300;
+  }
+}
+```
+
 ### `html-demo`
 
 The recommended way to create an `html-demo` is an HTML or XML code fence with the `demo` flag:

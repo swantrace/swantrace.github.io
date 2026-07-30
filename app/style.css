@@ -95,6 +95,27 @@
    ============================================================================ */
 @layer components {
   /* ========================================
+     Copy button public styling API
+     ======================================== */
+
+  copy-button {
+    --copy-button-font-family: var(--font-sans);
+    --copy-button-focus: var(--color-blue-600);
+  }
+
+  copy-button::part(button) {
+    @apply rounded-md;
+  }
+
+  [data-theme="dark"] copy-button {
+    --copy-button-border: var(--color-gray-600);
+    --copy-button-color: var(--color-gray-300);
+    --copy-button-hover-border: var(--color-gray-500);
+    --copy-button-hover-surface: var(--color-gray-800);
+    --copy-button-hover-color: var(--color-gray-100);
+  }
+
+  /* ========================================
      HTML demo public styling API
      ======================================== */
 

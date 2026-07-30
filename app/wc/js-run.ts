@@ -51,6 +51,8 @@ function JsRun(this: HTMLElement) {
   };
 
   const hasOutput = logs.length > 0 || value !== undefined || Boolean(error);
+  const formattedValue =
+    typeof value === "string" ? value : JSON.stringify(value, null, 2);
 
   return html`
     <style>
@@ -248,13 +250,7 @@ function JsRun(this: HTMLElement) {
                   ? html`
                     <section class="output-group" part="output-group return-group">
                       <h4 part="output-heading">Return Value:</h4>
-                      <div class="result return-value" part="return-output">
-                        ${
-                          typeof value === "string"
-                            ? value
-                            : JSON.stringify(value, null, 2)
-                        }
-                      </div>
+                      <div class="result return-value" part="return-output">${formattedValue}</div>
                     </section>
                   `
                   : ""
