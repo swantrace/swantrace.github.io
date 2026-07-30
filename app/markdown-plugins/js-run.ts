@@ -1,5 +1,53 @@
 import { parseFenceInfo } from "./flags";
-import { b64, hl, runJsInVm } from "./utils";
+import { b64, escapeHtml, hl, runJsInVm } from "./utils";
+
+function formatValue(value: unknown): string {
+  if (typeof value === "string") return value;
+
+  try {
+    return JSON.stringify(value, null, 2) ?? String(value);
+  } catch {
+    return String(value);
+  }
+}
+
+function serializeValue(value: unknown): string {
+  try {
+    return JSON.stringify(value) ?? JSON.stringify(String(value));
+  } catch {
+    return JSON.stringify(String(value));
+  }
+}
+
+function renderFallbackOutput(
+  logs: string[],
+  value: unknown,
+  error: string | undefined
+): string {
+  const sections: string[] = [];
+
+  if (logs.length > 0) {
+    sections.push(
+      `<section><h4>Console Output:</h4><pre>${escapeHtml(logs.join("\n"))}</pre></section>`
+    );
+  }
+
+  if (value !== undefined) {
+    sections.push(
+      `<section><h4>Return Value:</h4><pre>${escapeHtml(formatValue(value))}</pre></section>`
+    );
+  }
+
+  if (error) {
+    sections.push(
+      `<section><h4>Error:</h4><pre>${escapeHtml(error)}</pre></section>`
+    );
+  }
+
+  return sections.length > 0
+    ? `<div class="demo-fallback-output">${sections.join("")}</div>`
+    : "";
+}
 
 // Preprocess string: convert ```js run …``` → <js-run …>
 export async function preprocessJsRun(
@@ -38,17 +86,20 @@ export async function preprocessJsRun(
     });
 
     // Generate attributes
+    const highlighted = hl("javascript", code);
     const src = b64.enc(code);
-    const codeH = b64.enc(hl("javascript", code));
+    const codeH = b64.enc(highlighted);
     const logsA = b64.enc(JSON.stringify(logs));
     const valA =
-      typeof value === "undefined" ? "" : b64.enc(JSON.stringify(value));
+      typeof value === "undefined" ? "" : b64.enc(serializeValue(value));
     const errA = error ? b64.enc(JSON.stringify(error)) : "";
+    const safeBadge = escapeHtml(badge);
+    const fallbackOutput = renderFallbackOutput(logs, value, error);
 
     // Output custom element for frontend component to render
     out += `<js-run src="${src}" code="${codeH}" logs="${logsA}"${
       valA ? ` value="${valA}"` : ""
-    }${errA ? ` error="${errA}"` : ""} badge="${badge}"></js-run>\n`;
+    }${errA ? ` error="${errA}"` : ""} badge="${safeBadge}"><details class="demo-fallback not-prose" open><summary>${safeBadge} example</summary><pre><code class="hljs">${highlighted}</code></pre>${fallbackOutput}</details></js-run>\n`;
   }
 
   out += source.slice(last);

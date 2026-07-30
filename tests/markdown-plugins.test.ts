@@ -42,6 +42,9 @@ describe("HTML demo Markdown plugin", () => {
     const html = md.render(`\`\`\`html demo\n${source}\n\`\`\``);
 
     expect(html).toContain("<html-demo ");
+    expect(html).toContain('class="demo-fallback not-prose"');
+    expect(html).toContain("<summary>html demo source</summary>");
+    expect(html).not.toContain(source);
     expect(decodedAttribute(html, "src")).toBe(`${source}\n`);
     expect(attribute(html, "badge")).toBe("html");
   });
@@ -59,8 +62,10 @@ describe("HTML demo Markdown plugin", () => {
     const md = new MarkdownIt();
     htmlDemoPlugin(md);
     const source = "<script>throw new Error('must not execute')</script>";
+    const rendered = md.render(`\`\`\`html demo\n${source}\n\`\`\``);
 
-    expect(() => md.render(`\`\`\`html demo\n${source}\n\`\`\``)).not.toThrow();
+    expect(rendered).toContain("<html-demo ");
+    expect(rendered).not.toContain("<script>");
   });
 
   test("leaves an ordinary HTML fence as a code block", () => {
@@ -106,6 +111,10 @@ describe("JS run Markdown preprocessor", () => {
     const html = await preprocessJsRun(markdown);
 
     expect(html).toContain("<js-run ");
+    expect(html).toContain('class="demo-fallback not-prose"');
+    expect(html).toContain("Console Output:");
+    expect(html).toContain("Return Value:");
+    expect(html).toContain("answer 42");
     expect(JSON.parse(decodedAttribute(html, "logs") ?? "")).toEqual([
       "answer 42",
     ]);
@@ -119,6 +128,9 @@ describe("JS run Markdown preprocessor", () => {
     const error = JSON.parse(decodedAttribute(html, "error") ?? "");
 
     expect(error).toContain("Error: broken");
+    expect(html).toContain('class="demo-fallback not-prose"');
+    expect(html).toContain("Error:");
+    expect(html).toContain("Error: broken");
   });
 
   test("supports awaited snippets", async () => {

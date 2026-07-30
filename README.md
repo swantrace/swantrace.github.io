@@ -103,6 +103,12 @@ Project Markdown is rendered as the body of its case-study page. The home page d
 
 The client registers `copy-button`, `html-demo`, and `js-run` as progressively enhanced custom elements. They are lazy-loaded when first encountered and scheduled for idle preloading to reduce interaction delay. They can be used in posts or project case studies.
 
+Generated `html-demo` and `js-run` elements include a static, open
+`<details>` fallback. Readers can still inspect source and build output while
+the client script is loading or when it is unavailable. Once the custom
+element upgrades, its Shadow DOM replaces the fallback visually. The HTML
+fallback displays escaped source only; it never mounts the authored preview.
+
 ### `copy-button`
 
 Use `copy-button` when a reader should be able to copy a short, fixed value. Set the text to copy with the `text` attribute:

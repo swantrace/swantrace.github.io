@@ -1,6 +1,6 @@
 import type MarkdownIt from "markdown-it";
 import { parseFenceInfo } from "./flags";
-import { b64, hl } from "./utils";
+import { b64, escapeHtml, hl } from "./utils";
 
 export function htmlDemoPlugin(
   md: MarkdownIt,
@@ -10,7 +10,7 @@ export function htmlDemoPlugin(
   const badge = opts?.badge ?? "html";
 
   const baseFence =
-    md.renderer.rules.fence ?? ((t, i, o, e, s) => s.renderToken(t, i, o));
+    md.renderer.rules.fence ?? ((t, i, o, _e, s) => s.renderToken(t, i, o));
   md.renderer.rules.fence = (tokens, idx, options, env, self) => {
     const token = tokens[idx];
     const info = parseFenceInfo(token.info || "");
@@ -25,7 +25,8 @@ export function htmlDemoPlugin(
 
     const srcAttr = b64.enc(raw);
     const codeAttr = b64.enc(highlighted);
+    const safeBadge = escapeHtml(badge);
 
-    return `<html-demo src="${srcAttr}" code="${codeAttr}" badge="${badge}"></html-demo>\n`;
+    return `<html-demo src="${srcAttr}" code="${codeAttr}" badge="${safeBadge}"><details class="demo-fallback not-prose" open><summary>${safeBadge} demo source</summary><pre><code class="hljs">${highlighted}</code></pre></details></html-demo>\n`;
   };
 }

@@ -95,6 +95,56 @@
    ============================================================================ */
 @layer components {
   /* ========================================
+     Demo progressive-enhancement fallback
+     ======================================== */
+
+  html-demo:not(:defined),
+  js-run:not(:defined) {
+    @apply my-4 block;
+  }
+
+  .demo-fallback {
+    @apply overflow-hidden rounded-lg border border-gray-200 bg-white;
+  }
+
+  .demo-fallback > summary {
+    @apply cursor-pointer bg-gray-50 px-4 py-2 text-xs font-medium tracking-wide text-gray-600 uppercase;
+  }
+
+  .demo-fallback > pre,
+  .demo-fallback-output pre {
+    @apply m-0 overflow-x-auto rounded-none p-4 font-mono text-sm whitespace-pre-wrap;
+  }
+
+  .demo-fallback-output {
+    @apply grid gap-4 border-t border-gray-200 p-4;
+  }
+
+  .demo-fallback-output h4 {
+    @apply m-0 text-sm font-medium text-gray-700;
+  }
+
+  .demo-fallback-output section {
+    @apply grid gap-2;
+  }
+
+  [data-theme="dark"] .demo-fallback {
+    @apply border-gray-800 bg-gray-900;
+  }
+
+  [data-theme="dark"] .demo-fallback > summary {
+    @apply bg-gray-800 text-gray-300;
+  }
+
+  [data-theme="dark"] .demo-fallback-output {
+    @apply border-gray-800;
+  }
+
+  [data-theme="dark"] .demo-fallback-output h4 {
+    @apply text-gray-300;
+  }
+
+  /* ========================================
      Copy button public styling API
      ======================================== */
 
