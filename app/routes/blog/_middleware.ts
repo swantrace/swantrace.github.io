@@ -1,10 +1,10 @@
 import { ssgParams } from "hono/ssg";
 import { createRoute } from "honox/factory";
-import { getAllPostSlugs } from "../../utils/posts.js";
+import { getPublishedPostSlugs } from "../../utils/posts.js";
 
 export default createRoute(
   ssgParams(async () => {
-    const slugs = await getAllPostSlugs();
+    const slugs = await getPublishedPostSlugs();
     return slugs.map((slug) => ({ slug }));
   })
 );
