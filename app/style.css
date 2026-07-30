@@ -95,6 +95,39 @@
    ============================================================================ */
 @layer components {
   /* ========================================
+     HTML demo public styling API
+     ======================================== */
+
+  html-demo {
+    --html-demo-font-family: var(--font-sans);
+    --html-demo-mono-font: var(--font-mono);
+    --html-demo-focus: var(--color-blue-600);
+    @apply my-4;
+  }
+
+  html-demo::part(frame) {
+    @apply rounded-lg;
+  }
+
+  html-demo::part(control) {
+    @apply rounded;
+  }
+
+  [data-theme="dark"] html-demo {
+    --html-demo-color: var(--color-gray-100);
+    --html-demo-muted: var(--color-gray-300);
+    --html-demo-border: var(--color-gray-800);
+    --html-demo-surface: var(--color-gray-900);
+    --html-demo-toolbar: var(--color-gray-800);
+    --html-demo-control-hover: var(--color-gray-700);
+    --html-demo-preview: var(--color-gray-800);
+    --html-demo-preview-color: var(--color-gray-100);
+    --html-demo-code-surface: #0d1117;
+    --html-demo-code-color: #e6edf3;
+    --html-demo-line-number: var(--color-gray-500);
+  }
+
+  /* ========================================
      Code Block Components
      ======================================== */
 

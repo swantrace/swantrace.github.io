@@ -121,7 +121,16 @@ The recommended way to create an `html-demo` is an HTML or XML code fence with t
 
 ````markdown
 ```html demo
-<section class="rounded-lg bg-sky-100 p-4 text-sky-950">
+<style>
+  .example-card {
+    border: 1px solid light-dark(#bae6fd, #075985);
+    border-radius: 0.5rem;
+    background: light-dark(#e0f2fe, #082f49);
+    color: light-dark(#082f49, #e0f2fe);
+    padding: 1rem;
+  }
+</style>
+<section class="example-card">
   <h2>Interactive preview</h2>
   <button type="button">Example button</button>
 </section>
@@ -141,7 +150,37 @@ The generated element has this internal shape:
 <html-demo src="base64url-source" code="base64url-highlighted-source" badge="html"></html-demo>
 ```
 
-Authors should normally use the fenced-code syntax instead of building these Base64URL attributes manually. The preview inserts authored HTML into the page, so only trusted repository content should use `html demo`.
+Authors should normally use the fenced-code syntax instead of building these
+Base64URL attributes manually.
+
+`html-demo` uses Shadow DOM. The preview is placed in its own nested shadow
+root so styles written for an example cannot change the demo toolbar. The
+preview is declarative only: scripts, embedded documents, inline event
+handlers, and executable URLs are removed, and form submissions are prevented.
+Native form validation still works.
+
+Because global styles do not cross a shadow boundary, Tailwind utility classes
+from the main page do not style elements inside the preview. Include a local
+`<style>` block when a demo needs custom CSS, as in the example above. Those
+styles remain isolated to that preview.
+
+The component exposes these CSS shadow parts: `frame`, `toolbar`, `badge`,
+`actions`, `control`, `copy-button`, `toggle-button`, `preview`, `code`, and
+`code-content`.
+
+They can be styled from Tailwind's component layer with `::part()`:
+
+```css
+@layer components {
+  html-demo::part(frame) {
+    @apply rounded-xl shadow-sm;
+  }
+
+  html-demo::part(control) {
+    @apply rounded-md;
+  }
+}
+```
 
 ### `js-run`
 

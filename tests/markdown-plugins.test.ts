@@ -5,6 +5,10 @@ import { htmlDemoPlugin } from "../app/markdown-plugins/html-demo";
 import { preprocessJsRun } from "../app/markdown-plugins/js-run";
 import { b64 } from "../app/markdown-plugins/utils";
 import { processMarkdown } from "../app/utils/markdown";
+import {
+  blockedDemoElements,
+  shouldRemoveDemoAttribute,
+} from "../app/wc/html-demo-safety";
 
 function attribute(html: string, name: string): string | undefined {
   return html.match(new RegExp(`\\s${name}="([^"]*)"`))?.[1];
@@ -67,6 +71,26 @@ describe("HTML demo Markdown plugin", () => {
 
     expect(html).toContain("<pre><code");
     expect(html).not.toContain("<html-demo ");
+  });
+});
+
+describe("HTML demo safety policy", () => {
+  test("blocks active and embedded document elements", () => {
+    expect(blockedDemoElements).toContain("script");
+    expect(blockedDemoElements).toContain("iframe");
+    expect(blockedDemoElements).toContain("object");
+  });
+
+  test("removes event handlers, srcdoc, and executable URLs", () => {
+    expect(shouldRemoveDemoAttribute("onclick", "save()")).toBeTrue();
+    expect(shouldRemoveDemoAttribute("srcdoc", "<script></script>")).toBeTrue();
+    expect(
+      shouldRemoveDemoAttribute("href", " java\nscript:alert(1)")
+    ).toBeTrue();
+    expect(
+      shouldRemoveDemoAttribute("href", "https://example.com")
+    ).toBeFalse();
+    expect(shouldRemoveDemoAttribute("aria-label", "Save")).toBeFalse();
   });
 });
 
