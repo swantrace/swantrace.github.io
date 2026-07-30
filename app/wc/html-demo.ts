@@ -72,7 +72,9 @@ if (!customElements.get("html-demo-preview")) {
 }
 
 function HtmlDemo(this: HTMLElement) {
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
+    "idle"
+  );
   const [showCode, setShowCode] = useState(false);
 
   const srcAttr = this.getAttribute("src") ?? "";
@@ -88,10 +90,11 @@ function HtmlDemo(this: HTMLElement) {
   const copySource = async () => {
     try {
       await navigator.clipboard.writeText(sourceCode);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setCopyStatus("copied");
+      setTimeout(() => setCopyStatus("idle"), 2000);
     } catch {
-      // Clipboard access can be unavailable outside a secure context.
+      setCopyStatus("error");
+      setTimeout(() => setCopyStatus("idle"), 2000);
     }
   };
 
@@ -203,8 +206,23 @@ function HtmlDemo(this: HTMLElement) {
                   type="button"
                   part="control copy-button"
                   @click=${copySource}
+                  aria-label=${
+                    copyStatus === "copied"
+                      ? "HTML source copied to clipboard"
+                      : copyStatus === "error"
+                        ? "HTML source could not be copied"
+                        : "Copy HTML source"
+                  }
                 >
-                  ${copied ? "Copied!" : "Copy"}
+                  <span aria-live="polite">
+                    ${
+                      copyStatus === "copied"
+                        ? "Copied!"
+                        : copyStatus === "error"
+                          ? "Copy failed"
+                          : "Copy"
+                    }
+                  </span>
                 </button>
               `
               : ""
@@ -221,14 +239,22 @@ function HtmlDemo(this: HTMLElement) {
       </div>
 
       <html-demo-preview
+        id="html-demo-preview"
         part="preview"
+        role="region"
+        aria-label="HTML demo preview"
         .content=${sourceCode}
       ></html-demo-preview>
 
       ${
         showCode
           ? html`
-            <pre part="code"><code
+            <pre
+              id="html-demo-code"
+              part="code"
+              tabindex="0"
+              aria-label="HTML demo source code"
+            ><code
               part="code-content"
               .innerHTML=${codeWithLines}
             ></code></pre>

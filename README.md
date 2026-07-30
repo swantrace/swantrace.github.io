@@ -126,6 +126,9 @@ appearance can be customized from the Tailwind component layer:
 }
 ```
 
+Copy success and failure are announced through an `aria-live` label. All demo
+controls use native keyboard-operable buttons with visible focus styles.
+
 ### `html-demo`
 
 The recommended way to create an `html-demo` is an HTML or XML code fence with the `demo` flag:
@@ -175,6 +178,9 @@ from the main page do not style elements inside the preview. Include a local
 `<style>` block when a demo needs custom CSS, as in the example above. Those
 styles remain isolated to that preview.
 
+The preview and optional source block have accessible labels. The source block
+is keyboard-focusable so keyboard users can scroll long examples.
+
 The component exposes these CSS shadow parts: `frame`, `toolbar`, `badge`,
 `actions`, `control`, `copy-button`, `toggle-button`, `preview`, `code`, and
 `code-content`.
@@ -222,6 +228,9 @@ The Markdown preprocessor converts the fence into a `js-run` element with Base64
 `code-content`, `output`, `output-group`, `console-group`, `console-output`,
 `console-line`, `return-group`, `return-output`, `error-group`,
 `error-heading`, and `error-output`.
+
+Source code and build output regions have accessible labels. Console output is
+exposed as a log, and build-time errors use an alert role.
 
 For example:
 

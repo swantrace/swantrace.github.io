@@ -1,18 +1,28 @@
 import { component, html, useState } from "haunted";
 
 function CopyButton(this: HTMLElement) {
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
+    "idle"
+  );
 
   const onClick = async () => {
     const text = this.getAttribute("text") ?? "";
     try {
       await navigator.clipboard.writeText(text);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1200);
+      setCopyStatus("copied");
+      setTimeout(() => setCopyStatus("idle"), 1200);
     } catch {
-      // Clipboard access can be unavailable outside a secure context.
+      setCopyStatus("error");
+      setTimeout(() => setCopyStatus("idle"), 2000);
     }
   };
+
+  const label =
+    copyStatus === "copied"
+      ? "Copied!"
+      : copyStatus === "error"
+        ? "Copy failed"
+        : "Copy";
 
   return html`
     <style>
@@ -50,10 +60,16 @@ function CopyButton(this: HTMLElement) {
       type="button"
       part="button"
       @click=${onClick}
-      aria-label=${copied ? "Copied to clipboard" : "Copy to clipboard"}
+      aria-label=${
+        copyStatus === "copied"
+          ? "Copied to clipboard"
+          : copyStatus === "error"
+            ? "Copy failed"
+            : "Copy to clipboard"
+      }
     >
       <span part="label" aria-live="polite">
-        ${copied ? "Copied!" : "Copy"}
+        ${label}
       </span>
     </button>
   `;

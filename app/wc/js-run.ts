@@ -18,7 +18,9 @@ function parseJsonAttribute<T>(encoded: string, fallback: T): T {
 }
 
 function JsRun(this: HTMLElement) {
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
+    "idle"
+  );
 
   const sourceCode = b64dec(this.getAttribute("src") ?? "");
   const highlightedCode = b64dec(this.getAttribute("code") ?? "");
@@ -43,10 +45,11 @@ function JsRun(this: HTMLElement) {
   const copySource = async () => {
     try {
       await navigator.clipboard.writeText(sourceCode);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      setCopyStatus("copied");
+      setTimeout(() => setCopyStatus("idle"), 2000);
     } catch {
-      // Clipboard access can be unavailable outside a secure context.
+      setCopyStatus("error");
+      setTimeout(() => setCopyStatus("idle"), 2000);
     }
   };
 
@@ -215,13 +218,36 @@ function JsRun(this: HTMLElement) {
       <div class="toolbar" part="toolbar">
         <span class="badge" part="badge">${badge}</span>
         <div part="actions">
-          <button type="button" part="control copy-button" @click=${copySource}>
-            ${copied ? "Copied!" : "Copy"}
+          <button
+            type="button"
+            part="control copy-button"
+            @click=${copySource}
+            aria-label=${
+              copyStatus === "copied"
+                ? "JavaScript source copied to clipboard"
+                : copyStatus === "error"
+                  ? "JavaScript source could not be copied"
+                  : "Copy JavaScript source"
+            }
+          >
+            <span aria-live="polite">
+              ${
+                copyStatus === "copied"
+                  ? "Copied!"
+                  : copyStatus === "error"
+                    ? "Copy failed"
+                    : "Copy"
+              }
+            </span>
           </button>
         </div>
       </div>
 
-      <pre part="code"><code
+      <pre
+        part="code"
+        tabindex="0"
+        aria-label="JavaScript source code"
+      ><code
         part="code-content"
         .innerHTML=${codeWithLines}
       ></code></pre>
@@ -229,13 +255,23 @@ function JsRun(this: HTMLElement) {
       ${
         hasOutput
           ? html`
-            <div class="output" part="output">
+            <div
+              class="output"
+              part="output"
+              role="region"
+              aria-label="JavaScript build output"
+            >
               ${
                 logs.length > 0
                   ? html`
                     <section class="output-group" part="output-group console-group">
                       <h4 part="output-heading">Console Output:</h4>
-                      <div class="result console" part="console-output">
+                      <div
+                        class="result console"
+                        part="console-output"
+                        role="log"
+                        aria-label="Console output"
+                      >
                         ${logs.map(
                           (log) => html`<div part="console-line">${log}</div>`
                         )}
@@ -250,7 +286,12 @@ function JsRun(this: HTMLElement) {
                   ? html`
                     <section class="output-group" part="output-group return-group">
                       <h4 part="output-heading">Return Value:</h4>
-                      <div class="result return-value" part="return-output">${formattedValue}</div>
+                      <div
+                        class="result return-value"
+                        part="return-output"
+                        role="region"
+                        aria-label="Return value"
+                      >${formattedValue}</div>
                     </section>
                   `
                   : ""
@@ -261,7 +302,11 @@ function JsRun(this: HTMLElement) {
                   ? html`
                     <section class="output-group" part="output-group error-group">
                       <h4 part="output-heading error-heading">Error:</h4>
-                      <div class="result error" part="error-output">${error}</div>
+                      <div
+                        class="result error"
+                        part="error-output"
+                        role="alert"
+                      >${error}</div>
                     </section>
                   `
                   : ""
