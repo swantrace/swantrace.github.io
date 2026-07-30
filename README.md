@@ -63,6 +63,11 @@ bun run dev
 
 The development server watches the post directory and regenerates `public/posts.json` when content changes.
 
+The draft at
+`content/posts/interactive-markdown-demo-test.md` is a permanent browser-test
+fixture. Keep it as `draft: true`: Playwright uses it in development, while
+production generation continues to exclude it.
+
 ## Available commands
 
 | Command | Purpose |
@@ -80,6 +85,9 @@ The development server watches the post directory and regenerates `public/posts.
 | `bun run typecheck` | Run TypeScript without emitting files |
 | `bun run gen:posts` | Regenerate the published post index |
 | `bun run gen:sitemap` | Regenerate the sitemap |
+
+Playwright retains screenshots, video, and traces when a browser test fails.
+CI uploads those diagnostics as a seven-day GitHub Actions artifact.
 
 ## Writing content
 

@@ -9,7 +9,9 @@ export default defineConfig({
   reporter: process.env.CI ? "github" : "list",
   use: {
     baseURL: "http://127.0.0.1:5173",
+    screenshot: "only-on-failure",
     trace: "on-first-retry",
+    video: "retain-on-failure",
   },
   webServer: {
     command: "bunx vite --host 127.0.0.1 --port 5173",
