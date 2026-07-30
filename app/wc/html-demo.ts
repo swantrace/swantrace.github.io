@@ -1,14 +1,9 @@
 import { component, html, useState } from "haunted";
+import { decodeBase64Url } from "./encoded-attributes";
 import {
   blockedDemoElements,
   shouldRemoveDemoAttribute,
 } from "./html-demo-safety";
-
-function b64dec(s: string): string {
-  const pad = s.length % 4 ? "=".repeat(4 - (s.length % 4)) : "";
-  const decoded = atob(s.replace(/-/g, "+").replace(/_/g, "/") + pad);
-  return decodeURIComponent(escape(decoded));
-}
 
 /**
  * Keep HTML demos declarative: scripts, embedded documents, inline event
@@ -80,8 +75,8 @@ function HtmlDemo(this: HTMLElement) {
   const srcAttr = this.getAttribute("src") ?? "";
   const codeAttr = this.getAttribute("code") ?? "";
   const badge = this.getAttribute("badge") ?? "html";
-  const sourceCode = srcAttr ? b64dec(srcAttr) : "";
-  const highlightedCode = codeAttr ? b64dec(codeAttr) : "";
+  const sourceCode = decodeBase64Url(srcAttr);
+  const highlightedCode = decodeBase64Url(codeAttr);
   const codeWithLines = highlightedCode
     .split("\n")
     .map((line) => `<span class="line">${line}</span>`)
@@ -269,6 +264,7 @@ if (!customElements.get("html-demo")) {
   customElements.define(
     "html-demo",
     component(HtmlDemo, {
+      observedAttributes: ["src", "code", "badge"],
       useShadowDOM: true,
     })
   );

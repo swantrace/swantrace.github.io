@@ -6,6 +6,10 @@ import { preprocessJsRun } from "../app/markdown-plugins/js-run";
 import { b64 } from "../app/markdown-plugins/utils";
 import { processMarkdown } from "../app/utils/markdown";
 import {
+  decodeBase64Url,
+  decodeJsonAttribute,
+} from "../app/wc/encoded-attributes";
+import {
   blockedDemoElements,
   shouldRemoveDemoAttribute,
 } from "../app/wc/html-demo-safety";
@@ -29,6 +33,31 @@ describe("fence flags", () => {
       lang: "javascript",
       flags: new Set(["run"]),
     });
+  });
+});
+
+describe("encoded custom-element attributes", () => {
+  test("decodes Base64URL as strict UTF-8", () => {
+    const content = "FHIR consent: 同意 ✅";
+
+    expect(decodeBase64Url(b64.enc(content))).toBe(content);
+  });
+
+  test("falls back for malformed Base64URL and UTF-8", () => {
+    expect(decodeBase64Url("%%%", "fallback")).toBe("fallback");
+    expect(decodeBase64Url("_w", "fallback")).toBe("fallback");
+  });
+
+  test("decodes JSON and falls back for invalid JSON", () => {
+    expect(
+      decodeJsonAttribute<{ ready: boolean } | null>(
+        b64.enc('{"ready":true}'),
+        null
+      )
+    ).toEqual({ ready: true });
+    expect(decodeJsonAttribute(b64.enc("not json"), "fallback")).toBe(
+      "fallback"
+    );
   });
 });
 

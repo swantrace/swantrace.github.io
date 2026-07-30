@@ -1,39 +1,20 @@
 import { component, html, useState } from "haunted";
-
-function b64dec(s: string): string {
-  if (!s) return "";
-  const pad = s.length % 4 ? "=".repeat(4 - (s.length % 4)) : "";
-  const decoded = atob(s.replace(/-/g, "+").replace(/_/g, "/") + pad);
-  return decodeURIComponent(escape(decoded));
-}
-
-function parseJsonAttribute<T>(encoded: string, fallback: T): T {
-  if (!encoded) return fallback;
-
-  try {
-    return JSON.parse(b64dec(encoded)) as T;
-  } catch {
-    return fallback;
-  }
-}
+import { decodeBase64Url, decodeJsonAttribute } from "./encoded-attributes";
 
 function JsRun(this: HTMLElement) {
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">(
     "idle"
   );
 
-  const sourceCode = b64dec(this.getAttribute("src") ?? "");
-  const highlightedCode = b64dec(this.getAttribute("code") ?? "");
-  const logs = parseJsonAttribute<string[]>(
-    this.getAttribute("logs") ?? "",
-    []
-  );
-  const value = parseJsonAttribute<unknown>(
-    this.getAttribute("value") ?? "",
+  const sourceCode = decodeBase64Url(this.getAttribute("src"));
+  const highlightedCode = decodeBase64Url(this.getAttribute("code"));
+  const logs = decodeJsonAttribute<string[]>(this.getAttribute("logs"), []);
+  const value = decodeJsonAttribute<unknown>(
+    this.getAttribute("value"),
     undefined
   );
-  const error = parseJsonAttribute<string | null>(
-    this.getAttribute("error") ?? "",
+  const error = decodeJsonAttribute<string | null>(
+    this.getAttribute("error"),
     null
   );
   const badge = this.getAttribute("badge") ?? "js";
@@ -323,6 +304,7 @@ if (!customElements.get("js-run")) {
   customElements.define(
     "js-run",
     component(JsRun, {
+      observedAttributes: ["src", "code", "logs", "value", "error", "badge"],
       useShadowDOM: true,
     })
   );
