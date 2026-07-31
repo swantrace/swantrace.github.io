@@ -27,7 +27,7 @@ The site is designed to give hiring teams more than a list of technologies. It c
 | Content | Markdown, gray-matter, and markdown-it |
 | Technical writing | highlight.js, KaTeX, and custom Markdown plugins |
 | Browser interactivity | Web Components, Haunted, and lit-html |
-| Code quality | Biome and TypeScript |
+| Testing and code quality | Bun Test, Playwright, Biome, and TypeScript |
 | Hosting and CI/CD | GitHub Pages and GitHub Actions |
 
 ## Project structure
@@ -51,15 +51,22 @@ scripts/                Post index and sitemap generators
 ### Requirements
 
 - [Bun](https://bun.sh/) installed locally
+- Chromium installed through Playwright for browser tests
 
 ### Install and run
 
 ```bash
 bun install
+bunx playwright install chromium
 bun run dev
 ```
 
 The development server watches the post directory and regenerates `public/posts.json` when content changes.
+
+The draft at
+`content/posts/interactive-markdown-demo-test.md` is a permanent browser-test
+fixture. Keep it as `draft: true`: Playwright uses it in development, while
+production generation continues to exclude it.
 
 ## Available commands
 
@@ -71,9 +78,16 @@ The development server watches the post directory and regenerates `public/posts.
 | `bun run preview` | Preview the generated site |
 | `bun run check` | Run Biome formatting and lint checks |
 | `bun run check:fix` | Apply safe Biome formatting and lint fixes |
+| `bun run test` | Run fast Markdown and component utility tests |
+| `bun run test:e2e` | Run interactive demo tests in Chromium |
+| `bun run test:e2e:all` | Run the browser suite in Chromium, Firefox, WebKit, and mobile Chromium |
+| `bun run test:all` | Run unit tests followed by Chromium browser tests |
 | `bun run typecheck` | Run TypeScript without emitting files |
 | `bun run gen:posts` | Regenerate the published post index |
 | `bun run gen:sitemap` | Regenerate the sitemap |
+
+Playwright retains screenshots, video, and traces when a browser test fails.
+CI uploads those diagnostics as a seven-day GitHub Actions artifact.
 
 ## Writing content
 
@@ -103,17 +117,43 @@ Project Markdown is rendered as the body of its case-study page. The home page d
 
 The client registers `copy-button`, `html-demo`, and `js-run` as progressively enhanced custom elements. They are lazy-loaded when first encountered and scheduled for idle preloading to reduce interaction delay. They can be used in posts or project case studies.
 
+Generated `html-demo` and `js-run` elements include a static, open
+`<details>` fallback. Readers can still inspect source and build output while
+the client script is loading or when it is unavailable. Once the custom
+element upgrades, its Shadow DOM replaces the fallback visually. The HTML
+fallback displays escaped source only; it never mounts the authored preview.
+
 ### `copy-button`
 
 Use `copy-button` when a reader should be able to copy a short, fixed value. Set the text to copy with the `text` attribute:
 
 ```html
-<copy-button text="bun run dev"></copy-button>
+<copy-button text="bun run dev">
+  <button type="button" disabled>Copy unavailable</button>
+</copy-button>
 ```
 
 Raw HTML is enabled in the Markdown renderer, so the same markup works directly in a Markdown file. Escape characters such as `&`, `<`, and quotes when they appear inside the attribute. The button uses the browser Clipboard API and briefly changes its label to `Copied!` after a successful copy.
 
+The disabled light-DOM button is a no-JavaScript fallback. Shadow DOM hides it
+when `copy-button` upgrades; without JavaScript, it remains visible without
+misleading the reader that copying is available.
+
 Clipboard access requires a secure browser context, such as HTTPS or localhost.
+
+`copy-button` uses Shadow DOM and exposes `button` and `label` parts. Its
+appearance can be customized from the Tailwind component layer:
+
+```css
+@layer components {
+  copy-button::part(button) {
+    @apply rounded-lg border-blue-300;
+  }
+}
+```
+
+Copy success and failure are announced through an `aria-live` label. All demo
+controls use native keyboard-operable buttons with visible focus styles.
 
 ### `html-demo`
 
@@ -121,7 +161,16 @@ The recommended way to create an `html-demo` is an HTML or XML code fence with t
 
 ````markdown
 ```html demo
-<section class="rounded-lg bg-sky-100 p-4 text-sky-950">
+<style>
+  .example-card {
+    border: 1px solid light-dark(#bae6fd, #075985);
+    border-radius: 0.5rem;
+    background: light-dark(#e0f2fe, #082f49);
+    color: light-dark(#082f49, #e0f2fe);
+    padding: 1rem;
+  }
+</style>
+<section class="example-card">
   <h2>Interactive preview</h2>
   <button type="button">Example button</button>
 </section>
@@ -141,7 +190,40 @@ The generated element has this internal shape:
 <html-demo src="base64url-source" code="base64url-highlighted-source" badge="html"></html-demo>
 ```
 
-Authors should normally use the fenced-code syntax instead of building these Base64URL attributes manually. The preview inserts authored HTML into the page, so only trusted repository content should use `html demo`.
+Authors should normally use the fenced-code syntax instead of building these
+Base64URL attributes manually.
+
+`html-demo` uses Shadow DOM. The preview is placed in its own nested shadow
+root so styles written for an example cannot change the demo toolbar. The
+preview is declarative only: scripts, embedded documents, inline event
+handlers, and executable URLs are removed, and form submissions are prevented.
+Native form validation still works.
+
+Because global styles do not cross a shadow boundary, Tailwind utility classes
+from the main page do not style elements inside the preview. Include a local
+`<style>` block when a demo needs custom CSS, as in the example above. Those
+styles remain isolated to that preview.
+
+The preview and optional source block have accessible labels. The source block
+is keyboard-focusable so keyboard users can scroll long examples.
+
+The component exposes these CSS shadow parts: `frame`, `toolbar`, `badge`,
+`actions`, `control`, `copy-button`, `toggle-button`, `preview`, `code`, and
+`code-content`.
+
+They can be styled from Tailwind's component layer with `::part()`:
+
+```css
+@layer components {
+  html-demo::part(frame) {
+    @apply rounded-xl shadow-sm;
+  }
+
+  html-demo::part(control) {
+    @apply rounded-md;
+  }
+}
+```
 
 ### `js-run`
 
@@ -167,8 +249,34 @@ JavaScript runs during Markdown processing in a Node.js VM—not in the reader's
 
 The Markdown preprocessor converts the fence into a `js-run` element with Base64URL-encoded source, highlighted code, logs, return value, and error attributes. Those attributes are an internal rendering format; content authors should use the fenced-code form.
 
+`js-run` uses Shadow DOM and exposes these parts for site-level styling:
+`frame`, `toolbar`, `badge`, `actions`, `control`, `copy-button`, `code`,
+`code-content`, `output`, `output-group`, `console-group`, `console-output`,
+`console-line`, `return-group`, `return-output`, `error-group`,
+`error-heading`, and `error-output`.
+
+Source code and build output regions have accessible labels. Console output is
+exposed as a log, and build-time errors use an alert role.
+
+For example:
+
+```css
+@layer components {
+  js-run::part(frame) {
+    @apply rounded-xl shadow-sm;
+  }
+
+  js-run::part(error-output) {
+    @apply border border-red-300;
+  }
+}
+```
+
 ## Deployment
 
-Pushes to `main` run the GitHub Actions workflow in `.github/workflows/deploy.yml`. The workflow installs dependencies, runs Biome and TypeScript checks, creates the static production build, and deploys `dist/` to GitHub Pages.
+Pull requests run unit, cross-browser, type, lint, and production-build checks
+through `.github/workflows/ci.yml`. Pushes to `main` run the GitHub Actions
+workflow in `.github/workflows/deploy.yml`; deployment repeats the core checks
+and Chromium suite before publishing `dist/` to GitHub Pages.
 
 The production site URL is configured through `VITE_SITE_URL` in the deployment workflow.

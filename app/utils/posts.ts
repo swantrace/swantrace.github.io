@@ -108,6 +108,23 @@ export async function getAllPostSlugs(): Promise<string[]> {
 }
 
 /**
+ * Return only slugs that are safe to emit during a production SSG build.
+ */
+export async function getPublishedPostSlugs(): Promise<string[]> {
+  const slugs = await getAllPostSlugs();
+  const publishedSlugs: string[] = [];
+
+  for (const slug of slugs) {
+    const post = await getPostBySlug(slug);
+    if (post && !post.frontmatter.draft) {
+      publishedSlugs.push(slug);
+    }
+  }
+
+  return publishedSlugs;
+}
+
+/**
  * Get recent posts for homepage display
  */
 export function getRecentPosts(count: number = 3): PostMeta[] {

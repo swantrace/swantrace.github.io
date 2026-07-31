@@ -95,6 +95,170 @@
    ============================================================================ */
 @layer components {
   /* ========================================
+     Demo progressive-enhancement fallback
+     ======================================== */
+
+  html-demo:not(:defined),
+  js-run:not(:defined) {
+    @apply my-4 block;
+  }
+
+  .demo-fallback {
+    @apply overflow-hidden rounded-lg border border-gray-200 bg-white;
+  }
+
+  .demo-fallback > summary {
+    @apply cursor-pointer bg-gray-50 px-4 py-2 text-xs font-medium tracking-wide text-gray-600 uppercase;
+  }
+
+  .demo-fallback > pre,
+  .demo-fallback-output pre {
+    @apply m-0 overflow-x-auto rounded-none p-4 font-mono text-sm whitespace-pre-wrap;
+  }
+
+  .demo-fallback-output {
+    @apply grid gap-4 border-t border-gray-200 p-4;
+  }
+
+  .demo-fallback-output h4 {
+    @apply m-0 text-sm font-medium text-gray-700;
+  }
+
+  .demo-fallback-output section {
+    @apply grid gap-2;
+  }
+
+  [data-theme="dark"] .demo-fallback {
+    @apply border-gray-800 bg-gray-900;
+  }
+
+  [data-theme="dark"] .demo-fallback > summary {
+    @apply bg-gray-800 text-gray-300;
+  }
+
+  [data-theme="dark"] .demo-fallback-output {
+    @apply border-gray-800;
+  }
+
+  [data-theme="dark"] .demo-fallback-output h4 {
+    @apply text-gray-300;
+  }
+
+  /* ========================================
+     Copy button public styling API
+     ======================================== */
+
+  copy-button {
+    --copy-button-font-family: var(--font-sans);
+    --copy-button-focus: var(--color-blue-600);
+  }
+
+  copy-button:not(:defined) > button {
+    @apply cursor-not-allowed rounded-md border border-gray-300 bg-transparent px-3 py-1.5 text-sm font-medium text-gray-500;
+  }
+
+  [data-theme="dark"] copy-button:not(:defined) > button {
+    @apply border-gray-600 text-gray-400;
+  }
+
+  copy-button::part(button) {
+    @apply rounded-md;
+  }
+
+  [data-theme="dark"] copy-button {
+    --copy-button-border: var(--color-gray-600);
+    --copy-button-color: var(--color-gray-300);
+    --copy-button-hover-border: var(--color-gray-500);
+    --copy-button-hover-surface: var(--color-gray-800);
+    --copy-button-hover-color: var(--color-gray-100);
+  }
+
+  /* ========================================
+     HTML demo public styling API
+     ======================================== */
+
+  html-demo {
+    --html-demo-font-family: var(--font-sans);
+    --html-demo-mono-font: var(--font-mono);
+    --html-demo-focus: var(--color-blue-600);
+    @apply my-4;
+  }
+
+  html-demo::part(frame) {
+    @apply rounded-lg;
+  }
+
+  html-demo::part(control) {
+    @apply rounded;
+  }
+
+  [data-theme="dark"] html-demo {
+    --html-demo-color: var(--color-gray-100);
+    --html-demo-muted: var(--color-gray-300);
+    --html-demo-border: var(--color-gray-800);
+    --html-demo-surface: var(--color-gray-900);
+    --html-demo-toolbar: var(--color-gray-800);
+    --html-demo-control-hover: var(--color-gray-700);
+    --html-demo-preview: var(--color-gray-800);
+    --html-demo-preview-color: var(--color-gray-100);
+    --html-demo-code-surface: #0d1117;
+    --html-demo-code-color: #e6edf3;
+    --html-demo-line-number: var(--color-gray-500);
+  }
+
+  /* ========================================
+     JS run public styling API
+     ======================================== */
+
+  js-run {
+    --js-run-font-family: var(--font-sans);
+    --js-run-mono-font: var(--font-mono);
+    --js-run-focus: var(--color-blue-600);
+    @apply my-4;
+  }
+
+  js-run::part(frame) {
+    @apply rounded-lg;
+  }
+
+  js-run::part(control),
+  js-run::part(console-output),
+  js-run::part(return-output),
+  js-run::part(error-output) {
+    @apply rounded;
+  }
+
+  [data-theme="dark"] js-run {
+    --js-run-color: var(--color-gray-100);
+    --js-run-muted: var(--color-gray-300);
+    --js-run-border: var(--color-gray-800);
+    --js-run-surface: var(--color-gray-900);
+    --js-run-toolbar: var(--color-gray-800);
+    --js-run-control-hover: var(--color-gray-700);
+    --js-run-heading: var(--color-gray-300);
+    --js-run-code-surface: #0d1117;
+    --js-run-code-color: #e6edf3;
+    --js-run-line-number: var(--color-gray-500);
+    --js-run-syntax-comment: #8b949e;
+    --js-run-syntax-keyword: #ff7b72;
+    --js-run-syntax-string: #a5d6ff;
+    --js-run-syntax-title: #d2a8ff;
+    --js-run-syntax-number: #79c0ff;
+    --js-run-return-surface: color-mix(
+      in srgb,
+      var(--color-blue-900) 20%,
+      transparent
+    );
+    --js-run-return-color: var(--color-blue-200);
+    --js-run-error-surface: color-mix(
+      in srgb,
+      var(--color-red-900) 20%,
+      transparent
+    );
+    --js-run-error-color: var(--color-red-200);
+  }
+
+  /* ========================================
      Code Block Components
      ======================================== */
 

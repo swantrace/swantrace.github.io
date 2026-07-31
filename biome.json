@@ -5,8 +5,10 @@
       "**",
       "!dist",
       "!.hono",
+      "!playwright-report",
       "!public/posts.json",
-      "!public/sitemap.xml"
+      "!public/sitemap.xml",
+      "!test-results"
     ]
   },
   "formatter": {
