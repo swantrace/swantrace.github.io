@@ -5,9 +5,17 @@ import { SocialIcons } from "./social-icons";
 export const Header = ({ path }: { path: string }) => (
   <header className="site-header">
     <a href={url("/")} className="profile-link" aria-label="Fred Hong — Home">
-      <span className="profile-initials" aria-hidden="true">
-        FH<span>.</span>
-      </span>
+      <div className="avatar shrink-0">
+        <div className="size-10 rounded-full lg:size-36">
+          <img
+            src={url("/images/avatar.webp")}
+            alt="Fred Hong"
+            width={512}
+            height={512}
+            decoding="async"
+          />
+        </div>
+      </div>
       <span>
         <span className="block text-lg font-bold tracking-tight">
           Fred Hong
