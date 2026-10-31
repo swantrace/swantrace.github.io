@@ -284,3 +284,27 @@ workflow in `.github/workflows/deploy.yml`; deployment repeats the core checks
 and Chromium suite before publishing `dist/` to GitHub Pages.
 
 The production site URL is configured through `VITE_SITE_URL` in the deployment workflow.
+
+## Contact form
+
+The home-page contact modal is a Haunted component. It uses the browser's native
+`dialog` for keyboard focus and Escape dismissal, with a regular email link as
+the no-JavaScript fallback.
+
+For direct submissions on GitHub Pages, connect an email service and create a
+contact template in [EmailJS](https://www.emailjs.com/docs/rest-api/send/).
+Set the template recipient to `frederickhong.5@gmail.com`, Reply-To to
+`{{reply_to}}`, and use `{{from_name}}`, `{{from_email}}`, and `{{message}}`
+in the template. Keep the From address as the connected service's address.
+
+- Locally, copy `.env.example` to `.env`, set `VITE_EMAILJS_SERVICE_ID`,
+  `VITE_EMAILJS_TEMPLATE_ID`, and `VITE_EMAILJS_PUBLIC_KEY`, then restart Vite.
+- The public production values are configured in `.env.production`, which Vite
+  loads during the Pages build. Update that file when changing EmailJS accounts
+  or templates.
+
+These values are public browser configuration. Do not put an EmailJS private
+key in a `VITE_` variable. The component uses the REST API with native `fetch`,
+so no SDK is required. A successful HTTP response shows a submission
+confirmation; errors retain the visitor's message. Until all three values are
+configured, the form offers **Open email app** and composes a `mailto:` draft.

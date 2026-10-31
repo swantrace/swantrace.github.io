@@ -24,15 +24,19 @@ export const HeroSection = () => {
             Available for long-term full-time opportunities.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              className="btn"
-              href="https://www.linkedin.com/in/fredhong999/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Let's connect on LinkedIn"
+            <contact-form
+              service-id={import.meta.env.VITE_EMAILJS_SERVICE_ID || ""}
+              template-id={import.meta.env.VITE_EMAILJS_TEMPLATE_ID || ""}
+              public-key={import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ""}
             >
-              Let's connect <span aria-hidden="true">↗</span>
-            </a>
+              <a
+                className="btn"
+                href="mailto:frederickhong.5@gmail.com"
+                aria-label="Let's connect by email"
+              >
+                Let's connect <span aria-hidden="true">↗</span>
+              </a>
+            </contact-form>
             <a className="btn btn-outline" href={url("/projects")}>
               View my work <span aria-hidden="true">→</span>
             </a>
