@@ -1,7 +1,7 @@
 // Curated from the supplied resume records; review notes and private evidence are omitted.
 export const cv = {
   name: "Fred Hong",
-  headline: "Full-stack engineer",
+  headline: "Senior full-stack engineer",
   summary:
     "I build web applications and integration tools, with experience across frontend systems, healthcare interoperability, and e-commerce. My work spans React interfaces, Node.js APIs, FHIR consent workflows, and Shopify integrations.",
   experiences: [

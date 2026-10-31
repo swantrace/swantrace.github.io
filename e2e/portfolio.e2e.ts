@@ -24,6 +24,8 @@ for (const width of [1440, 768, 390, 320]) {
     page,
     browserName,
   }) => {
+    // This smoke test visits six routes, including interactive Markdown demos.
+    test.setTimeout(60_000);
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/");
     await expect(
@@ -53,7 +55,7 @@ for (const width of [1440, 768, 390, 320]) {
     await expect(
       page.getByRole("heading", { name: "Projects", exact: true })
     ).toBeVisible();
-    await expect(page.locator(".portfolio-card")).toHaveCount(3);
+    await expect(page.locator(".portfolio-card")).toHaveCount(4);
     await checkOverflow();
 
     await page.getByRole("link", { name: "Read case study" }).first().click();

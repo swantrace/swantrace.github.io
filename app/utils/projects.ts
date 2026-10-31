@@ -31,6 +31,19 @@ export function parseProjectFrontmatter(
     github: data.github || null,
     demo: data.demo || null,
     image: data.image || null,
+    imageAlt: data.imageAlt || null,
+    category: data.category || null,
+    status: data.status || null,
+    role: data.role || null,
+    demoNote: data.demoNote || null,
+    links: Array.isArray(data.links)
+      ? data.links.filter(
+          (link: { label?: unknown; href?: unknown } | null) =>
+            link &&
+            typeof link.label === "string" &&
+            typeof link.href === "string"
+        )
+      : [],
     featured: Boolean(data.featured),
     draft: Boolean(data.draft),
     sourceVisibility:

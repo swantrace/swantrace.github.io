@@ -16,10 +16,10 @@ export default createRoute(async (c) => {
 
   return c.render(
     <>
-      <title>Fred Hong — Full-stack Engineer</title>
+      <title>Fred Hong — Senior Full-stack Engineer</title>
       <meta
         name="description"
-        content="Fred Hong is a full-stack engineer specializing in React, TypeScript, and FHIR interoperability."
+        content="Fred Hong is a senior full-stack engineer building complex web applications with React, TypeScript, and Node.js, with experience in healthcare interoperability, security, and AI applications."
       />
       <main>
         <HeroSection />

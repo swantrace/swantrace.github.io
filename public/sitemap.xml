@@ -21,17 +21,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://swantrace.github.io/projects/consent-aware-ehr-data-exchange</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://swantrace.github.io/projects/english-speaking-coach</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://swantrace.github.io/projects/healthcare-consent-management-dashboard</loc>
+    <loc>https://swantrace.github.io/projects/luxebbq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://swantrace.github.io/projects/x509-trust</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://swantrace.github.io/projects/job-application-tracker</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

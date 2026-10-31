@@ -26,6 +26,12 @@ declare global {
     github: string | null;
     demo: string | null;
     image: string | null;
+    imageAlt: string | null;
+    category: string | null;
+    status: string | null;
+    role: string | null;
+    demoNote: string | null;
+    links: { label: string; href: string }[];
     featured: boolean;
     draft: boolean;
     sourceVisibility: "public" | "private" | null;

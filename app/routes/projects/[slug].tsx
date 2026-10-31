@@ -46,6 +46,23 @@ export default createRoute(async (c) => {
               {frontmatter.description}
             </p>
 
+            <dl className="mt-6 flex flex-wrap gap-x-8 gap-y-4 text-sm">
+              {[
+                ["Type", frontmatter.category],
+                ["Status", frontmatter.status],
+                ["My role", frontmatter.role],
+              ].map(([label, value]) =>
+                value ? (
+                  <div key={label}>
+                    <dt className="text-base-content/65 mb-1 text-xs">
+                      {label}
+                    </dt>
+                    <dd className="font-medium">{value}</dd>
+                  </div>
+                ) : null
+              )}
+            </dl>
+
             <div className="mt-6 flex flex-wrap gap-2">
               {frontmatter.tags.map((tag) => (
                 <span key={tag} className="badge badge-ghost badge-sm">
@@ -72,28 +89,49 @@ export default createRoute(async (c) => {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Open live demo
+                  Visit app ↗
                 </a>
               )}
+              {frontmatter.links.map((link) => (
+                <a
+                  key={link.href}
+                  className="btn btn-outline btn-sm"
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.label} ↗
+                </a>
+              ))}
             </div>
 
-            {frontmatter.sourceVisibility === "private" && (
-              <div className="alert mt-6">
-                <span>
-                  {frontmatter.sourceNote ||
-                    "Source code is private. Architecture and implementation decisions are shared with permission."}
-                </span>
-              </div>
+            {frontmatter.demoNote && (
+              <p className="text-base-content/65 mt-4 text-sm leading-relaxed">
+                {frontmatter.demoNote}
+              </p>
+            )}
+            {frontmatter.sourceNote && (
+              <p className="text-base-content/65 border-base-300 mt-6 border-l-2 pl-4 text-sm leading-relaxed">
+                {frontmatter.sourceNote}
+              </p>
             )}
           </header>
 
           {imageUrl && (
-            <figure className="mb-10 overflow-hidden rounded-xl shadow-lg">
+            <figure className="mb-10">
               <img
                 src={imageUrl}
-                alt={`Screenshot of ${frontmatter.title}`}
-                className="h-auto w-full"
+                alt={
+                  frontmatter.imageAlt ||
+                  `Technical illustration for ${frontmatter.title}`
+                }
+                width={960}
+                height={600}
+                className="h-auto w-full rounded-xl"
               />
+              <figcaption className="text-base-content/65 mt-3 text-xs">
+                Conceptual technical illustration
+              </figcaption>
             </figure>
           )}
 

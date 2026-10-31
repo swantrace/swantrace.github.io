@@ -12,17 +12,25 @@ export const HeroSection = () => {
             I'm Fred Hong
           </h1>
           <p className="mt-4 text-2xl font-semibold tracking-tight sm:text-3xl">
-            Full-stack engineer.
+            Senior full-stack engineer.
           </p>
           <p className="text-base-content/75 mt-6 max-w-2xl text-base leading-relaxed sm:text-lg">
-            I build web applications with React and TypeScript, with 8+ years of
-            experience and a focus on FHIR interoperability.
+            I design and deliver complex web applications with React,
+            TypeScript, and Node.js. My 8+ years of experience span frontend
+            engineering, healthcare interoperability, security, and AI
+            applications.
           </p>
           <p className="text-base-content/60 mt-3 text-sm leading-relaxed sm:text-base">
             Available for long-term full-time opportunities.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a className="btn" href="mailto:frederickhong.5@gmail.com">
+            <a
+              className="btn"
+              href="https://www.linkedin.com/in/fredhong999/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Let's connect on LinkedIn"
+            >
               Let's connect <span aria-hidden="true">↗</span>
             </a>
             <a className="btn btn-outline" href={url("/projects")}>

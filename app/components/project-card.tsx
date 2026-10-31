@@ -8,6 +8,8 @@ export const ProjectCard = ({
   github,
   demo,
   image,
+  category,
+  status,
   order,
 }: ProjectMeta) => {
   const imageUrl = image
@@ -19,12 +21,14 @@ export const ProjectCard = ({
   return (
     <article className="card portfolio-card sm:card-side">
       {imageUrl ? (
-        <figure className="project-cover">
+        <figure className="project-cover self-start rounded-lg!">
           <img
             src={imageUrl}
             alt=""
             className="h-full w-full object-cover"
             loading="lazy"
+            width={960}
+            height={600}
           />
         </figure>
       ) : (
@@ -39,6 +43,11 @@ export const ProjectCard = ({
         </div>
       )}
       <div className="card-body min-w-0 gap-3 p-0">
+        {(category || status) && (
+          <p className="text-base-content/65 font-mono text-xs leading-relaxed">
+            {[category, status].filter(Boolean).join(" / ")}
+          </p>
+        )}
         <h2 className="card-title text-xl leading-snug">
           <a className="link link-hover" href={url(`/projects/${slug}`)}>
             {title}
@@ -48,7 +57,7 @@ export const ProjectCard = ({
           {description}
         </p>
         <div className="flex flex-wrap gap-1.5">
-          {tags.map((tag) => (
+          {tags.slice(0, 5).map((tag) => (
             <div key={tag} className="badge badge-ghost badge-sm">
               {tag}
             </div>
@@ -72,7 +81,7 @@ export const ProjectCard = ({
               target="_blank"
               rel="noreferrer"
             >
-              Live demo
+              Visit app ↗
             </a>
           )}
           <a

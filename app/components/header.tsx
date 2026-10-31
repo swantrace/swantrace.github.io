@@ -21,7 +21,7 @@ export const Header = ({ path }: { path: string }) => (
           Fred Hong
         </span>
         <span className="text-base-content/60 hidden text-sm lg:block">
-          Full-stack engineer
+          Senior full-stack engineer
         </span>
       </span>
     </a>

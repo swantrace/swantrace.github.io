@@ -290,7 +290,7 @@ function BlogList(element: HTMLElement) {
         ${
           paginatedPosts.length === 0
             ? html`
-                <div class="alert alert-info">
+                <div class="bg-base-200/70 text-base-content/70 rounded-xl px-4 py-4 text-sm">
                   <span>No posts found matching your filters.</span>
                 </div>
               `

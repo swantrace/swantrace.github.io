@@ -28,8 +28,8 @@ export default createRoute(async (c) => {
             Projects
           </h1>
           <p className="text-base-content/70 mt-4 text-lg">
-            Case studies covering full-stack engineering, frontend systems, and
-            healthcare interoperability.
+            Selected engineering work across full-stack products, frontend
+            systems, healthcare interoperability, security, and AI applications.
           </p>
         </header>
 
