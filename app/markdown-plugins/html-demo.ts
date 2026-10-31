@@ -1,4 +1,4 @@
-import type MarkdownIt from "markdown-it";
+import type { MarkdownIt } from "markdown-it";
 import { parseFenceInfo } from "./flags";
 import { b64, escapeHtml, hl } from "./utils";
 
