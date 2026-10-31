@@ -89,10 +89,11 @@ for (const width of [1440, 768, 390, 320]) {
     ).toBeVisible();
     await checkOverflow();
 
-    await navigation
-      .getByRole("link", { name: "Contact", exact: true })
-      .click();
-    await expect(page.locator("#contact")).toBeInViewport();
+    await navigation.getByRole("link", { name: "CV", exact: true }).click();
+    await expect(
+      page.getByRole("heading", { name: "Fred Hong", exact: true })
+    ).toBeVisible();
+    await checkOverflow();
   });
 }
 

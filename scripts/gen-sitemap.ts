@@ -13,6 +13,7 @@ const STATIC_ROUTES = [
   "/", // Home page
   "/blog", // Blog listing page
   "/projects", // Project listing page
+  "/cv", // Resume page
 ];
 
 /**

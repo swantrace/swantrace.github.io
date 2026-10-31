@@ -83,6 +83,13 @@ onDomReady(() => {
     whenVisible: true,
   });
 
+  lazyDefine("cv-print", () => import("./wc/cv-print"), {
+    whenVisible: true,
+    onBeforeDefine: (element) => {
+      element.replaceChildren();
+    },
+  });
+
   // Code demo and execution components
   lazyDefine("copy-button", () => import("./wc/copy-button"), {
     whenVisible: true,

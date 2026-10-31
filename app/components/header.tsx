@@ -37,13 +37,12 @@ export const Header = ({ path }: { path: string }) => (
         <NavLink href="/blog" path={path}>
           Blog
         </NavLink>
-        <NavLink href="/#contact" path={path}>
-          Contact
+        <NavLink href="/cv" path={path}>
+          CV
         </NavLink>
       </ul>
     </nav>
-    <div className="mt-auto hidden lg:block">
-      <p className="text-base-content/60 mb-3 text-sm">Edmonton, Canada</p>
+    <div className="mt-auto hidden lg:flex lg:justify-center">
       <SocialIcons />
     </div>
   </header>

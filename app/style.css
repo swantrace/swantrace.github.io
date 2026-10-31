@@ -46,6 +46,52 @@
 @source "../app/**/*.{js,ts,jsx,tsx}";
 @source "../content/**/*.md";
 
+@media print {
+  body:has(.cv-page) {
+    background: white;
+    color: #202124;
+  }
+
+  body:has(.cv-page) .site-header,
+  body:has(.cv-page) .skip-link,
+  body:has(.cv-page) .site-content > footer,
+  .cv-page .cv-actions,
+  .cv-page .cv-section-nav,
+  .cv-page .cv-contact .btn {
+    display: none;
+  }
+
+  .site-content:has(.cv-page) {
+    margin: 0;
+    padding: 0;
+  }
+
+  .cv-page {
+    --color-base-100: #ffffff;
+    --color-base-200: #f2f2f2;
+    --color-base-300: #dddddd;
+    --color-base-content: #202124;
+    padding: 0;
+    font-size: 10pt;
+  }
+
+  .cv-page .timeline > li,
+  .cv-skill-group,
+  .cv-publication {
+    break-inside: avoid;
+  }
+
+  .cv-page h2,
+  .cv-page h3 {
+    break-after: avoid;
+  }
+
+  .cv-page .cv-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+}
+
 /* ============================================================================
    THEME CONFIGURATION
    ============================================================================ */

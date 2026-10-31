@@ -15,9 +15,8 @@ export const HeroSection = () => {
             Full-stack engineer.
           </p>
           <p className="text-base-content/75 mt-6 max-w-2xl text-base leading-relaxed sm:text-lg">
-            I build web applications with React and TypeScript, specializing in
-            FHIR interoperability. Based in Edmonton, Canada, with 8+ years of
-            experience.
+            I build web applications with React and TypeScript, with 8+ years of
+            experience and a focus on FHIR interoperability.
           </p>
           <p className="text-base-content/60 mt-3 text-sm leading-relaxed sm:text-base">
             Available for long-term full-time opportunities.
