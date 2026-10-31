@@ -1,17 +1,19 @@
 ---
+
 slug: typescript-type-vs-interface
 title: "Type Aliases vs Interfaces in TypeScript"
 date: null
 tags:
-  - typescript
-  - types
-  - interfaces
-  - interview
-topic:
-  - TypeScript
-  - 1
-draft: true
-excerpt: "Compare type aliases and interfaces, their extension and declaration-merging behavior, and practical guidelines for choosing between them."
+- typescript
+- types
+- interfaces
+- interview
+  topic:
+- TypeScript
+- 1
+  draft: true
+  excerpt: "Compare type aliases and interfaces, their extension and declaration-merging behavior, and practical guidelines for choosing between them."
+
 ---
 
 # Type Aliases vs Interfaces in TypeScript

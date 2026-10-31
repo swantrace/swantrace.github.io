@@ -1,4 +1,5 @@
 ---
+
 title: "Consent-Aware EHR-to-EHR Data Exchange"
 description: "A SMART on FHIR interoperability demonstration that retrieves patient-context data, applies privacy controls, and transfers the permitted resources to a second EHR."
 tags: ["React", "TypeScript", "FHIR R4", "SMART on FHIR", "OAuth 2.0", "Medplum"]

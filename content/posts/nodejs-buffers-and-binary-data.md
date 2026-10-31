@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-buffers-and-binary-data
 title: "Buffers and Binary Data in Node.js"
 date: null
 tags:
-  - nodejs
-  - buffers
-  - binary-data
-  - interview
-topic:
-  - Node.js
-  - 6
-draft: true
-excerpt: "Learn how Node.js Buffers represent bytes, interact with encodings and streams, and avoid common binary-data corruption mistakes."
+- nodejs
+- buffers
+- binary-data
+- interview
+  topic:
+- Node.js
+- 6
+  draft: true
+  excerpt: "Learn how Node.js Buffers represent bytes, interact with encodings and streams, and avoid common binary-data corruption mistakes."
+
 ---
 
 # Buffers and Binary Data in Node.js

@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-authentication-and-authorization
 title: "Authentication and Authorization in REST APIs"
 date: null
 tags:
-  - rest-api
-  - authentication
-  - authorization
-  - interview
-topic:
-  - REST API
-  - 6
-draft: true
-excerpt: "Separate identity verification from permission checks and apply secure token, session, role, and resource-ownership controls."
+- rest-api
+- authentication
+- authorization
+- interview
+  topic:
+- REST API
+- 6
+  draft: true
+  excerpt: "Separate identity verification from permission checks and apply secure token, session, role, and resource-ownership controls."
+
 ---
 
 # Authentication and Authorization in REST APIs

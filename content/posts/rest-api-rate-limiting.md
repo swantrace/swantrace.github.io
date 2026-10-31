@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-rate-limiting
 title: "Rate Limiting in REST APIs"
 date: null
 tags:
-  - rest-api
-  - rate-limiting
-  - resilience
-  - interview
-topic:
-  - REST API
-  - 9
-draft: true
-excerpt: "Understand common rate-limiting algorithms, reliable client identification, response headers, distributed enforcement, abuse prevention, and fairness trade-offs."
+- rest-api
+- rate-limiting
+- resilience
+- interview
+  topic:
+- REST API
+- 9
+  draft: true
+  excerpt: "Understand common rate-limiting algorithms, reliable client identification, response headers, distributed enforcement, abuse prevention, and fairness trade-offs."
+
 ---
 
 # Rate Limiting in REST APIs

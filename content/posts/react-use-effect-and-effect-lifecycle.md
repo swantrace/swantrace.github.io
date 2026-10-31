@@ -1,17 +1,19 @@
 ---
+
 slug: react-use-effect-and-effect-lifecycle
 title: "useEffect and the Effect Lifecycle"
 date: null
 tags:
-  - react
-  - hooks
-  - use-effect
-  - interview
-topic:
-  - React
-  - 4
-draft: true
-excerpt: "Learn when effects synchronize with external systems, how dependencies control reruns, and when cleanup prevents stale subscriptions."
+- react
+- hooks
+- use-effect
+- interview
+  topic:
+- React
+- 4
+  draft: true
+  excerpt: "Learn when effects synchronize with external systems, how dependencies control reruns, and when cleanup prevents stale subscriptions."
+
 ---
 
 # useEffect and the Effect Lifecycle

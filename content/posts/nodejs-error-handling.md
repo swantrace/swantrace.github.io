@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-error-handling
 title: "Error Handling in Node.js Applications"
 date: null
 tags:
-  - nodejs
-  - errors
-  - reliability
-  - interview
-topic:
-  - Node.js
-  - 4
-draft: true
-excerpt: "Learn to classify and propagate operational errors, handle rejected promises, centralize HTTP responses, and avoid unsafe process recovery."
+- nodejs
+- errors
+- reliability
+- interview
+  topic:
+- Node.js
+- 4
+  draft: true
+  excerpt: "Learn to classify and propagate operational errors, handle rejected promises, centralize HTTP responses, and avoid unsafe process recovery."
+
 ---
 
 # Error Handling in Node.js Applications

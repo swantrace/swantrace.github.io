@@ -1,17 +1,19 @@
 ---
+
 slug: react-use-memo-use-callback-and-memo
 title: "useMemo, useCallback, and React.memo"
 date: null
 tags:
-  - react
-  - performance
-  - memoization
-  - interview
-topic:
-  - React
-  - 5
-draft: true
-excerpt: "Compare React memoization tools, their identity requirements, appropriate performance use cases, and the costs of unnecessary memoization."
+- react
+- performance
+- memoization
+- interview
+  topic:
+- React
+- 5
+  draft: true
+  excerpt: "Compare React memoization tools, their identity requirements, appropriate performance use cases, and the costs of unnecessary memoization."
+
 ---
 
 # useMemo, useCallback, and React.memo

@@ -1,17 +1,19 @@
 ---
+
 slug: typescript-mapped-types-and-utility-types
 title: "Mapped Types and Utility Types in TypeScript"
 date: null
 tags:
-  - typescript
-  - mapped-types
-  - utility-types
-  - interview
-topic:
-  - TypeScript
-  - 6
-draft: true
-excerpt: "Explore mapped types and built-in utilities for transforming object types while preserving keys, modifiers, and value relationships."
+- typescript
+- mapped-types
+- utility-types
+- interview
+  topic:
+- TypeScript
+- 6
+  draft: true
+  excerpt: "Explore mapped types and built-in utilities for transforming object types while preserving keys, modifiers, and value relationships."
+
 ---
 
 # Mapped Types and Utility Types in TypeScript

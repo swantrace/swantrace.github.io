@@ -1,17 +1,19 @@
 ---
+
 slug: http-status-codes-for-rest-apis
 title: "HTTP Status Codes for REST APIs"
 date: null
 tags:
-  - rest-api
-  - http
-  - status-codes
-  - interview
-topic:
-  - REST API
-  - 3
-draft: true
-excerpt: "Choose meaningful HTTP status codes that communicate success, client errors, conflicts, authentication failures, and server problems consistently."
+- rest-api
+- http
+- status-codes
+- interview
+  topic:
+- REST API
+- 3
+  draft: true
+  excerpt: "Choose meaningful HTTP status codes that communicate success, client errors, conflicts, authentication failures, and server problems consistently."
+
 ---
 
 # HTTP Status Codes for REST APIs

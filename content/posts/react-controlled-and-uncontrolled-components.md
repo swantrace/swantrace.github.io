@@ -1,17 +1,19 @@
 ---
+
 slug: react-controlled-and-uncontrolled-components
 title: "Controlled and Uncontrolled Components in React"
 date: null
 tags:
-  - react
-  - forms
-  - controlled-components
-  - interview
-topic:
-  - React
-  - 7
-draft: true
-excerpt: "Compare controlled and uncontrolled components, including ownership of state, validation, integration patterns, and form performance trade-offs."
+- react
+- forms
+- controlled-components
+- interview
+  topic:
+- React
+- 7
+  draft: true
+  excerpt: "Compare controlled and uncontrolled components, including ownership of state, validation, integration patterns, and form performance trade-offs."
+
 ---
 
 # Controlled and Uncontrolled Components in React

@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-environment-configuration-and-secrets
 title: "Environment Configuration and Secret Management in Node.js"
 date: null
 tags:
-  - nodejs
-  - configuration
-  - secrets
-  - interview
-topic:
-  - Node.js
-  - 8
-draft: true
-excerpt: "Learn to validate environment configuration, separate deployment settings from code, and keep credentials out of logs and repositories."
+- nodejs
+- configuration
+- secrets
+- interview
+  topic:
+- Node.js
+- 8
+  draft: true
+  excerpt: "Learn to validate environment configuration, separate deployment settings from code, and keep credentials out of logs and repositories."
+
 ---
 
 # Environment Configuration and Secret Management in Node.js

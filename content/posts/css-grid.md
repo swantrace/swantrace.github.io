@@ -1,17 +1,19 @@
 ---
+
 slug: css-grid
 title: "Building Layouts with CSS Grid"
 date: null
 tags:
-  - html-css
-  - css
-  - grid
-  - interview
-topic:
-  - HTML and CSS
-  - 6
-draft: true
-excerpt: "Use CSS Grid tracks, placement, alignment, implicit grids, and responsive patterns for robust two-dimensional layouts."
+- html-css
+- css
+- grid
+- interview
+  topic:
+- HTML and CSS
+- 6
+  draft: true
+  excerpt: "Use CSS Grid tracks, placement, alignment, implicit grids, and responsive patterns for robust two-dimensional layouts."
+
 ---
 
 # Building Layouts with CSS Grid

@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-prototypes-and-the-prototype-chain
 title: "JavaScript Prototypes and the Prototype Chain"
 date: null
 tags:
-  - javascript
-  - prototypes
-  - inheritance
-  - interview
-topic:
-  - JavaScript
-  - 3
-draft: true
-excerpt: "Explore prototype-based inheritance, property lookup through the prototype chain, and the relationship between constructors, instances, and classes."
+- javascript
+- prototypes
+- inheritance
+- interview
+  topic:
+- JavaScript
+- 3
+  draft: true
+  excerpt: "Explore prototype-based inheritance, property lookup through the prototype chain, and the relationship between constructors, instances, and classes."
+
 ---
 
 # JavaScript Prototypes and the Prototype Chain

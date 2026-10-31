@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-request-validation-and-error-responses
 title: "Request Validation and Error Responses in REST APIs"
 date: null
 tags:
-  - rest-api
-  - validation
-  - error-handling
-  - interview
-topic:
-  - REST API
-  - 4
-draft: true
-excerpt: "Design validation boundaries and consistent error responses that help clients identify invalid fields, conflicts, and recoverable failures."
+- rest-api
+- validation
+- error-handling
+- interview
+  topic:
+- REST API
+- 4
+  draft: true
+  excerpt: "Design validation boundaries and consistent error responses that help clients identify invalid fields, conflicts, and recoverable failures."
+
 ---
 
 # Request Validation and Error Responses in REST APIs

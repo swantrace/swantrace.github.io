@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-caching-and-conditional-requests
 title: "REST API Caching and Conditional Requests"
 date: null
 tags:
-  - rest-api
-  - caching
-  - conditional-requests
-  - interview
-topic:
-  - REST API
-  - 8
-draft: true
-excerpt: "Use cache directives, validators, ETags, and conditional requests to reduce transfer while preserving correct client representations."
+- rest-api
+- caching
+- conditional-requests
+- interview
+  topic:
+- REST API
+- 8
+  draft: true
+  excerpt: "Use cache directives, validators, ETags, and conditional requests to reduce transfer while preserving correct client representations."
+
 ---
 
 # REST API Caching and Conditional Requests

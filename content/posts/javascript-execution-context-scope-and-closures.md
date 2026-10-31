@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-execution-context-scope-and-closures
 title: "JavaScript Execution Context, Scope, and Closures"
 date: null
 tags:
-  - javascript
-  - scope
-  - closures
-  - interview
-topic:
-  - JavaScript
-  - 1
-draft: true
-excerpt: "Learn how execution contexts, lexical scope, and closures determine variable access and preserve state across JavaScript function calls."
+- javascript
+- scope
+- closures
+- interview
+  topic:
+- JavaScript
+- 1
+  draft: true
+  excerpt: "Learn how execution contexts, lexical scope, and closures determine variable access and preserve state across JavaScript function calls."
+
 ---
 
 # JavaScript Execution Context, Scope, and Closures

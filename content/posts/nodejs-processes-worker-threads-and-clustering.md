@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-processes-worker-threads-and-clustering
 title: "Processes, Worker Threads, and Clustering in Node.js"
 date: null
 tags:
-  - nodejs
-  - worker-threads
-  - processes
-  - interview
-topic:
-  - Node.js
-  - 7
-draft: true
-excerpt: "Compare child processes, worker threads, and clustering for isolation, CPU-bound work, concurrency, and multi-core utilization."
+- nodejs
+- worker-threads
+- processes
+- interview
+  topic:
+- Node.js
+- 7
+  draft: true
+  excerpt: "Compare child processes, worker threads, and clustering for isolation, CPU-bound work, concurrency, and multi-core utilization."
+
 ---
 
 # Processes, Worker Threads, and Clustering in Node.js

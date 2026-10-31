@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-object-property-descriptors-and-reflection
 title: "JavaScript Objects, Property Descriptors, and Reflection"
 date: null
 tags:
-  - javascript
-  - objects
-  - reflection
-  - interview
-topic:
-  - JavaScript
-  - 8
-draft: true
-excerpt: "Explore object property descriptors, getters, setters, enumeration rules, and reflection APIs for inspecting and controlling JavaScript objects."
+- javascript
+- objects
+- reflection
+- interview
+  topic:
+- JavaScript
+- 8
+  draft: true
+  excerpt: "Explore object property descriptors, getters, setters, enumeration rules, and reflection APIs for inspecting and controlling JavaScript objects."
+
 ---
 
 # JavaScript Objects, Property Descriptors, and Reflection

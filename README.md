@@ -17,18 +17,18 @@ The site is designed to give hiring teams more than a list of technologies. It c
 
 ## Tech stack
 
-| Area | Technology |
-| --- | --- |
-| Application framework | [HonoX](https://github.com/honojs/honox) and [Hono](https://hono.dev/) |
-| Language | TypeScript and TSX |
-| Runtime and package manager | [Bun](https://bun.sh/) |
-| Build and static generation | [Vite](https://vite.dev/) and `@hono/vite-ssg` |
-| Styling | [Tailwind CSS](https://tailwindcss.com/), daisyUI, and Tailwind Typography |
-| Content | Markdown, gray-matter, and markdown-it |
-| Technical writing | highlight.js, KaTeX, and custom Markdown plugins |
-| Browser interactivity | Web Components, Haunted, and lit-html |
-| Testing and code quality | Bun Test, Playwright, Biome, and TypeScript |
-| Hosting and CI/CD | GitHub Pages and GitHub Actions |
+| Area                        | Technology                                                                 |
+| --------------------------- | -------------------------------------------------------------------------- |
+| Application framework       | [HonoX](https://github.com/honojs/honox) and [Hono](https://hono.dev/)     |
+| Language                    | TypeScript and TSX                                                         |
+| Runtime and package manager | [Bun](https://bun.sh/)                                                     |
+| Build and static generation | [Vite](https://vite.dev/) and `@hono/vite-ssg`                             |
+| Styling                     | [Tailwind CSS](https://tailwindcss.com/), daisyUI, and Tailwind Typography |
+| Content                     | Markdown, gray-matter, and markdown-it                                     |
+| Technical writing           | highlight.js, KaTeX, and custom Markdown plugins                           |
+| Browser interactivity       | Web Components, Haunted, and lit-html                                      |
+| Testing and code quality    | Bun Test, Playwright, Biome, and TypeScript                                |
+| Hosting and CI/CD           | GitHub Pages and GitHub Actions                                            |
 
 ## Project structure
 
@@ -70,21 +70,21 @@ production generation continues to exclude it.
 
 ## Available commands
 
-| Command | Purpose |
-| --- | --- |
-| `bun run dev` | Start the development server and content watcher |
-| `bun run build:local` | Generate content metadata and create a local production build |
-| `bun run build:prod` | Generate the GitHub Pages production build |
-| `bun run preview` | Preview the generated site |
-| `bun run check` | Run Biome formatting and lint checks |
-| `bun run check:fix` | Apply safe Biome formatting and lint fixes |
-| `bun run test` | Run fast Markdown and component utility tests |
-| `bun run test:e2e` | Run interactive demo tests in Chromium |
+| Command                | Purpose                                                                 |
+| ---------------------- | ----------------------------------------------------------------------- |
+| `bun run dev`          | Start the development server and content watcher                        |
+| `bun run build:local`  | Generate content metadata and create a local production build           |
+| `bun run build:prod`   | Generate the GitHub Pages production build                              |
+| `bun run preview`      | Preview the generated site                                              |
+| `bun run check`        | Run Biome formatting and lint checks                                    |
+| `bun run check:fix`    | Apply safe Biome formatting and lint fixes                              |
+| `bun run test`         | Run fast Markdown and component utility tests                           |
+| `bun run test:e2e`     | Run interactive demo tests in Chromium                                  |
 | `bun run test:e2e:all` | Run the browser suite in Chromium, Firefox, WebKit, and mobile Chromium |
-| `bun run test:all` | Run unit tests followed by Chromium browser tests |
-| `bun run typecheck` | Run TypeScript without emitting files |
-| `bun run gen:posts` | Regenerate the published post index |
-| `bun run gen:sitemap` | Regenerate the sitemap |
+| `bun run test:all`     | Run unit tests followed by Chromium browser tests                       |
+| `bun run typecheck`    | Run TypeScript without emitting files                                   |
+| `bun run gen:posts`    | Regenerate the published post index                                     |
+| `bun run gen:sitemap`  | Regenerate the sitemap                                                  |
 
 Playwright retains screenshots, video, and traces when a browser test fails.
 CI uploads those diagnostics as a seven-day GitHub Actions artifact.

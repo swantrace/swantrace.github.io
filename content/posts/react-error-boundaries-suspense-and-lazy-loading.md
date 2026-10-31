@@ -1,18 +1,20 @@
 ---
+
 slug: react-error-boundaries-suspense-and-lazy-loading
 title: "Error Boundaries, Suspense, and Lazy Loading in React"
 date: null
 tags:
-  - react
-  - error-boundaries
-  - suspense
-  - lazy-loading
-  - interview
-topic:
-  - React
-  - 10
-draft: true
-excerpt: "Learn how React handles rendering failures, deferred code loading, and Suspense boundaries for resilient asynchronous user interfaces."
+- react
+- error-boundaries
+- suspense
+- lazy-loading
+- interview
+  topic:
+- React
+- 10
+  draft: true
+  excerpt: "Learn how React handles rendering failures, deferred code loading, and Suspense boundaries for resilient asynchronous user interfaces."
+
 ---
 
 # Error Boundaries, Suspense, and Lazy Loading in React

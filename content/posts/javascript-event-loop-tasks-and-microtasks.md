@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-event-loop-tasks-and-microtasks
 title: "The JavaScript Event Loop, Tasks, and Microtasks"
 date: null
 tags:
-  - javascript
-  - event-loop
-  - async
-  - interview
-topic:
-  - JavaScript
-  - 4
-draft: true
-excerpt: "Understand how the event loop schedules tasks and microtasks, and predict the execution order of asynchronous JavaScript code."
+- javascript
+- event-loop
+- async
+- interview
+  topic:
+- JavaScript
+- 4
+  draft: true
+  excerpt: "Understand how the event loop schedules tasks and microtasks, and predict the execution order of asynchronous JavaScript code."
+
 ---
 
 # The JavaScript Event Loop, Tasks, and Microtasks

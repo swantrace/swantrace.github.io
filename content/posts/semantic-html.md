@@ -1,17 +1,19 @@
 ---
+
 slug: semantic-html
 title: "Semantic HTML and Document Structure"
 date: null
 tags:
-  - html-css
-  - html
-  - semantics
-  - interview
-topic:
-  - HTML and CSS
-  - 1
-draft: true
-excerpt: "Use meaningful HTML landmarks and elements to create understandable document structure for browsers, assistive technology, and maintainers."
+- html-css
+- html
+- semantics
+- interview
+  topic:
+- HTML and CSS
+- 1
+  draft: true
+  excerpt: "Use meaningful HTML landmarks and elements to create understandable document structure for browsers, assistive technology, and maintainers."
+
 ---
 
 # Semantic HTML and Document Structure

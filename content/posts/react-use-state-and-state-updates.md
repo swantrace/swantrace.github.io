@@ -1,17 +1,19 @@
 ---
+
 slug: react-use-state-and-state-updates
 title: "useState and State Updates in React"
 date: null
 tags:
-  - react
-  - hooks
-  - use-state
-  - interview
-topic:
-  - React
-  - 3
-draft: true
-excerpt: "Understand useState initialization, queued updates, functional setters, batching, and why state behaves like a render-time snapshot."
+- react
+- hooks
+- use-state
+- interview
+  topic:
+- React
+- 3
+  draft: true
+  excerpt: "Understand useState initialization, queued updates, functional setters, batching, and why state behaves like a render-time snapshot."
+
 ---
 
 # useState and State Updates in React

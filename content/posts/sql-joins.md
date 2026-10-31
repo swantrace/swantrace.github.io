@@ -1,17 +1,19 @@
 ---
+
 slug: sql-joins
 title: "Understanding SQL Joins"
 date: null
 tags:
-  - sql
-  - joins
-  - relational-data
-  - interview
-topic:
-  - SQL
-  - 2
-draft: true
-excerpt: "Understand inner and outer joins, join predicates, cardinality, duplicate rows, and strategies for combining relational data correctly."
+- sql
+- joins
+- relational-data
+- interview
+  topic:
+- SQL
+- 2
+  draft: true
+  excerpt: "Understand inner and outer joins, join predicates, cardinality, duplicate rows, and strategies for combining relational data correctly."
+
 ---
 
 # Understanding SQL Joins

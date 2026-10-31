@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-promises-and-async-await
 title: "JavaScript Promises and async/await"
 date: null
 tags:
-  - javascript
-  - promises
-  - async-await
-  - interview
-topic:
-  - JavaScript
-  - 5
-draft: true
-excerpt: "Learn how promises represent asynchronous results and how async and await simplify composition, sequencing, and error handling."
+- javascript
+- promises
+- async-await
+- interview
+  topic:
+- JavaScript
+- 5
+  draft: true
+  excerpt: "Learn how promises represent asynchronous results and how async and await simplify composition, sequencing, and error handling."
+
 ---
 
 # JavaScript Promises and async/await

@@ -1,17 +1,19 @@
 ---
+
 slug: react-custom-hooks
 title: "Designing and Using Custom React Hooks"
 date: null
 tags:
-  - react
-  - hooks
-  - custom-hooks
-  - interview
-topic:
-  - React
-  - 8
-draft: true
-excerpt: "Learn how custom Hooks extract reusable stateful behavior while preserving React's rules, clear APIs, and component-level composition."
+- react
+- hooks
+- custom-hooks
+- interview
+  topic:
+- React
+- 8
+  draft: true
+  excerpt: "Learn how custom Hooks extract reusable stateful behavior while preserving React's rules, clear APIs, and component-level composition."
+
 ---
 
 # Designing and Using Custom React Hooks

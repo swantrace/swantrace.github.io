@@ -1,17 +1,19 @@
 ---
+
 slug: sql-transaction-isolation-levels
 title: "SQL Transaction Isolation Levels"
 date: null
 tags:
-  - sql
-  - transactions
-  - isolation
-  - interview
-topic:
-  - SQL
-  - 6
-draft: true
-excerpt: "Compare isolation levels, concurrency anomalies, locking, and multiversion behavior when balancing correctness against transactional throughput."
+- sql
+- transactions
+- isolation
+- interview
+  topic:
+- SQL
+- 6
+  draft: true
+  excerpt: "Compare isolation levels, concurrency anomalies, locking, and multiversion behavior when balancing correctness against transactional throughput."
+
 ---
 
 # SQL Transaction Isolation Levels

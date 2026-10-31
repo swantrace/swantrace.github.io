@@ -1,17 +1,19 @@
 ---
+
 slug: react-keys-lists-and-component-identity
 title: "React Keys, Lists, and Component Identity"
 date: null
 tags:
-  - react
-  - keys
-  - component-identity
-  - interview
-topic:
-  - React
-  - 9
-draft: true
-excerpt: "Understand how keys guide reconciliation, preserve component state, and prevent subtle bugs when list items move or change."
+- react
+- keys
+- component-identity
+- interview
+  topic:
+- React
+- 9
+  draft: true
+  excerpt: "Understand how keys guide reconciliation, preserve component state, and prevent subtle bugs when list items move or change."
+
 ---
 
 # React Keys, Lists, and Component Identity

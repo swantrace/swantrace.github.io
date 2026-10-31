@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-this-call-apply-and-bind
 title: "Understanding this, call, apply, and bind in JavaScript"
 date: null
 tags:
-  - javascript
-  - this
-  - functions
-  - interview
-topic:
-  - JavaScript
-  - 2
-draft: true
-excerpt: "Understand how JavaScript determines this and how call, apply, and bind explicitly control a function's invocation context."
+- javascript
+- this
+- functions
+- interview
+  topic:
+- JavaScript
+- 2
+  draft: true
+  excerpt: "Understand how JavaScript determines this and how call, apply, and bind explicitly control a function's invocation context."
+
 ---
 
 # Understanding this, call, apply, and bind in JavaScript

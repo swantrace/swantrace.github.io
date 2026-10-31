@@ -1,18 +1,20 @@
 ---
+
 slug: css-positioning
 title: "CSS Positioning and Stacking Contexts"
 date: null
 tags:
-  - html-css
-  - css
-  - positioning
-  - stacking-context
-  - interview
-topic:
-  - HTML and CSS
-  - 7
-draft: true
-excerpt: "Understand positioned elements, containing blocks, z-index, and stacking contexts when controlling overlap and viewport-relative UI."
+- html-css
+- css
+- positioning
+- stacking-context
+- interview
+  topic:
+- HTML and CSS
+- 7
+  draft: true
+  excerpt: "Understand positioned elements, containing blocks, z-index, and stacking contexts when controlling overlap and viewport-relative UI."
+
 ---
 
 # CSS Positioning and Stacking Contexts

@@ -1,17 +1,19 @@
 ---
+
 slug: css-box-model
 title: "The CSS Box Model"
 date: null
 tags:
-  - html-css
-  - css
-  - box-model
-  - interview
-topic:
-  - HTML and CSS
-  - 3
-draft: true
-excerpt: "Understand content, padding, borders, margins, sizing calculations, and box-sizing behavior when diagnosing unexpected CSS layout dimensions."
+- html-css
+- css
+- box-model
+- interview
+  topic:
+- HTML and CSS
+- 3
+  draft: true
+  excerpt: "Understand content, padding, borders, margins, sizing calculations, and box-sizing behavior when diagnosing unexpected CSS layout dimensions."
+
 ---
 
 # The CSS Box Model

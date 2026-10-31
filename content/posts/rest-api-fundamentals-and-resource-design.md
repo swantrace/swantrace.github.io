@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-fundamentals-and-resource-design
 title: "REST API Fundamentals and Resource Design"
 date: null
 tags:
-  - rest-api
-  - rest
-  - resource-design
-  - interview
-topic:
-  - REST API
-  - 1
-draft: true
-excerpt: "Learn to model domain resources, design predictable URLs, and apply REST constraints without turning endpoints into remote procedures."
+- rest-api
+- rest
+- resource-design
+- interview
+  topic:
+- REST API
+- 1
+  draft: true
+  excerpt: "Learn to model domain resources, design predictable URLs, and apply REST constraints without turning endpoints into remote procedures."
+
 ---
 
 # REST API Fundamentals and Resource Design

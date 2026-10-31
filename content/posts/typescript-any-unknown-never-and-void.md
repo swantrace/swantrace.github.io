@@ -1,19 +1,21 @@
 ---
+
 slug: typescript-any-unknown-never-and-void
 title: "any, unknown, never, and void in TypeScript"
 date: null
 tags:
-  - typescript
-  - any
-  - unknown
-  - never
-  - void
-  - interview
-topic:
-  - TypeScript
-  - 8
-draft: true
-excerpt: "Distinguish TypeScript's special types and use each deliberately for unsafe values, unknown inputs, impossible states, and absent returns."
+- typescript
+- any
+- unknown
+- never
+- void
+- interview
+  topic:
+- TypeScript
+- 8
+  draft: true
+  excerpt: "Distinguish TypeScript's special types and use each deliberately for unsafe values, unknown inputs, impossible states, and absent returns."
+
 ---
 
 # any, unknown, never, and void in TypeScript

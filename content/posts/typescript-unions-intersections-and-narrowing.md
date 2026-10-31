@@ -1,17 +1,19 @@
 ---
+
 slug: typescript-unions-intersections-and-narrowing
 title: "Union Types, Intersection Types, and Type Narrowing"
 date: null
 tags:
-  - typescript
-  - unions
-  - narrowing
-  - interview
-topic:
-  - TypeScript
-  - 4
-draft: true
-excerpt: "Understand unions, intersections, discriminated unions, and control-flow narrowing for modeling data and safely handling multiple possible types."
+- typescript
+- unions
+- narrowing
+- interview
+  topic:
+- TypeScript
+- 4
+  draft: true
+  excerpt: "Understand unions, intersections, discriminated unions, and control-flow narrowing for modeling data and safely handling multiple possible types."
+
 ---
 
 # Union Types, Intersection Types, and Type Narrowing

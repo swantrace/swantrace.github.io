@@ -1,17 +1,19 @@
 ---
+
 slug: sql-primary-keys-foreign-keys-and-constraints
 title: "Primary Keys, Foreign Keys, and Database Constraints"
 date: null
 tags:
-  - sql
-  - constraints
-  - keys
-  - interview
-topic:
-  - SQL
-  - 3
-draft: true
-excerpt: "Learn how keys and constraints enforce identity, relationships, uniqueness, and domain rules directly within a relational database."
+- sql
+- constraints
+- keys
+- interview
+  topic:
+- SQL
+- 3
+  draft: true
+  excerpt: "Learn how keys and constraints enforce identity, relationships, uniqueness, and domain rules directly within a relational database."
+
 ---
 
 # Primary Keys, Foreign Keys, and Database Constraints

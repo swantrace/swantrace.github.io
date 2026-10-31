@@ -1,17 +1,19 @@
 ---
+
 slug: typescript-conditional-types-and-infer
 title: "Conditional Types and infer in TypeScript"
 date: null
 tags:
-  - typescript
-  - conditional-types
-  - infer
-  - interview
-topic:
-  - TypeScript
-  - 7
-draft: true
-excerpt: "Understand conditional type distribution and the infer keyword for extracting and transforming types through reusable type-level logic."
+- typescript
+- conditional-types
+- infer
+- interview
+  topic:
+- TypeScript
+- 7
+  draft: true
+  excerpt: "Understand conditional type distribution and the infer keyword for extracting and transforming types through reusable type-level logic."
+
 ---
 
 # Conditional Types and infer in TypeScript

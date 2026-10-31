@@ -1,4 +1,5 @@
 ---
+
 title: "English Speaking Coach"
 description: "A full-stack speaking-practice application built around live sessions, durable background analysis, deterministic jobs, and observable failure handling."
 tags: ["TypeScript", "React", "Hono", "BullMQ", "Redis", "PostgreSQL", "Drizzle"]

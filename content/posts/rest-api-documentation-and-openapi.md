@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-documentation-and-openapi
 title: "REST API Documentation with OpenAPI"
 date: null
 tags:
-  - rest-api
-  - openapi
-  - documentation
-  - interview
-topic:
-  - REST API
-  - 10
-draft: true
-excerpt: "Learn how OpenAPI documents contracts, drives validation and tooling, and stays synchronized with an evolving REST API implementation."
+- rest-api
+- openapi
+- documentation
+- interview
+  topic:
+- REST API
+- 10
+  draft: true
+  excerpt: "Learn how OpenAPI documents contracts, drives validation and tooling, and stays synchronized with an evolving REST API implementation."
+
 ---
 
 # REST API Documentation with OpenAPI

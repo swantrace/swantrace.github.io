@@ -1,17 +1,19 @@
 ---
+
 slug: typescript-keyof-typeof-and-indexed-access-types
 title: "keyof, typeof, and Indexed Access Types"
 date: null
 tags:
-  - typescript
-  - keyof
-  - indexed-access
-  - interview
-topic:
-  - TypeScript
-  - 5
-draft: true
-excerpt: "Learn how keyof, type-position typeof, and indexed access types derive reusable types from existing values and object shapes."
+- typescript
+- keyof
+- indexed-access
+- interview
+  topic:
+- TypeScript
+- 5
+  draft: true
+  excerpt: "Learn how keyof, type-position typeof, and indexed access types derive reusable types from existing values and object shapes."
+
 ---
 
 # keyof, typeof, and Indexed Access Types

@@ -1,17 +1,19 @@
 ---
+
 slug: sql-transactions-and-acid
 title: "SQL Transactions and ACID Properties"
 date: null
 tags:
-  - sql
-  - transactions
-  - acid
-  - interview
-topic:
-  - SQL
-  - 5
-draft: true
-excerpt: "Understand atomicity, consistency, isolation, and durability, and use transaction boundaries to protect multi-step database operations."
+- sql
+- transactions
+- acid
+- interview
+  topic:
+- SQL
+- 5
+  draft: true
+  excerpt: "Understand atomicity, consistency, isolation, and durability, and use transaction boundaries to protect multi-step database operations."
+
 ---
 
 # SQL Transactions and ACID Properties

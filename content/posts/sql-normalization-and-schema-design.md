@@ -1,17 +1,19 @@
 ---
+
 slug: sql-normalization-and-schema-design
 title: "Database Normalization and Schema Design"
 date: null
 tags:
-  - sql
-  - normalization
-  - schema-design
-  - interview
-topic:
-  - SQL
-  - 8
-draft: true
-excerpt: "Use normalization and deliberate denormalization to model consistent relational data while balancing query simplicity and performance."
+- sql
+- normalization
+- schema-design
+- interview
+  topic:
+- SQL
+- 8
+  draft: true
+  excerpt: "Use normalization and deliberate denormalization to model consistent relational data while balancing query simplicity and performance."
+
 ---
 
 # Database Normalization and Schema Design

@@ -1,17 +1,19 @@
 ---
+
 slug: web-accessibility-fundamentals
 title: "Web Accessibility Fundamentals"
 date: null
 tags:
-  - html-css
-  - accessibility
-  - a11y
-  - interview
-topic:
-  - HTML and CSS
-  - 2
-draft: true
-excerpt: "Understand accessible names, keyboard interaction, focus management, semantics, contrast, and practical testing for inclusive web interfaces."
+- html-css
+- accessibility
+- a11y
+- interview
+  topic:
+- HTML and CSS
+- 2
+  draft: true
+  excerpt: "Understand accessible names, keyboard interaction, focus management, semantics, contrast, and practical testing for inclusive web interfaces."
+
 ---
 
 # Web Accessibility Fundamentals

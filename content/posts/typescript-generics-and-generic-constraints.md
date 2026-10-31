@@ -1,17 +1,19 @@
 ---
+
 slug: typescript-generics-and-generic-constraints
 title: "TypeScript Generics and Generic Constraints"
 date: null
 tags:
-  - typescript
-  - generics
-  - constraints
-  - interview
-topic:
-  - TypeScript
-  - 3
-draft: true
-excerpt: "Learn how generics preserve relationships between types and how constraints express the capabilities generic values must provide."
+- typescript
+- generics
+- constraints
+- interview
+  topic:
+- TypeScript
+- 3
+  draft: true
+  excerpt: "Learn how generics preserve relationships between types and how constraints express the capabilities generic values must provide."
+
 ---
 
 # TypeScript Generics and Generic Constraints

@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-memory-management-and-garbage-collection
 title: "JavaScript Memory Management and Garbage Collection"
 date: null
 tags:
-  - javascript
-  - memory
-  - garbage-collection
-  - interview
-topic:
-  - JavaScript
-  - 7
-draft: true
-excerpt: "Understand JavaScript memory allocation, reachability-based garbage collection, common leak patterns, and techniques for diagnosing retained objects."
+- javascript
+- memory
+- garbage-collection
+- interview
+  topic:
+- JavaScript
+- 7
+  draft: true
+  excerpt: "Understand JavaScript memory allocation, reachability-based garbage collection, common leak patterns, and techniques for diagnosing retained objects."
+
 ---
 
 # JavaScript Memory Management and Garbage Collection

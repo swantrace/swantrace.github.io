@@ -1,17 +1,19 @@
 ---
+
 slug: sql-query-plans-and-query-optimization
 title: "SQL Query Plans and Query Optimization"
 date: null
 tags:
-  - sql
-  - query-plans
-  - optimization
-  - interview
-topic:
-  - SQL
-  - 7
-draft: true
-excerpt: "Read query plans, identify expensive scans and joins, and improve database performance through evidence-driven query and index changes."
+- sql
+- query-plans
+- optimization
+- interview
+  topic:
+- SQL
+- 7
+  draft: true
+  excerpt: "Read query plans, identify expensive scans and joins, and improve database performance through evidence-driven query and index changes."
+
 ---
 
 # SQL Query Plans and Query Optimization

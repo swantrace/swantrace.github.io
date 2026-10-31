@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-versioning
 title: "REST API Versioning Strategies"
 date: null
 tags:
-  - rest-api
-  - versioning
-  - compatibility
-  - interview
-topic:
-  - REST API
-  - 7
-draft: true
-excerpt: "Compare URL, header, and media-type versioning while planning backward-compatible evolution and clear API deprecation policies."
+- rest-api
+- versioning
+- compatibility
+- interview
+  topic:
+- REST API
+- 7
+  draft: true
+  excerpt: "Compare URL, header, and media-type versioning while planning backward-compatible evolution and clear API deprecation policies."
+
 ---
 
 # REST API Versioning Strategies

@@ -1,17 +1,19 @@
 ---
+
 slug: react-rendering-and-reconciliation
 title: "React Rendering and Reconciliation"
 date: null
 tags:
-  - react
-  - rendering
-  - reconciliation
-  - interview
-topic:
-  - React
-  - 2
-draft: true
-excerpt: "Learn how React renders component trees, reconciles element changes, preserves identity, and commits necessary updates to the interface."
+- react
+- rendering
+- reconciliation
+- interview
+  topic:
+- React
+- 2
+  draft: true
+  excerpt: "Learn how React renders component trees, reconciles element changes, preserves identity, and commits necessary updates to the interface."
+
 ---
 
 # React Rendering and Reconciliation

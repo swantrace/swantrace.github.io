@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-modules-commonjs-and-esm
 title: "CommonJS and ES Modules in Node.js"
 date: null
 tags:
-  - nodejs
-  - modules
-  - esm
-  - interview
-topic:
-  - Node.js
-  - 2
-draft: true
-excerpt: "Compare Node.js module systems, package configuration, resolution behavior, interoperability limitations, and practical migration strategies for existing applications."
+- nodejs
+- modules
+- esm
+- interview
+  topic:
+- Node.js
+- 2
+  draft: true
+  excerpt: "Compare Node.js module systems, package configuration, resolution behavior, interoperability limitations, and practical migration strategies for existing applications."
+
 ---
 
 # CommonJS and ES Modules in Node.js

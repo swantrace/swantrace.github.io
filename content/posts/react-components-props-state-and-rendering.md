@@ -1,17 +1,19 @@
 ---
+
 slug: react-components-props-state-and-rendering
 title: "React Components, Props, State, and Rendering"
 date: null
 tags:
-  - react
-  - components
-  - state
-  - interview
-topic:
-  - React
-  - 1
-draft: true
-excerpt: "Understand how React components combine props and state to describe user interfaces and trigger predictable rendering updates."
+- react
+- components
+- state
+- interview
+  topic:
+- React
+- 1
+  draft: true
+  excerpt: "Understand how React components combine props and state to describe user interfaces and trigger predictable rendering updates."
+
 ---
 
 # React Components, Props, State, and Rendering

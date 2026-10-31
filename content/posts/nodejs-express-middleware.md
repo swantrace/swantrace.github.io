@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-express-middleware
 title: "Express Middleware and Request Processing"
 date: null
 tags:
-  - nodejs
-  - express
-  - middleware
-  - interview
-topic:
-  - Node.js
-  - 3
-draft: true
-excerpt: "Understand Express middleware ordering, request and response flow, error middleware, and composition across application routes."
+- nodejs
+- express
+- middleware
+- interview
+  topic:
+- Node.js
+- 3
+  draft: true
+  excerpt: "Understand Express middleware ordering, request and response flow, error middleware, and composition across application routes."
+
 ---
 
 # Express Middleware and Request Processing

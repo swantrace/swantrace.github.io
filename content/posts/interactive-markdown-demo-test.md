@@ -1,16 +1,18 @@
 ---
+
 slug: interactive-markdown-demo-test
 title: "Interactive Markdown Demo Test"
 date: null
 tags:
-  - markdown
-  - web-components
-  - html-demo
-  - js-run
-  - testing
-topic: null
-draft: true
-excerpt: "Verify HTML preview isolation, native form validation, code controls, and build-time JavaScript output across the custom Markdown components."
+- markdown
+- web-components
+- html-demo
+- js-run
+- testing
+  topic: null
+  draft: true
+  excerpt: "Verify HTML preview isolation, native form validation, code controls, and build-time JavaScript output across the custom Markdown components."
+
 ---
 
 # Interactive Markdown Demo Test

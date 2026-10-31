@@ -1,17 +1,19 @@
 ---
+
 slug: sql-subqueries-ctes-and-window-functions
 title: "Subqueries, CTEs, and Window Functions"
 date: null
 tags:
-  - sql
-  - ctes
-  - window-functions
-  - interview
-topic:
-  - SQL
-  - 9
-draft: true
-excerpt: "Compare subqueries, common table expressions, and window functions for expressing reusable, ranked, and analytical SQL operations."
+- sql
+- ctes
+- window-functions
+- interview
+  topic:
+- SQL
+- 9
+  draft: true
+  excerpt: "Compare subqueries, common table expressions, and window functions for expressing reusable, ranked, and analytical SQL operations."
+
 ---
 
 # Subqueries, CTEs, and Window Functions

@@ -1,17 +1,19 @@
 ---
+
 slug: react-context-and-state-management
 title: "React Context and State Management"
 date: null
 tags:
-  - react
-  - context
-  - state-management
-  - interview
-topic:
-  - React
-  - 6
-draft: true
-excerpt: "Understand how Context distributes shared values, where it fits among state-management options, and how to limit unnecessary rerenders."
+- react
+- context
+- state-management
+- interview
+  topic:
+- React
+- 6
+  draft: true
+  excerpt: "Understand how Context distributes shared values, where it fits among state-management options, and how to limit unnecessary rerenders."
+
 ---
 
 # React Context and State Management

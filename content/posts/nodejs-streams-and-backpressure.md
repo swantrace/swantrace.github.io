@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-streams-and-backpressure
 title: "Node.js Streams and Backpressure"
 date: null
 tags:
-  - nodejs
-  - streams
-  - backpressure
-  - interview
-topic:
-  - Node.js
-  - 5
-draft: true
-excerpt: "Understand readable and writable streams, piping, buffering, and backpressure for processing data without exhausting memory."
+- nodejs
+- streams
+- backpressure
+- interview
+  topic:
+- Node.js
+- 5
+  draft: true
+  excerpt: "Understand readable and writable streams, piping, buffering, and backpressure for processing data without exhausting memory."
+
 ---
 
 # Node.js Streams and Backpressure

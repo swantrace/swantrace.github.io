@@ -1,17 +1,19 @@
 ---
+
 slug: nodejs-runtime-event-loop-and-libuv
 title: "The Node.js Runtime, Event Loop, and libuv"
 date: null
 tags:
-  - nodejs
-  - event-loop
-  - libuv
-  - interview
-topic:
-  - Node.js
-  - 1
-draft: true
-excerpt: "Understand how Node.js combines V8, libuv, event-loop phases, and worker pools to execute asynchronous server workloads."
+- nodejs
+- event-loop
+- libuv
+- interview
+  topic:
+- Node.js
+- 1
+  draft: true
+  excerpt: "Understand how Node.js combines V8, libuv, event-loop phases, and worker pools to execute asynchronous server workloads."
+
 ---
 
 # The Node.js Runtime, Event Loop, and libuv

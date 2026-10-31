@@ -1,17 +1,19 @@
 ---
+
 slug: typescript-type-inference-and-type-annotations
 title: "Type Inference and Type Annotations in TypeScript"
 date: null
 tags:
-  - typescript
-  - type-inference
-  - annotations
-  - interview
-topic:
-  - TypeScript
-  - 2
-draft: true
-excerpt: "Understand when TypeScript infers useful types, when explicit annotations improve contracts, and when annotations create unnecessary duplication."
+- typescript
+- type-inference
+- annotations
+- interview
+  topic:
+- TypeScript
+- 2
+  draft: true
+  excerpt: "Understand when TypeScript infers useful types, when explicit annotations improve contracts, and when annotations create unnecessary duplication."
+
 ---
 
 # Type Inference and Type Annotations in TypeScript

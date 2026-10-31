@@ -1,4 +1,5 @@
 ---
+
 title: "Healthcare Consent Management Dashboard"
 description: "Frontend engineering contributions to a production healthcare consent platform, including React workflows, GraphQL integration, browser tests, and a Vite migration."
 tags: ["React", "TypeScript", "GraphQL", "Redux", "Material UI", "Playwright", "Vite"]

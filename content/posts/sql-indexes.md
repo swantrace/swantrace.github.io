@@ -1,17 +1,19 @@
 ---
+
 slug: sql-indexes
 title: "How SQL Indexes Work"
 date: null
 tags:
-  - sql
-  - indexes
-  - performance
-  - interview
-topic:
-  - SQL
-  - 4
-draft: true
-excerpt: "Understand index structures, selectivity, composite key order, lookup costs, write overhead, and when an index helps a query."
+- sql
+- indexes
+- performance
+- interview
+  topic:
+- SQL
+- 4
+  draft: true
+  excerpt: "Understand index structures, selectivity, composite key order, lookup costs, write overhead, and when an index helps a query."
+
 ---
 
 # How SQL Indexes Work

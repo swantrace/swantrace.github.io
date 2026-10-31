@@ -1,17 +1,19 @@
 ---
+
 slug: sql-select-filter-sort-and-aggregate
 title: "SQL Queries, Filtering, Sorting, and Aggregation"
 date: null
 tags:
-  - sql
-  - queries
-  - aggregation
-  - interview
-topic:
-  - SQL
-  - 1
-draft: true
-excerpt: "Build reliable SQL queries using projection, predicates, ordering, grouping, aggregate functions, and correct handling of null values."
+- sql
+- queries
+- aggregation
+- interview
+  topic:
+- SQL
+- 1
+  draft: true
+  excerpt: "Build reliable SQL queries using projection, predicates, ordering, grouping, aggregate functions, and correct handling of null values."
+
 ---
 
 # SQL Queries, Filtering, Sorting, and Aggregation

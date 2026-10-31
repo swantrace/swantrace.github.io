@@ -1,18 +1,20 @@
 ---
+
 slug: browser-rendering-reflow-and-repaint
 title: "Browser Rendering, Reflow, and Repaint"
 date: null
 tags:
-  - html-css
-  - browser
-  - rendering
-  - performance
-  - interview
-topic:
-  - HTML and CSS
-  - 9
-draft: true
-excerpt: "Understand the browser rendering pipeline and distinguish layout, paint, and compositing work when diagnosing visual performance."
+- html-css
+- browser
+- rendering
+- performance
+- interview
+  topic:
+- HTML and CSS
+- 9
+  draft: true
+  excerpt: "Understand the browser rendering pipeline and distinguish layout, paint, and compositing work when diagnosing visual performance."
+
 ---
 
 # Browser Rendering, Reflow, and Repaint

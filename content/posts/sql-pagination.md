@@ -1,17 +1,19 @@
 ---
+
 slug: sql-pagination
 title: "Offset and Cursor Pagination in SQL"
 date: null
 tags:
-  - sql
-  - pagination
-  - cursor-pagination
-  - interview
-topic:
-  - SQL
-  - 10
-draft: true
-excerpt: "Compare offset and cursor pagination for consistency, performance, navigation behavior, and stable ordering across changing SQL data sets."
+- sql
+- pagination
+- cursor-pagination
+- interview
+  topic:
+- SQL
+- 10
+  draft: true
+  excerpt: "Compare offset and cursor pagination for consistency, performance, navigation behavior, and stable ordering across changing SQL data sets."
+
 ---
 
 # Offset and Cursor Pagination in SQL

@@ -1,18 +1,20 @@
 ---
+
 slug: css-specificity-cascade-and-inheritance
 title: "CSS Specificity, the Cascade, and Inheritance"
 date: null
 tags:
-  - html-css
-  - css
-  - cascade
-  - specificity
-  - interview
-topic:
-  - HTML and CSS
-  - 4
-draft: true
-excerpt: "Learn how origin, layers, importance, specificity, source order, and inheritance determine the final value of CSS properties."
+- html-css
+- css
+- cascade
+- specificity
+- interview
+  topic:
+- HTML and CSS
+- 4
+  draft: true
+  excerpt: "Learn how origin, layers, importance, specificity, source order, and inheritance determine the final value of CSS properties."
+
 ---
 
 # CSS Specificity, the Cascade, and Inheritance

@@ -1,17 +1,19 @@
 ---
+
 slug: css-flexbox
 title: "Building Layouts with CSS Flexbox"
 date: null
 tags:
-  - html-css
-  - css
-  - flexbox
-  - interview
-topic:
-  - HTML and CSS
-  - 5
-draft: true
-excerpt: "Use Flexbox alignment, sizing, wrapping, and axes to build resilient one-dimensional component and page layouts."
+- html-css
+- css
+- flexbox
+- interview
+  topic:
+- HTML and CSS
+- 5
+  draft: true
+  excerpt: "Use Flexbox alignment, sizing, wrapping, and axes to build resilient one-dimensional component and page layouts."
+
 ---
 
 # Building Layouts with CSS Flexbox

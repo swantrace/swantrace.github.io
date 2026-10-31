@@ -1,17 +1,19 @@
 ---
+
 slug: responsive-web-design
 title: "Responsive Web Design"
 date: null
 tags:
-  - html-css
-  - css
-  - responsive-design
-  - interview
-topic:
-  - HTML and CSS
-  - 8
-draft: true
-excerpt: "Design adaptable interfaces with fluid sizing, media and container queries, responsive images, and content-driven breakpoints."
+- html-css
+- css
+- responsive-design
+- interview
+  topic:
+- HTML and CSS
+- 8
+  draft: true
+  excerpt: "Design adaptable interfaces with fluid sizing, media and container queries, responsive images, and content-driven breakpoints."
+
 ---
 
 # Responsive Web Design

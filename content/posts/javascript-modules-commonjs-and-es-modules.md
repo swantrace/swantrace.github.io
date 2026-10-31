@@ -1,17 +1,19 @@
 ---
+
 slug: javascript-modules-commonjs-and-es-modules
 title: "CommonJS and ES Modules in JavaScript"
 date: null
 tags:
-  - javascript
-  - modules
-  - esm
-  - interview
-topic:
-  - JavaScript
-  - 6
-draft: true
-excerpt: "Compare CommonJS and ES Modules, including syntax, loading behavior, interoperability, static analysis, and practical migration considerations."
+- javascript
+- modules
+- esm
+- interview
+  topic:
+- JavaScript
+- 6
+  draft: true
+  excerpt: "Compare CommonJS and ES Modules, including syntax, loading behavior, interoperability, static analysis, and practical migration considerations."
+
 ---
 
 # CommonJS and ES Modules in JavaScript

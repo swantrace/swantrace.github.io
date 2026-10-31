@@ -1,18 +1,20 @@
 ---
+
 slug: html-forms-and-validation
 title: "HTML Forms and Client-Side Validation"
 date: null
 tags:
-  - html-css
-  - html
-  - forms
-  - validation
-  - interview
-topic:
-  - HTML and CSS
-  - 10
-draft: true
-excerpt: "Build accessible forms with native controls, labels, submission semantics, constraint validation, and clear client-side error feedback."
+- html-css
+- html
+- forms
+- validation
+- interview
+  topic:
+- HTML and CSS
+- 10
+  draft: true
+  excerpt: "Build accessible forms with native controls, labels, submission semantics, constraint validation, and clear client-side error feedback."
+
 ---
 
 # HTML Forms and Client-Side Validation

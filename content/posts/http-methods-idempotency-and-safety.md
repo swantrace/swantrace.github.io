@@ -1,17 +1,19 @@
 ---
+
 slug: http-methods-idempotency-and-safety
 title: "HTTP Methods, Idempotency, and Safety"
 date: null
 tags:
-  - rest-api
-  - http
-  - idempotency
-  - interview
-topic:
-  - REST API
-  - 2
-draft: true
-excerpt: "Understand HTTP method semantics, safety, idempotency, and how those guarantees affect retries, caching, and API behavior."
+- rest-api
+- http
+- idempotency
+- interview
+  topic:
+- REST API
+- 2
+  draft: true
+  excerpt: "Understand HTTP method semantics, safety, idempotency, and how those guarantees affect retries, caching, and API behavior."
+
 ---
 
 # HTTP Methods, Idempotency, and Safety

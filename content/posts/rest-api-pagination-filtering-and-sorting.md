@@ -1,17 +1,19 @@
 ---
+
 slug: rest-api-pagination-filtering-and-sorting
 title: "Pagination, Filtering, and Sorting in REST APIs"
 date: null
 tags:
-  - rest-api
-  - pagination
-  - filtering
-  - interview
-topic:
-  - REST API
-  - 5
-draft: true
-excerpt: "Design stable REST collection endpoints with bounded pagination, explicit filters, deterministic sorting, and useful client-facing navigation metadata."
+- rest-api
+- pagination
+- filtering
+- interview
+  topic:
+- REST API
+- 5
+  draft: true
+  excerpt: "Design stable REST collection endpoints with bounded pagination, explicit filters, deterministic sorting, and useful client-facing navigation metadata."
+
 ---
 
 # Pagination, Filtering, and Sorting in REST APIs
