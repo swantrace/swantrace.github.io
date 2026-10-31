@@ -8,11 +8,11 @@ tags:
 - scope
 - closures
 - interview
-  topic:
+topic:
 - JavaScript
 - 1
-  draft: true
-  excerpt: "Learn how execution contexts, lexical scope, and closures determine variable access and preserve state across JavaScript function calls."
+draft: true
+excerpt: "Learn how execution contexts, lexical scope, and closures determine variable access and preserve state across JavaScript function calls."
 
 ---
 

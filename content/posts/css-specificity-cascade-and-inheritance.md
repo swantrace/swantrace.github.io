@@ -9,11 +9,11 @@ tags:
 - cascade
 - specificity
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 4
-  draft: true
-  excerpt: "Learn how origin, layers, importance, specificity, source order, and inheritance determine the final value of CSS properties."
+draft: true
+excerpt: "Learn how origin, layers, importance, specificity, source order, and inheritance determine the final value of CSS properties."
 
 ---
 

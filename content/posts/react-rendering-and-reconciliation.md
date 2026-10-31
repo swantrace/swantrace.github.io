@@ -8,11 +8,11 @@ tags:
 - rendering
 - reconciliation
 - interview
-  topic:
+topic:
 - React
 - 2
-  draft: true
-  excerpt: "Learn how React renders component trees, reconciles element changes, preserves identity, and commits necessary updates to the interface."
+draft: true
+excerpt: "Learn how React renders component trees, reconciles element changes, preserves identity, and commits necessary updates to the interface."
 
 ---
 

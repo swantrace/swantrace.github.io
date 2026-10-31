@@ -8,11 +8,11 @@ tags:
 - queries
 - aggregation
 - interview
-  topic:
+topic:
 - SQL
 - 1
-  draft: true
-  excerpt: "Build reliable SQL queries using projection, predicates, ordering, grouping, aggregate functions, and correct handling of null values."
+draft: true
+excerpt: "Build reliable SQL queries using projection, predicates, ordering, grouping, aggregate functions, and correct handling of null values."
 
 ---
 

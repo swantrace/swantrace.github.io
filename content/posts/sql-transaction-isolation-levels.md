@@ -8,11 +8,11 @@ tags:
 - transactions
 - isolation
 - interview
-  topic:
+topic:
 - SQL
 - 6
-  draft: true
-  excerpt: "Compare isolation levels, concurrency anomalies, locking, and multiversion behavior when balancing correctness against transactional throughput."
+draft: true
+excerpt: "Compare isolation levels, concurrency anomalies, locking, and multiversion behavior when balancing correctness against transactional throughput."
 
 ---
 

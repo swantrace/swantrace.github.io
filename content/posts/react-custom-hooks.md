@@ -8,11 +8,11 @@ tags:
 - hooks
 - custom-hooks
 - interview
-  topic:
+topic:
 - React
 - 8
-  draft: true
-  excerpt: "Learn how custom Hooks extract reusable stateful behavior while preserving React's rules, clear APIs, and component-level composition."
+draft: true
+excerpt: "Learn how custom Hooks extract reusable stateful behavior while preserving React's rules, clear APIs, and component-level composition."
 
 ---
 

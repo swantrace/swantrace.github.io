@@ -8,11 +8,11 @@ tags:
 - prototypes
 - inheritance
 - interview
-  topic:
+topic:
 - JavaScript
 - 3
-  draft: true
-  excerpt: "Explore prototype-based inheritance, property lookup through the prototype chain, and the relationship between constructors, instances, and classes."
+draft: true
+excerpt: "Explore prototype-based inheritance, property lookup through the prototype chain, and the relationship between constructors, instances, and classes."
 
 ---
 

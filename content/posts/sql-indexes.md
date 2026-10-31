@@ -8,11 +8,11 @@ tags:
 - indexes
 - performance
 - interview
-  topic:
+topic:
 - SQL
 - 4
-  draft: true
-  excerpt: "Understand index structures, selectivity, composite key order, lookup costs, write overhead, and when an index helps a query."
+draft: true
+excerpt: "Understand index structures, selectivity, composite key order, lookup costs, write overhead, and when an index helps a query."
 
 ---
 

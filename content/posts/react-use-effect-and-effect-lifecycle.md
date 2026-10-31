@@ -8,11 +8,11 @@ tags:
 - hooks
 - use-effect
 - interview
-  topic:
+topic:
 - React
 - 4
-  draft: true
-  excerpt: "Learn when effects synchronize with external systems, how dependencies control reruns, and when cleanup prevents stale subscriptions."
+draft: true
+excerpt: "Learn when effects synchronize with external systems, how dependencies control reruns, and when cleanup prevents stale subscriptions."
 
 ---
 

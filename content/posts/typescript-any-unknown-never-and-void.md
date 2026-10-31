@@ -10,11 +10,11 @@ tags:
 - never
 - void
 - interview
-  topic:
+topic:
 - TypeScript
 - 8
-  draft: true
-  excerpt: "Distinguish TypeScript's special types and use each deliberately for unsafe values, unknown inputs, impossible states, and absent returns."
+draft: true
+excerpt: "Distinguish TypeScript's special types and use each deliberately for unsafe values, unknown inputs, impossible states, and absent returns."
 
 ---
 

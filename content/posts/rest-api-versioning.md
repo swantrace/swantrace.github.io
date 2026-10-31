@@ -8,11 +8,11 @@ tags:
 - versioning
 - compatibility
 - interview
-  topic:
+topic:
 - REST API
 - 7
-  draft: true
-  excerpt: "Compare URL, header, and media-type versioning while planning backward-compatible evolution and clear API deprecation policies."
+draft: true
+excerpt: "Compare URL, header, and media-type versioning while planning backward-compatible evolution and clear API deprecation policies."
 
 ---
 

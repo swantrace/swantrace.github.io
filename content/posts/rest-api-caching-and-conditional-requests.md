@@ -8,11 +8,11 @@ tags:
 - caching
 - conditional-requests
 - interview
-  topic:
+topic:
 - REST API
 - 8
-  draft: true
-  excerpt: "Use cache directives, validators, ETags, and conditional requests to reduce transfer while preserving correct client representations."
+draft: true
+excerpt: "Use cache directives, validators, ETags, and conditional requests to reduce transfer while preserving correct client representations."
 
 ---
 

@@ -8,11 +8,11 @@ tags:
 - mapped-types
 - utility-types
 - interview
-  topic:
+topic:
 - TypeScript
 - 6
-  draft: true
-  excerpt: "Explore mapped types and built-in utilities for transforming object types while preserving keys, modifiers, and value relationships."
+draft: true
+excerpt: "Explore mapped types and built-in utilities for transforming object types while preserving keys, modifiers, and value relationships."
 
 ---
 

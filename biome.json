@@ -47,6 +47,14 @@
       "trailingCommas": "none"
     }
   },
+  "markdown": {
+    "parser": {
+      "frontmatter": true
+    },
+    "formatter": {
+      "formatEmbeds": false
+    }
+  },
   "css": {
     "parser": {
       "tailwindDirectives": true

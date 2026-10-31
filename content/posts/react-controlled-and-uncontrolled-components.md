@@ -8,11 +8,11 @@ tags:
 - forms
 - controlled-components
 - interview
-  topic:
+topic:
 - React
 - 7
-  draft: true
-  excerpt: "Compare controlled and uncontrolled components, including ownership of state, validation, integration patterns, and form performance trade-offs."
+draft: true
+excerpt: "Compare controlled and uncontrolled components, including ownership of state, validation, integration patterns, and form performance trade-offs."
 
 ---
 

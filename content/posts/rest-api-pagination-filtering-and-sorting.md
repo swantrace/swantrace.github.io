@@ -8,11 +8,11 @@ tags:
 - pagination
 - filtering
 - interview
-  topic:
+topic:
 - REST API
 - 5
-  draft: true
-  excerpt: "Design stable REST collection endpoints with bounded pagination, explicit filters, deterministic sorting, and useful client-facing navigation metadata."
+draft: true
+excerpt: "Design stable REST collection endpoints with bounded pagination, explicit filters, deterministic sorting, and useful client-facing navigation metadata."
 
 ---
 

@@ -1,4 +1,5 @@
 import { component, html, useEffect, useState } from "haunted";
+import { url } from "../utils/url";
 
 interface PostMeta {
   slug: string;
@@ -141,6 +142,7 @@ function BlogList(element: HTMLElement) {
       year: "numeric",
       month: "long",
       day: "numeric",
+      timeZone: "UTC",
     });
   };
 
@@ -185,17 +187,19 @@ function BlogList(element: HTMLElement) {
   return html`
     <div class="space-y-6">
       <!-- Filters Section -->
-      <div class="card bg-base-200 shadow-xl">
-        <div class="card-body">
+      <div class="blog-filters">
+        <div>
           <div class="space-y-4">
             <div class="flex flex-wrap items-center gap-2">
-              <span class="font-semibold">Filter by tags:</span>
+              <span class="text-base-content/70 text-sm font-medium">Filter by tags:</span>
               ${allTags.map(
                 (tag) => html`
                   <button
                     class="btn btn-sm ${
-                      selectedTags.includes(tag) ? "btn-primary" : "btn-outline"
+                      selectedTags.includes(tag) ? "btn-active" : "btn-ghost"
                     }"
+                    type="button"
+                    aria-pressed=${selectedTags.includes(tag)}
                     @click=${() => handleTagToggle(tag)}
                   >
                     ${tag}
@@ -205,9 +209,11 @@ function BlogList(element: HTMLElement) {
             </div>
 
             <div class="flex flex-wrap items-center gap-2">
-              <span class="font-semibold">Filter by topic:</span>
+              <span class="text-base-content/70 text-sm font-medium">Filter by topic:</span>
               <button
-                class="btn btn-sm ${!selectedTopic ? "btn-primary" : "btn-outline"}"
+                class="btn btn-sm ${!selectedTopic ? "btn-active" : "btn-ghost"}"
+                type="button"
+                aria-pressed=${!selectedTopic}
                 @click=${() => handleTopicChange(null)}
               >
                 All Topics
@@ -216,8 +222,10 @@ function BlogList(element: HTMLElement) {
                 (topic) => html`
                   <button
                     class="btn btn-sm ${
-                      selectedTopic === topic ? "btn-primary" : "btn-outline"
+                      selectedTopic === topic ? "btn-active" : "btn-ghost"
                     }"
+                    type="button"
+                    aria-pressed=${selectedTopic === topic}
                     @click=${() => handleTopicChange(topic)}
                   >
                     ${topic}
@@ -230,7 +238,8 @@ function BlogList(element: HTMLElement) {
               selectedTags.length > 0 || selectedTopic
                 ? html`
                     <button
-                      class="btn btn-secondary btn-sm"
+                      class="btn btn-outline btn-sm"
+                      type="button"
                       @click=${clearFilters}
                     >
                       Clear Filters
@@ -243,12 +252,12 @@ function BlogList(element: HTMLElement) {
       </div>
 
       <!-- Results Info -->
-      <div class="flex items-center justify-between">
-        <div class="stat">
-          <div class="stat-value text-lg">
+      <div class="flex flex-wrap items-center justify-between gap-3 text-sm">
+        <div aria-live="polite" aria-atomic="true">
+          <div class="font-medium">
             ${filteredPosts.length} post${filteredPosts.length !== 1 ? "s" : ""}
           </div>
-          <div class="stat-desc">
+          <div class="text-base-content/60 text-xs">
             ${
               selectedTags.length > 0 || selectedTopic
                 ? html`filtered from ${posts.length} total`
@@ -257,12 +266,11 @@ function BlogList(element: HTMLElement) {
           </div>
         </div>
 
-        <div class="form-control">
-          <label class="label">
-            <span class="label-text">Posts per page:</span>
-          </label>
+        <div class="flex items-center gap-2">
+          <label for="posts-per-page">Posts per page:</label>
           <select
-            class="select select-bordered select-sm"
+            id="posts-per-page"
+            class="select select-sm w-20"
             .value=${perPage.toString()}
             @change=${(e: Event) =>
               handlePerPageChange(
@@ -278,7 +286,7 @@ function BlogList(element: HTMLElement) {
       </div>
 
       <!-- Posts List -->
-      <div class="space-y-6">
+      <div class="space-y-3">
         ${
           paginatedPosts.length === 0
             ? html`
@@ -288,57 +296,37 @@ function BlogList(element: HTMLElement) {
               `
             : paginatedPosts.map(
                 (post) => html`
-                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
-                  <div class="card-body">
-                    <h2 class="card-title">
+                <article class="card post-card">
+                  <div class="card-body gap-3 p-0">
+                    <div class="post-meta">
+                      ${post.date ? html`<time datetime="${post.date}">${formatDate(post.date)}</time>` : ""}
+                      ${post.topic ? html`<span>${post.topic[0]}</span>` : ""}
+                    </div>
+                    <h2 class="card-title text-xl leading-snug">
                       <a
-                        href="/blog/${post.slug}"
+                        href=${url(`/blog/${post.slug}`)}
                         class="link link-hover"
                       >
-                        ${post.title}
+                        ${post.title} <span class="text-base-content/40" aria-hidden="true">↗</span>
                       </a>
                     </h2>
-
-                    <div class="flex flex-wrap items-center gap-2">
-                      <div class="text-sm opacity-70">
-                        <time datetime="${post.date}">${formatDate(post.date)}</time>
-                      </div>
-
-                      ${
-                        post.topic
-                          ? html`
-                              <div class="badge badge-secondary">
-                                📚 ${post.topic[0]}
-                              </div>
-                            `
-                          : ""
-                      }
-                    </div>
+                    <p class="text-base-content/70 text-sm leading-relaxed sm:text-base">${post.excerpt}</p>
 
                     ${
                       post.tags.length > 0
                         ? html`
-                            <div class="flex flex-wrap gap-2">
+                            <div class="flex flex-wrap gap-1.5">
                               ${post.tags.map(
                                 (tag) => html`
-                                  <div class="badge badge-outline">#${tag}</div>
+                                  <span class="badge badge-ghost badge-sm">${tag}</span>
                                 `
                               )}
                             </div>
                           `
                         : ""
                     }
-                    <p class="text-base-content/70">${post.excerpt}</p>
-                    <div class="card-actions justify-end">
-                      <a
-                        href="/blog/${post.slug}"
-                        class="btn btn-primary btn-sm"
-                      >
-                        Read more →
-                      </a>
-                    </div>
                   </div>
-                </div>
+                </article>
               `
               )
         }
@@ -348,9 +336,9 @@ function BlogList(element: HTMLElement) {
       ${
         totalPages > 1
           ? html`
-              <div class="flex items-center justify-center space-x-2">
+              <nav aria-label="Blog pagination" class="flex flex-wrap items-center justify-center gap-2">
                 <button
-                  class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  class="btn btn-ghost btn-sm"
                   ?disabled=${currentPage === 1}
                   @click=${() => handlePageChange(currentPage - 1)}
                 >
@@ -374,10 +362,10 @@ function BlogList(element: HTMLElement) {
                     return html`
                       <button
                         class="${
-                          isCurrentPage
-                            ? "bg-blue-500 text-white border-blue-500"
-                            : "border-gray-300 hover:bg-gray-50"
-                        } rounded border px-3 py-2 text-sm transition-colors"
+                          isCurrentPage ? "btn-active" : "btn-ghost"
+                        } btn btn-sm"
+                        aria-label=${`Page ${page}`}
+                        aria-current=${isCurrentPage ? "page" : "false"}
                         @click=${() => handlePageChange(page)}
                       >
                         ${page}
@@ -387,13 +375,13 @@ function BlogList(element: HTMLElement) {
                 )}
 
                 <button
-                  class="rounded border border-gray-300 px-3 py-2 text-sm transition-colors hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-50"
+                  class="btn btn-ghost btn-sm"
                   ?disabled=${currentPage === totalPages}
                   @click=${() => handlePageChange(currentPage + 1)}
                 >
                   Next
                 </button>
-              </div>
+              </nav>
             `
           : ""
       }

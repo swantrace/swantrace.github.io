@@ -8,11 +8,11 @@ tags:
 - buffers
 - binary-data
 - interview
-  topic:
+topic:
 - Node.js
 - 6
-  draft: true
-  excerpt: "Learn how Node.js Buffers represent bytes, interact with encodings and streams, and avoid common binary-data corruption mistakes."
+draft: true
+excerpt: "Learn how Node.js Buffers represent bytes, interact with encodings and streams, and avoid common binary-data corruption mistakes."
 
 ---
 

@@ -27,14 +27,16 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
   const { allTags, allTopics } = getAllTagsAndTopics();
 
   return (
-    <div className="space-y-4 rounded-lg bg-gray-50 p-4">
+    <div className="blog-filters space-y-4">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="font-medium text-gray-700">Filter by tags:</span>
+        <span className="text-base-content/70 text-sm font-medium">
+          Filter by tags:
+        </span>
         {allTags.map((tag) => (
           <button
             type="button"
             key={tag}
-            className="cursor-not-allowed rounded-full border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 opacity-75 transition-colors hover:border-blue-300"
+            className="btn btn-ghost btn-sm"
             disabled
           >
             {tag}
@@ -43,19 +45,17 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
       </div>
 
       <div className="flex flex-wrap items-center gap-2">
-        <span className="font-medium text-gray-700">Filter by topic:</span>
-        <button
-          type="button"
-          className="cursor-not-allowed rounded-full border border-blue-500 bg-blue-500 px-3 py-1 text-sm text-white opacity-75"
-          disabled
-        >
+        <span className="text-base-content/70 text-sm font-medium">
+          Filter by topic:
+        </span>
+        <button type="button" className="btn btn-sm" disabled>
           All Topics
         </button>
         {allTopics.map((topic) => (
           <button
             type="button"
             key={topic}
-            className="cursor-not-allowed rounded-full border border-gray-300 bg-white px-3 py-1 text-sm text-gray-700 opacity-75 transition-colors hover:border-blue-300"
+            className="btn btn-ghost btn-sm"
             disabled
           >
             {topic}
@@ -64,7 +64,7 @@ export const FiltersSection = ({ posts }: FiltersSectionProps) => {
       </div>
 
       <noscript>
-        <p className="text-sm text-gray-500 italic">
+        <p className="text-base-content/60 text-sm italic">
           🔧 Enable JavaScript for interactive filtering and pagination
         </p>
       </noscript>

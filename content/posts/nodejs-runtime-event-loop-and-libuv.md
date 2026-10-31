@@ -8,11 +8,11 @@ tags:
 - event-loop
 - libuv
 - interview
-  topic:
+topic:
 - Node.js
 - 1
-  draft: true
-  excerpt: "Understand how Node.js combines V8, libuv, event-loop phases, and worker pools to execute asynchronous server workloads."
+draft: true
+excerpt: "Understand how Node.js combines V8, libuv, event-loop phases, and worker pools to execute asynchronous server workloads."
 
 ---
 

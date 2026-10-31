@@ -8,11 +8,11 @@ tags:
 - this
 - functions
 - interview
-  topic:
+topic:
 - JavaScript
 - 2
-  draft: true
-  excerpt: "Understand how JavaScript determines this and how call, apply, and bind explicitly control a function's invocation context."
+draft: true
+excerpt: "Understand how JavaScript determines this and how call, apply, and bind explicitly control a function's invocation context."
 
 ---
 

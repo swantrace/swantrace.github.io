@@ -8,11 +8,11 @@ tags:
 - type-inference
 - annotations
 - interview
-  topic:
+topic:
 - TypeScript
 - 2
-  draft: true
-  excerpt: "Understand when TypeScript infers useful types, when explicit annotations improve contracts, and when annotations create unnecessary duplication."
+draft: true
+excerpt: "Understand when TypeScript infers useful types, when explicit annotations improve contracts, and when annotations create unnecessary duplication."
 
 ---
 

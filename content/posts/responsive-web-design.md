@@ -8,11 +8,11 @@ tags:
 - css
 - responsive-design
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 8
-  draft: true
-  excerpt: "Design adaptable interfaces with fluid sizing, media and container queries, responsive images, and content-driven breakpoints."
+draft: true
+excerpt: "Design adaptable interfaces with fluid sizing, media and container queries, responsive images, and content-driven breakpoints."
 
 ---
 

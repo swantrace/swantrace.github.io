@@ -9,11 +9,11 @@ tags:
 - forms
 - validation
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 10
-  draft: true
-  excerpt: "Build accessible forms with native controls, labels, submission semantics, constraint validation, and clear client-side error feedback."
+draft: true
+excerpt: "Build accessible forms with native controls, labels, submission semantics, constraint validation, and clear client-side error feedback."
 
 ---
 

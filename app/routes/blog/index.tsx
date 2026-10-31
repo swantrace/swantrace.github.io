@@ -4,6 +4,7 @@ import { createRoute } from "honox/factory";
 import { FiltersSection } from "../../components/filters-section";
 import { PostList } from "../../components/post-list";
 import { ResultInfo } from "../../components/result-info";
+import { url } from "../../utils/url";
 
 export default createRoute(async (c) => {
   // Load posts data at build time
@@ -26,21 +27,21 @@ export default createRoute(async (c) => {
         name="description"
         content="Thoughts, tutorials, and insights on web development, technology, and more."
       />
-      <div className="container mx-auto max-w-4xl px-4 py-8">
+      <div className="py-8">
         <nav className="mb-6">
           <a
-            href="/"
-            className="text-windsurfing hover:text-marina inline-flex items-center transition-colors"
+            href={url("/")}
+            className="link link-hover text-base-content/60 text-sm"
           >
             ← Back to Home
           </a>
         </nav>
 
         <header className="mb-8">
-          <h1 className="mb-2 text-4xl font-bold text-gray-900 dark:text-white">
+          <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
             Blog
           </h1>
-          <p className="dark:text-blue-dark text-lg text-gray-600">
+          <p className="text-base-content/70 text-lg leading-relaxed">
             Thoughts, tutorials, and insights on web development, technology,
             and more.
           </p>

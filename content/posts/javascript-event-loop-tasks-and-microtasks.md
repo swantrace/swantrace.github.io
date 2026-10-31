@@ -8,11 +8,11 @@ tags:
 - event-loop
 - async
 - interview
-  topic:
+topic:
 - JavaScript
 - 4
-  draft: true
-  excerpt: "Understand how the event loop schedules tasks and microtasks, and predict the execution order of asynchronous JavaScript code."
+draft: true
+excerpt: "Understand how the event loop schedules tasks and microtasks, and predict the execution order of asynchronous JavaScript code."
 
 ---
 

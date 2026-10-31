@@ -27,6 +27,7 @@ function ThemeSwitcher() {
         <input
           type="checkbox"
           class="toggle toggle-primary"
+          aria-label="Dark theme"
           ?checked=${theme === "dark"}
           @change=${() => setTheme(theme === "light" ? "dark" : "light")}
         />

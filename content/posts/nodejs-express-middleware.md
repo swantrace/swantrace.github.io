@@ -8,11 +8,11 @@ tags:
 - express
 - middleware
 - interview
-  topic:
+topic:
 - Node.js
 - 3
-  draft: true
-  excerpt: "Understand Express middleware ordering, request and response flow, error middleware, and composition across application routes."
+draft: true
+excerpt: "Understand Express middleware ordering, request and response flow, error middleware, and composition across application routes."
 
 ---
 

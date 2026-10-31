@@ -8,11 +8,11 @@ tags:
 - normalization
 - schema-design
 - interview
-  topic:
+topic:
 - SQL
 - 8
-  draft: true
-  excerpt: "Use normalization and deliberate denormalization to model consistent relational data while balancing query simplicity and performance."
+draft: true
+excerpt: "Use normalization and deliberate denormalization to model consistent relational data while balancing query simplicity and performance."
 
 ---
 

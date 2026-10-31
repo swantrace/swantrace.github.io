@@ -8,11 +8,11 @@ tags:
 - rate-limiting
 - resilience
 - interview
-  topic:
+topic:
 - REST API
 - 9
-  draft: true
-  excerpt: "Understand common rate-limiting algorithms, reliable client identification, response headers, distributed enforcement, abuse prevention, and fairness trade-offs."
+draft: true
+excerpt: "Understand common rate-limiting algorithms, reliable client identification, response headers, distributed enforcement, abuse prevention, and fairness trade-offs."
 
 ---
 

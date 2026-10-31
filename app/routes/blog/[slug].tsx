@@ -22,21 +22,26 @@ export default createRoute(async (c) => {
     <main className="blog-post">
       <title>{frontmatter.title} — Blog</title>
       <meta name="description" content={frontmatter.excerpt} />
-      <div class="mx-auto max-w-3xl px-4 py-8">
+      <div class="py-8">
         <nav className="mb-6">
           <a
-            href="/"
-            className="text-windsurfing hover:text-marina inline-flex items-center transition-colors"
+            href={url("/")}
+            className="link link-hover text-base-content/60 text-sm"
           >
             ← Back to Home
           </a>
         </nav>
         <article>
           <header class="mb-8">
-            <h1 class="mb-2 text-3xl font-bold">{frontmatter.title}</h1>
+            <h1 class="mb-5 text-3xl font-bold tracking-tight sm:text-4xl">
+              {frontmatter.title}
+            </h1>
             <div class="mb-4 flex flex-wrap gap-2">
               {frontmatter.date && (
-                <time class="text-gray-500" dateTime={frontmatter.date}>
+                <time
+                  class="text-base-content/60 text-sm"
+                  dateTime={frontmatter.date}
+                >
                   {new Date(frontmatter.date).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "long",
@@ -45,9 +50,7 @@ export default createRoute(async (c) => {
                 </time>
               )}
               {frontmatter.draft && (
-                <span class="rounded bg-yellow-100 px-2.5 py-0.5 text-xs font-medium text-yellow-800">
-                  Draft
-                </span>
+                <span class="badge badge-warning badge-sm">Draft</span>
               )}
             </div>
             {frontmatter.tags.length > 0 && (
@@ -55,7 +58,7 @@ export default createRoute(async (c) => {
                 {frontmatter.tags.map((tag) => (
                   <a
                     href={url(`/blog?tag=${encodeURIComponent(tag)}`)}
-                    class="rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 transition-colors hover:bg-blue-200"
+                    class="badge badge-ghost badge-sm hover:underline"
                   >
                     {tag}
                   </a>
@@ -64,14 +67,11 @@ export default createRoute(async (c) => {
             )}
           </header>
           <div
-            class="blog-content prose prose-slate max-w-none"
+            class="blog-content prose max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
-          <footer class="mt-12 flex justify-between border-t border-gray-200 pt-6">
-            <a
-              href={url("/blog")}
-              class="text-blue-600 transition-colors hover:text-blue-800"
-            >
+          <footer class="border-base-300 mt-12 flex justify-between border-t pt-6">
+            <a href={url("/blog")} class="link link-hover text-sm">
               ← Back to all posts
             </a>
           </footer>

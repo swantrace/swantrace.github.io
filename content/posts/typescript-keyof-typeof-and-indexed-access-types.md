@@ -8,11 +8,11 @@ tags:
 - keyof
 - indexed-access
 - interview
-  topic:
+topic:
 - TypeScript
 - 5
-  draft: true
-  excerpt: "Learn how keyof, type-position typeof, and indexed access types derive reusable types from existing values and object shapes."
+draft: true
+excerpt: "Learn how keyof, type-position typeof, and indexed access types derive reusable types from existing values and object shapes."
 
 ---
 

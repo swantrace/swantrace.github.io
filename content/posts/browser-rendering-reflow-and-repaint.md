@@ -9,11 +9,11 @@ tags:
 - rendering
 - performance
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 9
-  draft: true
-  excerpt: "Understand the browser rendering pipeline and distinguish layout, paint, and compositing work when diagnosing visual performance."
+draft: true
+excerpt: "Understand the browser rendering pipeline and distinguish layout, paint, and compositing work when diagnosing visual performance."
 
 ---
 

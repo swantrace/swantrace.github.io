@@ -8,11 +8,11 @@ tags:
 - validation
 - error-handling
 - interview
-  topic:
+topic:
 - REST API
 - 4
-  draft: true
-  excerpt: "Design validation boundaries and consistent error responses that help clients identify invalid fields, conflicts, and recoverable failures."
+draft: true
+excerpt: "Design validation boundaries and consistent error responses that help clients identify invalid fields, conflicts, and recoverable failures."
 
 ---
 

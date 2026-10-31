@@ -8,11 +8,11 @@ tags:
 - query-plans
 - optimization
 - interview
-  topic:
+topic:
 - SQL
 - 7
-  draft: true
-  excerpt: "Read query plans, identify expensive scans and joins, and improve database performance through evidence-driven query and index changes."
+draft: true
+excerpt: "Read query plans, identify expensive scans and joins, and improve database performance through evidence-driven query and index changes."
 
 ---
 

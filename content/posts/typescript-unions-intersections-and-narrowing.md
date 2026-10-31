@@ -8,11 +8,11 @@ tags:
 - unions
 - narrowing
 - interview
-  topic:
+topic:
 - TypeScript
 - 4
-  draft: true
-  excerpt: "Understand unions, intersections, discriminated unions, and control-flow narrowing for modeling data and safely handling multiple possible types."
+draft: true
+excerpt: "Understand unions, intersections, discriminated unions, and control-flow narrowing for modeling data and safely handling multiple possible types."
 
 ---
 

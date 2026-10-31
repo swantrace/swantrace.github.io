@@ -8,11 +8,11 @@ tags:
 - conditional-types
 - infer
 - interview
-  topic:
+topic:
 - TypeScript
 - 7
-  draft: true
-  excerpt: "Understand conditional type distribution and the infer keyword for extracting and transforming types through reusable type-level logic."
+draft: true
+excerpt: "Understand conditional type distribution and the infer keyword for extracting and transforming types through reusable type-level logic."
 
 ---
 

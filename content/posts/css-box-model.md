@@ -8,11 +8,11 @@ tags:
 - css
 - box-model
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 3
-  draft: true
-  excerpt: "Understand content, padding, borders, margins, sizing calculations, and box-sizing behavior when diagnosing unexpected CSS layout dimensions."
+draft: true
+excerpt: "Understand content, padding, borders, margins, sizing calculations, and box-sizing behavior when diagnosing unexpected CSS layout dimensions."
 
 ---
 

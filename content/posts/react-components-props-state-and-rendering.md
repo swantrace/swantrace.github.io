@@ -8,11 +8,11 @@ tags:
 - components
 - state
 - interview
-  topic:
+topic:
 - React
 - 1
-  draft: true
-  excerpt: "Understand how React components combine props and state to describe user interfaces and trigger predictable rendering updates."
+draft: true
+excerpt: "Understand how React components combine props and state to describe user interfaces and trigger predictable rendering updates."
 
 ---
 

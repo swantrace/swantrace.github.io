@@ -8,11 +8,11 @@ tags:
 - html
 - semantics
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 1
-  draft: true
-  excerpt: "Use meaningful HTML landmarks and elements to create understandable document structure for browsers, assistive technology, and maintainers."
+draft: true
+excerpt: "Use meaningful HTML landmarks and elements to create understandable document structure for browsers, assistive technology, and maintainers."
 
 ---
 

@@ -8,11 +8,11 @@ tags:
 - transactions
 - acid
 - interview
-  topic:
+topic:
 - SQL
 - 5
-  draft: true
-  excerpt: "Understand atomicity, consistency, isolation, and durability, and use transaction boundaries to protect multi-step database operations."
+draft: true
+excerpt: "Understand atomicity, consistency, isolation, and durability, and use transaction boundaries to protect multi-step database operations."
 
 ---
 

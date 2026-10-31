@@ -8,11 +8,11 @@ tags:
 - configuration
 - secrets
 - interview
-  topic:
+topic:
 - Node.js
 - 8
-  draft: true
-  excerpt: "Learn to validate environment configuration, separate deployment settings from code, and keep credentials out of logs and repositories."
+draft: true
+excerpt: "Learn to validate environment configuration, separate deployment settings from code, and keep credentials out of logs and repositories."
 
 ---
 

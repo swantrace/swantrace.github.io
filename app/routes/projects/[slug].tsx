@@ -27,23 +27,28 @@ export default createRoute(async (c) => {
     <main>
       <title>{frontmatter.title} — Project</title>
       <meta name="description" content={frontmatter.description} />
-      <div className="mx-auto max-w-4xl py-8">
+      <div className="py-8">
         <nav className="mb-8">
-          <a className="link link-primary" href={url("/projects")}>
+          <a
+            className="link link-hover text-base-content/60 text-sm"
+            href={url("/projects")}
+          >
             ← All projects
           </a>
         </nav>
 
         <article>
           <header className="mb-10">
-            <h1 className="text-4xl font-bold">{frontmatter.title}</h1>
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              {frontmatter.title}
+            </h1>
             <p className="text-base-content/70 mt-4 text-xl leading-relaxed">
               {frontmatter.description}
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
               {frontmatter.tags.map((tag) => (
-                <span key={tag} className="badge badge-secondary">
+                <span key={tag} className="badge badge-ghost badge-sm">
                   {tag}
                 </span>
               ))}
@@ -93,7 +98,7 @@ export default createRoute(async (c) => {
           )}
 
           <div
-            className="blog-content prose prose-slate max-w-none"
+            className="blog-content prose max-w-none"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
         </article>

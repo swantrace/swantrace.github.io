@@ -9,11 +9,11 @@ tags:
 - suspense
 - lazy-loading
 - interview
-  topic:
+topic:
 - React
 - 10
-  draft: true
-  excerpt: "Learn how React handles rendering failures, deferred code loading, and Suspense boundaries for resilient asynchronous user interfaces."
+draft: true
+excerpt: "Learn how React handles rendering failures, deferred code loading, and Suspense boundaries for resilient asynchronous user interfaces."
 
 ---
 

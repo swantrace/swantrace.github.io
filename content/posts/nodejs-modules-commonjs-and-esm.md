@@ -8,11 +8,11 @@ tags:
 - modules
 - esm
 - interview
-  topic:
+topic:
 - Node.js
 - 2
-  draft: true
-  excerpt: "Compare Node.js module systems, package configuration, resolution behavior, interoperability limitations, and practical migration strategies for existing applications."
+draft: true
+excerpt: "Compare Node.js module systems, package configuration, resolution behavior, interoperability limitations, and practical migration strategies for existing applications."
 
 ---
 

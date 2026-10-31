@@ -8,11 +8,11 @@ tags:
 - css
 - grid
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 6
-  draft: true
-  excerpt: "Use CSS Grid tracks, placement, alignment, implicit grids, and responsive patterns for robust two-dimensional layouts."
+draft: true
+excerpt: "Use CSS Grid tracks, placement, alignment, implicit grids, and responsive patterns for robust two-dimensional layouts."
 
 ---
 

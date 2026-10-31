@@ -8,11 +8,11 @@ tags:
 - generics
 - constraints
 - interview
-  topic:
+topic:
 - TypeScript
 - 3
-  draft: true
-  excerpt: "Learn how generics preserve relationships between types and how constraints express the capabilities generic values must provide."
+draft: true
+excerpt: "Learn how generics preserve relationships between types and how constraints express the capabilities generic values must provide."
 
 ---
 

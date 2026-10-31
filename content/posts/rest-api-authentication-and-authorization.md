@@ -8,11 +8,11 @@ tags:
 - authentication
 - authorization
 - interview
-  topic:
+topic:
 - REST API
 - 6
-  draft: true
-  excerpt: "Separate identity verification from permission checks and apply secure token, session, role, and resource-ownership controls."
+draft: true
+excerpt: "Separate identity verification from permission checks and apply secure token, session, role, and resource-ownership controls."
 
 ---
 

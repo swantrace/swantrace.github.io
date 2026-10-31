@@ -8,11 +8,11 @@ tags:
 - joins
 - relational-data
 - interview
-  topic:
+topic:
 - SQL
 - 2
-  draft: true
-  excerpt: "Understand inner and outer joins, join predicates, cardinality, duplicate rows, and strategies for combining relational data correctly."
+draft: true
+excerpt: "Understand inner and outer joins, join predicates, cardinality, duplicate rows, and strategies for combining relational data correctly."
 
 ---
 

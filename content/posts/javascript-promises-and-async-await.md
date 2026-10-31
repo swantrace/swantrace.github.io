@@ -8,11 +8,11 @@ tags:
 - promises
 - async-await
 - interview
-  topic:
+topic:
 - JavaScript
 - 5
-  draft: true
-  excerpt: "Learn how promises represent asynchronous results and how async and await simplify composition, sequencing, and error handling."
+draft: true
+excerpt: "Learn how promises represent asynchronous results and how async and await simplify composition, sequencing, and error handling."
 
 ---
 

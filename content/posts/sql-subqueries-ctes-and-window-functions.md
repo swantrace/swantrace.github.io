@@ -8,11 +8,11 @@ tags:
 - ctes
 - window-functions
 - interview
-  topic:
+topic:
 - SQL
 - 9
-  draft: true
-  excerpt: "Compare subqueries, common table expressions, and window functions for expressing reusable, ranked, and analytical SQL operations."
+draft: true
+excerpt: "Compare subqueries, common table expressions, and window functions for expressing reusable, ranked, and analytical SQL operations."
 
 ---
 

@@ -8,11 +8,11 @@ tags:
 - http
 - status-codes
 - interview
-  topic:
+topic:
 - REST API
 - 3
-  draft: true
-  excerpt: "Choose meaningful HTTP status codes that communicate success, client errors, conflicts, authentication failures, and server problems consistently."
+draft: true
+excerpt: "Choose meaningful HTTP status codes that communicate success, client errors, conflicts, authentication failures, and server problems consistently."
 
 ---
 

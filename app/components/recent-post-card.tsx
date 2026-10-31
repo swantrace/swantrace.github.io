@@ -1,44 +1,48 @@
+import { url } from "../utils/url";
+
 export const RecentPostCard = ({
   slug,
   title,
   excerpt,
   tags,
   date,
-}: {
-  slug: string;
-  title: string;
-  excerpt: string;
-  tags: string[];
-  date: string | null;
-}) => {
-  return (
-    <div className="card bg-base-100 shadow-xl transition-shadow hover:shadow-2xl">
-      <div className="card-body">
-        <h2 className="card-title">
-          <a href={`/blog/${slug}`} className="link link-hover">
-            {title}
-          </a>
-        </h2>
-        <p className="text-base-content/70">{excerpt}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          {tags.slice(0, 3).map((tag) => (
-            <div key={tag} className="badge badge-primary badge-outline">
-              {tag}
-            </div>
-          ))}
-        </div>
+  topic,
+}: Pick<PostMeta, "slug" | "title" | "excerpt" | "tags" | "date"> & {
+  topic?: PostMeta["topic"];
+}) => (
+  <article className="card post-card">
+    <div className="card-body gap-3 p-0">
+      <div className="post-meta">
         {date && (
-          <div className="card-actions justify-end">
-            <div className="text-sm opacity-70">
-              {new Date(date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </div>
-          </div>
+          <time dateTime={date}>
+            {new Date(date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+              timeZone: "UTC",
+            })}
+          </time>
         )}
+        {topic && <span>{topic[0]}</span>}
+      </div>
+      <h2 className="card-title text-xl leading-snug">
+        <a href={url(`/blog/${slug}`)} className="link link-hover">
+          {title}{" "}
+          <span className="text-base-content/40" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+      </h2>
+      <p className="text-base-content/70 text-sm leading-relaxed sm:text-base">
+        {excerpt}
+      </p>
+      <div className="flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <span key={tag} className="badge badge-ghost badge-sm">
+            {tag}
+          </span>
+        ))}
       </div>
     </div>
-  );
-};
+  </article>
+);

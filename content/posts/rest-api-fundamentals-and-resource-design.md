@@ -8,11 +8,11 @@ tags:
 - rest
 - resource-design
 - interview
-  topic:
+topic:
 - REST API
 - 1
-  draft: true
-  excerpt: "Learn to model domain resources, design predictable URLs, and apply REST constraints without turning endpoints into remote procedures."
+draft: true
+excerpt: "Learn to model domain resources, design predictable URLs, and apply REST constraints without turning endpoints into remote procedures."
 
 ---
 

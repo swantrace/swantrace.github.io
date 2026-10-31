@@ -1,15 +1,21 @@
 import { jsxRenderer } from "hono/jsx-renderer";
 import { Footer } from "../components/footer";
+import { Header } from "../components/header";
 import { url } from "../utils/url";
 
 declare const __BUILD_ID__: string;
 
-export default jsxRenderer(({ children }) => {
+export default jsxRenderer(({ children }, c) => {
   return (
     <html lang="en" data-theme="light">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try { const theme = localStorage.getItem("theme"); if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme; } catch {}`,
+          }}
+        />
 
         {/* CSS */}
         {import.meta.env.DEV ? (
@@ -33,15 +39,14 @@ export default jsxRenderer(({ children }) => {
         )}
       </head>
       <body className="bg-base-100 text-base-content min-h-screen">
-        <div className="container mx-auto max-w-6xl px-4 py-8">
-          {/* Theme switcher */}
-          <div className="mb-8 flex justify-center md:justify-end">
-            <theme-switcher></theme-switcher>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        <Header path={c.req.path} />
+        <div className="site-content">
+          <div id="main-content" tabIndex={-1}>
+            {children}
           </div>
-
-          {/* page content injected by routes */}
-          {children}
-
           <Footer />
         </div>
       </body>

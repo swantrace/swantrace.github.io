@@ -93,6 +93,10 @@ CI uploads those diagnostics as a seven-day GitHub Actions artifact.
 
 Posts and projects use Markdown with YAML frontmatter. Set `draft: true` while content is incomplete; drafts are excluded from production listings, static detail pages, and the sitemap.
 
+Biome is configured to recognize frontmatter and preserve embedded blocks
+(`markdown.parser.frontmatter: true`, `markdown.formatter.formatEmbeds: false`).
+Markdown prose can be formatted while YAML headers, fenced demo code, and HTML blocks stay unchanged.
+
 A project can be marked as featured and can describe whether its source is public or private:
 
 ```yaml

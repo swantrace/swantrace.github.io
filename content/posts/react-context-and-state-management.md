@@ -8,11 +8,11 @@ tags:
 - context
 - state-management
 - interview
-  topic:
+topic:
 - React
 - 6
-  draft: true
-  excerpt: "Understand how Context distributes shared values, where it fits among state-management options, and how to limit unnecessary rerenders."
+draft: true
+excerpt: "Understand how Context distributes shared values, where it fits among state-management options, and how to limit unnecessary rerenders."
 
 ---
 

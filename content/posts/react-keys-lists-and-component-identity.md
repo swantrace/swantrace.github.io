@@ -8,11 +8,11 @@ tags:
 - keys
 - component-identity
 - interview
-  topic:
+topic:
 - React
 - 9
-  draft: true
-  excerpt: "Understand how keys guide reconciliation, preserve component state, and prevent subtle bugs when list items move or change."
+draft: true
+excerpt: "Understand how keys guide reconciliation, preserve component state, and prevent subtle bugs when list items move or change."
 
 ---
 

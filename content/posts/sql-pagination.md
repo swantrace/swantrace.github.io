@@ -8,11 +8,11 @@ tags:
 - pagination
 - cursor-pagination
 - interview
-  topic:
+topic:
 - SQL
 - 10
-  draft: true
-  excerpt: "Compare offset and cursor pagination for consistency, performance, navigation behavior, and stable ordering across changing SQL data sets."
+draft: true
+excerpt: "Compare offset and cursor pagination for consistency, performance, navigation behavior, and stable ordering across changing SQL data sets."
 
 ---
 

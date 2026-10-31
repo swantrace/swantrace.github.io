@@ -8,11 +8,11 @@ tags:
 - performance
 - memoization
 - interview
-  topic:
+topic:
 - React
 - 5
-  draft: true
-  excerpt: "Compare React memoization tools, their identity requirements, appropriate performance use cases, and the costs of unnecessary memoization."
+draft: true
+excerpt: "Compare React memoization tools, their identity requirements, appropriate performance use cases, and the costs of unnecessary memoization."
 
 ---
 

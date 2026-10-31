@@ -8,6 +8,7 @@ export const ProjectCard = ({
   github,
   demo,
   image,
+  order,
 }: ProjectMeta) => {
   const imageUrl = image
     ? /^(https?:)?\/\//.test(image) || image.startsWith("data:")
@@ -16,9 +17,9 @@ export const ProjectCard = ({
     : null;
 
   return (
-    <article className="card bg-base-100 shadow-xl">
-      {imageUrl && (
-        <figure className="aspect-video overflow-hidden">
+    <article className="card portfolio-card sm:card-side">
+      {imageUrl ? (
+        <figure className="project-cover">
           <img
             src={imageUrl}
             alt=""
@@ -26,25 +27,37 @@ export const ProjectCard = ({
             loading="lazy"
           />
         </figure>
+      ) : (
+        <div className="project-cover case-study-cover" aria-hidden="true">
+          <span className="self-start font-mono text-xs tracking-widest opacity-60">
+            {String(order).padStart(2, "0")} / CASE STUDY
+          </span>
+          <span className="font-mono text-5xl tracking-tighter">&lt;/&gt;</span>
+          <span className="self-end font-mono text-xs opacity-60">
+            {tags[0]}
+          </span>
+        </div>
       )}
-      <div className="card-body">
-        <h2 className="card-title">
+      <div className="card-body min-w-0 gap-3 p-0">
+        <h2 className="card-title text-xl leading-snug">
           <a className="link link-hover" href={url(`/projects/${slug}`)}>
             {title}
           </a>
         </h2>
-        <p className="text-base-content/70">{description}</p>
-        <div className="mt-4 flex flex-wrap gap-2">
+        <p className="text-base-content/70 text-sm leading-relaxed sm:text-base">
+          {description}
+        </p>
+        <div className="flex flex-wrap gap-1.5">
           {tags.map((tag) => (
-            <div key={tag} className="badge badge-secondary">
+            <div key={tag} className="badge badge-ghost badge-sm">
               {tag}
             </div>
           ))}
         </div>
-        <div className="card-actions mt-4 items-center justify-end">
+        <div className="card-actions items-center gap-x-5 gap-y-2 text-sm">
           {github && (
             <a
-              className="btn btn-ghost btn-sm"
+              className="link link-hover text-base-content/65"
               href={github}
               target="_blank"
               rel="noreferrer"
@@ -54,7 +67,7 @@ export const ProjectCard = ({
           )}
           {demo && (
             <a
-              className="btn btn-ghost btn-sm"
+              className="link link-hover text-base-content/65"
               href={demo}
               target="_blank"
               rel="noreferrer"
@@ -62,8 +75,11 @@ export const ProjectCard = ({
               Live demo
             </a>
           )}
-          <a className="btn btn-primary btn-sm" href={url(`/projects/${slug}`)}>
-            Read case study
+          <a
+            className="link link-hover font-medium"
+            href={url(`/projects/${slug}`)}
+          >
+            Read case study <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>

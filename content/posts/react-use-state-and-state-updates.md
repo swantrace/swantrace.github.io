@@ -8,11 +8,11 @@ tags:
 - hooks
 - use-state
 - interview
-  topic:
+topic:
 - React
 - 3
-  draft: true
-  excerpt: "Understand useState initialization, queued updates, functional setters, batching, and why state behaves like a render-time snapshot."
+draft: true
+excerpt: "Understand useState initialization, queued updates, functional setters, batching, and why state behaves like a render-time snapshot."
 
 ---
 

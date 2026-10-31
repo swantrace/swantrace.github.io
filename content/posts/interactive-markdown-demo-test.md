@@ -9,9 +9,9 @@ tags:
 - html-demo
 - js-run
 - testing
-  topic: null
-  draft: true
-  excerpt: "Verify HTML preview isolation, native form validation, code controls, and build-time JavaScript output across the custom Markdown components."
+topic: null
+draft: true
+excerpt: "Verify HTML preview isolation, native form validation, code controls, and build-time JavaScript output across the custom Markdown components."
 
 ---
 

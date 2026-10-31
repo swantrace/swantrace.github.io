@@ -8,11 +8,11 @@ tags:
 - streams
 - backpressure
 - interview
-  topic:
+topic:
 - Node.js
 - 5
-  draft: true
-  excerpt: "Understand readable and writable streams, piping, buffering, and backpressure for processing data without exhausting memory."
+draft: true
+excerpt: "Understand readable and writable streams, piping, buffering, and backpressure for processing data without exhausting memory."
 
 ---
 

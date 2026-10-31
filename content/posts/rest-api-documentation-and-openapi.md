@@ -8,11 +8,11 @@ tags:
 - openapi
 - documentation
 - interview
-  topic:
+topic:
 - REST API
 - 10
-  draft: true
-  excerpt: "Learn how OpenAPI documents contracts, drives validation and tooling, and stays synchronized with an evolving REST API implementation."
+draft: true
+excerpt: "Learn how OpenAPI documents contracts, drives validation and tooling, and stays synchronized with an evolving REST API implementation."
 
 ---
 

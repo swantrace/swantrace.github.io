@@ -20,7 +20,7 @@ export const SocialIcons = () => {
   ];
 
   return (
-    <div className="grid grid-flow-col gap-4">
+    <div className="flex flex-wrap gap-1">
       {socials.map((social) => (
         <SocialIcon key={social.label} {...social} />
       ))}

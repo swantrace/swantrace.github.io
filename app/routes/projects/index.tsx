@@ -13,15 +13,20 @@ export default createRoute(async (c) => {
         name="description"
         content="Full-stack, frontend, and FHIR interoperability case studies by Fred Hong."
       />
-      <div className="mx-auto max-w-6xl py-8">
+      <div className="py-8">
         <nav className="mb-8">
-          <a className="link link-primary" href={url("/")}>
+          <a
+            className="link link-hover text-base-content/60 text-sm"
+            href={url("/")}
+          >
             ← Back to home
           </a>
         </nav>
 
         <header className="mb-10 max-w-3xl">
-          <h1 className="text-4xl font-bold">Projects</h1>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Projects
+          </h1>
           <p className="text-base-content/70 mt-4 text-lg">
             Case studies covering full-stack engineering, frontend systems, and
             healthcare interoperability.
@@ -29,7 +34,7 @@ export default createRoute(async (c) => {
         </header>
 
         {projects.length > 0 ? (
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="space-y-3">
             {projects.map((project) => (
               <ProjectCard key={project.slug} {...project} />
             ))}

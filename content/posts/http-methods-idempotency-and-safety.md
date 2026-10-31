@@ -8,11 +8,11 @@ tags:
 - http
 - idempotency
 - interview
-  topic:
+topic:
 - REST API
 - 2
-  draft: true
-  excerpt: "Understand HTTP method semantics, safety, idempotency, and how those guarantees affect retries, caching, and API behavior."
+draft: true
+excerpt: "Understand HTTP method semantics, safety, idempotency, and how those guarantees affect retries, caching, and API behavior."
 
 ---
 

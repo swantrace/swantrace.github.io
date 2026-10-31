@@ -8,11 +8,11 @@ tags:
 - types
 - interfaces
 - interview
-  topic:
+topic:
 - TypeScript
 - 1
-  draft: true
-  excerpt: "Compare type aliases and interfaces, their extension and declaration-merging behavior, and practical guidelines for choosing between them."
+draft: true
+excerpt: "Compare type aliases and interfaces, their extension and declaration-merging behavior, and practical guidelines for choosing between them."
 
 ---
 

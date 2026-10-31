@@ -9,11 +9,11 @@ tags:
 - positioning
 - stacking-context
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 7
-  draft: true
-  excerpt: "Understand positioned elements, containing blocks, z-index, and stacking contexts when controlling overlap and viewport-relative UI."
+draft: true
+excerpt: "Understand positioned elements, containing blocks, z-index, and stacking contexts when controlling overlap and viewport-relative UI."
 
 ---
 

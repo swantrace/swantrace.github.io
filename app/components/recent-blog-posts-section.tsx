@@ -1,12 +1,26 @@
+import { url } from "../utils/url";
 import { RecentPostCard } from "./recent-post-card";
 import { SectionTitle } from "./section-title";
 
 export const RecentBlogPostsSection = ({ posts }: { posts: PostMeta[] }) => {
   return (
-    <section id="blog" className="mt-20 mb-16 text-center md:text-left">
-      <SectionTitle>Recent Articles</SectionTitle>
+    <section id="blog" className="mb-14">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <SectionTitle>Latest from the blog</SectionTitle>
+        <a
+          href={url("/blog")}
+          className="link link-hover text-base-content/65 text-sm"
+        >
+          All articles →
+        </a>
+      </div>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="space-y-3">
+        {posts.length === 0 && (
+          <p className="text-base-content/60 px-4 py-6">
+            New articles are on the way. Check back soon.
+          </p>
+        )}
         {posts.map((post) => (
           <RecentPostCard
             key={post.slug}
@@ -17,15 +31,6 @@ export const RecentBlogPostsSection = ({ posts }: { posts: PostMeta[] }) => {
             date={post.date}
           />
         ))}
-      </div>
-
-      <div className="mt-8 text-center">
-        <a
-          href="/blog"
-          className="bg-windsurfing hover:bg-marina inline-block rounded-lg px-6 py-3 font-medium text-white transition-colors"
-        >
-          View all articles
-        </a>
       </div>
     </section>
   );

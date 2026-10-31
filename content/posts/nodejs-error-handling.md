@@ -8,11 +8,11 @@ tags:
 - errors
 - reliability
 - interview
-  topic:
+topic:
 - Node.js
 - 4
-  draft: true
-  excerpt: "Learn to classify and propagate operational errors, handle rejected promises, centralize HTTP responses, and avoid unsafe process recovery."
+draft: true
+excerpt: "Learn to classify and propagate operational errors, handle rejected promises, centralize HTTP responses, and avoid unsafe process recovery."
 
 ---
 

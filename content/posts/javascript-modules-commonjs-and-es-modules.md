@@ -8,11 +8,11 @@ tags:
 - modules
 - esm
 - interview
-  topic:
+topic:
 - JavaScript
 - 6
-  draft: true
-  excerpt: "Compare CommonJS and ES Modules, including syntax, loading behavior, interoperability, static analysis, and practical migration considerations."
+draft: true
+excerpt: "Compare CommonJS and ES Modules, including syntax, loading behavior, interoperability, static analysis, and practical migration considerations."
 
 ---
 

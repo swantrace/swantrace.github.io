@@ -8,11 +8,11 @@ tags:
 - css
 - flexbox
 - interview
-  topic:
+topic:
 - HTML and CSS
 - 5
-  draft: true
-  excerpt: "Use Flexbox alignment, sizing, wrapping, and axes to build resilient one-dimensional component and page layouts."
+draft: true
+excerpt: "Use Flexbox alignment, sizing, wrapping, and axes to build resilient one-dimensional component and page layouts."
 
 ---
 

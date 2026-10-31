@@ -21,9 +21,11 @@ export default createRoute(async (c) => {
         name="description"
         content="Fred Hong is a full-stack engineer specializing in React, TypeScript, and FHIR interoperability."
       />
-      <HeroSection />
-      <RecentBlogPostsSection posts={recentPosts} />
-      {projects.length > 0 ? <ProjectsSection projects={projects} /> : null}
+      <main>
+        <HeroSection />
+        {projects.length > 0 ? <ProjectsSection projects={projects} /> : null}
+        <RecentBlogPostsSection posts={recentPosts} />
+      </main>
     </>
   );
 });

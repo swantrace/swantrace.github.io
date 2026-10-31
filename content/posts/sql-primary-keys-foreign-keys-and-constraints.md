@@ -8,11 +8,11 @@ tags:
 - constraints
 - keys
 - interview
-  topic:
+topic:
 - SQL
 - 3
-  draft: true
-  excerpt: "Learn how keys and constraints enforce identity, relationships, uniqueness, and domain rules directly within a relational database."
+draft: true
+excerpt: "Learn how keys and constraints enforce identity, relationships, uniqueness, and domain rules directly within a relational database."
 
 ---
 

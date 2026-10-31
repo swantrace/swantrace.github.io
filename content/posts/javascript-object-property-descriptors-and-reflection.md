@@ -8,11 +8,11 @@ tags:
 - objects
 - reflection
 - interview
-  topic:
+topic:
 - JavaScript
 - 8
-  draft: true
-  excerpt: "Explore object property descriptors, getters, setters, enumeration rules, and reflection APIs for inspecting and controlling JavaScript objects."
+draft: true
+excerpt: "Explore object property descriptors, getters, setters, enumeration rules, and reflection APIs for inspecting and controlling JavaScript objects."
 
 ---
 

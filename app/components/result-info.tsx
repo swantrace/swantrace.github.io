@@ -16,8 +16,8 @@ export const ResultInfo = ({ posts }: ResultInfoProps) => {
   const postsCount = posts.length;
 
   return (
-    <div className="flex items-center justify-between">
-      <div className="text-gray-600">
+    <div className="flex flex-wrap items-center justify-between gap-3 text-sm">
+      <div className="text-base-content/60">
         {postsCount} post{postsCount !== 1 ? "s" : ""} found
       </div>
 
@@ -25,11 +25,7 @@ export const ResultInfo = ({ posts }: ResultInfoProps) => {
         <label for="posts-per-page" className="text-sm font-medium">
           Posts per page:
         </label>
-        <select
-          id="posts-per-page"
-          className="cursor-not-allowed rounded border border-gray-300 px-2 py-1 text-sm opacity-75"
-          disabled
-        >
+        <select id="posts-per-page" className="select select-sm w-20" disabled>
           <option value="10">10</option>
         </select>
       </div>

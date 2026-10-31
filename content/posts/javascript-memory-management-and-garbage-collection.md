@@ -8,11 +8,11 @@ tags:
 - memory
 - garbage-collection
 - interview
-  topic:
+topic:
 - JavaScript
 - 7
-  draft: true
-  excerpt: "Understand JavaScript memory allocation, reachability-based garbage collection, common leak patterns, and techniques for diagnosing retained objects."
+draft: true
+excerpt: "Understand JavaScript memory allocation, reachability-based garbage collection, common leak patterns, and techniques for diagnosing retained objects."
 
 ---
 

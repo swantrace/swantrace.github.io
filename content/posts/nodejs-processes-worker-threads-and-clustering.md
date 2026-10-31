@@ -8,11 +8,11 @@ tags:
 - worker-threads
 - processes
 - interview
-  topic:
+topic:
 - Node.js
 - 7
-  draft: true
-  excerpt: "Compare child processes, worker threads, and clustering for isolation, CPU-bound work, concurrency, and multi-core utilization."
+draft: true
+excerpt: "Compare child processes, worker threads, and clustering for isolation, CPU-bound work, concurrency, and multi-core utilization."
 
 ---
 
