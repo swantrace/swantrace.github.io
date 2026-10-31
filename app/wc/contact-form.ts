@@ -13,6 +13,7 @@ function ContactForm(this: HTMLElement) {
   useEffect(() => () => request.current?.abort(), []);
 
   const open = () => {
+    if (status === "sent") setStatus("idle");
     this.querySelector<HTMLButtonElement>("button")?.focus();
     const dialog = this.querySelector<HTMLDialogElement>("dialog");
     dialog?.showModal();
@@ -59,6 +60,7 @@ function ContactForm(this: HTMLElement) {
       if (!response.ok) throw new Error("Submission was not accepted");
       form.reset();
       setStatus("sent");
+      this.querySelector<HTMLDialogElement>("dialog")?.close();
     } catch {
       setStatus("error");
     } finally {
@@ -71,6 +73,9 @@ function ContactForm(this: HTMLElement) {
     <button type="button" class="btn" aria-haspopup="dialog" @click=${open}>
       Let's connect <span aria-hidden="true">↗</span>
     </button>
+    <p class="text-base-content/75 max-w-xs text-sm leading-relaxed" role="status" aria-live="polite">
+      ${status === "sent" ? "Thanks! Your message has been submitted." : ""}
+    </p>
     <dialog class="modal p-4" aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-description">
       <div class="modal-box w-full max-w-lg">
         <form method="dialog">
@@ -101,7 +106,7 @@ function ContactForm(this: HTMLElement) {
             </button>
           </fieldset>
           <p class="text-base-content/75 mt-3 text-sm leading-relaxed" role=${status === "error" ? "alert" : "status"} aria-live="polite">
-            ${status === "sent" ? "Thanks! Your message has been submitted." : status === "error" ? "Couldn't confirm your submission. Your message is still here; please try again or email me directly." : !configured ? "This opens your email app with the message filled in." : ""}
+            ${status === "error" ? "Couldn't confirm your submission. Your message is still here; please try again or email me directly." : !configured ? "This opens your email app with the message filled in." : ""}
           </p>
         </form>
         <p class="text-base-content/65 mt-5 text-sm leading-relaxed">

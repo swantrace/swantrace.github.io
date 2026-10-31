@@ -92,10 +92,21 @@ test("direct submission retains failed messages and confirms only accepted submi
   await dialog
     .getByRole("button", { name: "Send message", exact: true })
     .click();
-  await expect(dialog.getByRole("status")).toHaveText(
+  await expect(dialog).toBeHidden();
+  await expect(page.getByRole("status")).toHaveText(
     "Thanks! Your message has been submitted."
   );
+  const trigger = page.getByRole("button", {
+    name: "Let's connect",
+    exact: true,
+  });
+  await expect(trigger).toBeFocused();
+  await trigger.click();
+  await expect(dialog).toBeVisible();
   await expect(dialog.getByLabel("Message", { exact: true })).toHaveValue("");
+  await expect(
+    page.getByText("Thanks! Your message has been submitted.", { exact: true })
+  ).toHaveCount(0);
   expect(requests).toBe(2);
   expect(JSON.parse(bodies[1])).toEqual({
     service_id: "service_test",
