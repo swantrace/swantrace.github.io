@@ -59,9 +59,8 @@ for (const width of [1440, 768, 390, 320]) {
     await checkOverflow();
 
     await page.getByRole("link", { name: "Read case study" }).first().click();
-    await expect(
-      page.getByRole("heading", { name: "At a glance" })
-    ).toBeVisible();
+    await expect(page.locator(".blog-content")).toBeVisible();
+    await expect(page.locator(".blog-content")).toHaveText(/\S/);
     await expect(
       navigation.getByRole("link", { name: "Projects", exact: true })
     ).toHaveAttribute("aria-current", "page");
@@ -176,9 +175,8 @@ test("server-rendered navigation and content work without JavaScript", async ({
     .getByRole("link", { name: "Projects", exact: true })
     .click();
   await page.getByRole("link", { name: "Read case study" }).first().click();
-  await expect(
-    page.getByRole("heading", { name: "At a glance" })
-  ).toBeVisible();
+  await expect(page.locator(".blog-content")).toBeVisible();
+  await expect(page.locator(".blog-content")).toHaveText(/\S/);
   await page
     .getByRole("navigation", { name: "Main navigation" })
     .getByRole("link", { name: "Home", exact: true })

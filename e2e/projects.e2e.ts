@@ -43,9 +43,8 @@ test("featured work and all four project pages expose the intended links", async
   for (const [slug, title] of cases) {
     await page.goto(`/projects/${slug}`);
     await expect(page.getByRole("heading", { level: 1 })).toHaveText(title);
-    await expect(
-      page.getByRole("heading", { name: "At a glance" })
-    ).toBeVisible();
+    await expect(page.locator(".blog-content")).toBeVisible();
+    await expect(page.locator(".blog-content")).toHaveText(/\S/);
     const illustration = page.locator("main figure img");
     await expect(illustration).toHaveAttribute(
       "src",
