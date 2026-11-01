@@ -21,6 +21,18 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>http://localhost:4173/blog/building-x509-trust-certificate-chain-and-revocation-validation-in-nodejs</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>http://localhost:4173/blog/trust-community-selection-in-fhir-udap</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>http://localhost:4173/projects/english-speaking-coach</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

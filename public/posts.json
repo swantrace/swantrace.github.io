@@ -1,1 +1,32 @@
-[]
+[
+  {
+    "slug": "building-x509-trust-certificate-chain-and-revocation-validation-in-nodejs",
+    "title": "Building x509-trust: Certificate Chain and Revocation Validation in Node.js",
+    "date": "2026-11-01T00:00:00.000Z",
+    "tags": [
+      "typescript",
+      "nodejs",
+      "x509",
+      "security",
+      "open-source"
+    ],
+    "topic": null,
+    "draft": false,
+    "excerpt": "How I built a TypeScript library that combines trusted configuration, certificate-chain validation, CRL/OCSP evidence, and operational controls in Node.js."
+  },
+  {
+    "slug": "trust-community-selection-in-fhir-udap",
+    "title": "Trust Community Selection in FHIR UDAP: Bridging the Gap Between Discovery and Registration",
+    "date": "2026-11-01T00:00:00.000Z",
+    "tags": [
+      "fhir",
+      "udap",
+      "tefca",
+      "x509",
+      "security"
+    ],
+    "topic": null,
+    "draft": false,
+    "excerpt": "An architectural proposal for preserving trust-community context between UDAP discovery and registration when communities share certificate authorities."
+  }
+]
