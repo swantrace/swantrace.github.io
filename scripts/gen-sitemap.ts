@@ -1,5 +1,5 @@
 import { existsSync } from "node:fs";
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, stat, writeFile } from "node:fs/promises";
 import { getAllProjects } from "../app/utils/projects.js";
 import { urlAbs } from "../app/utils/url.js";
 
@@ -10,11 +10,16 @@ const SITEMAP_OUTPUT_PATH = "./public/sitemap.xml";
  * Static routes of the website
  */
 const STATIC_ROUTES = [
-  "/", // Home page
-  "/blog", // Blog listing page
-  "/projects", // Project listing page
-  "/cv", // Resume page
-];
+  ["/", "./app/routes/index.tsx"],
+  ["/blog", "./app/routes/blog/index.tsx"],
+  ["/projects", "./app/routes/projects/index.tsx"],
+  ["/cv", "./app/routes/cv.tsx"],
+] as const;
+
+async function getLastModifiedDate(filePath: string): Promise<string> {
+  const { mtime } = await stat(filePath);
+  return mtime.toISOString().split("T")[0];
+}
 
 /**
  * Generate XML sitemap entry for a URL
@@ -48,7 +53,7 @@ function generateSitemapEntry(
  * Read posts.json and extract blog post URLs
  */
 async function getBlogPostUrls(): Promise<
-  Array<{ url: string; lastmod: string }>
+  Array<{ url: string; filePath: string }>
 > {
   if (!existsSync(POSTS_JSON_PATH)) {
     console.warn(`⚠️  ${POSTS_JSON_PATH} not found. Run gen:posts first.`);
@@ -61,9 +66,7 @@ async function getBlogPostUrls(): Promise<
 
     return posts.map((post) => ({
       url: urlAbs(`/blog/${post.slug}`),
-      lastmod: post.date
-        ? new Date(post.date).toISOString().split("T")[0]
-        : new Date().toISOString().split("T")[0],
+      filePath: `./content/posts/${post.slug}.md`,
     }));
   } catch (error) {
     console.error(`❌ Error reading ${POSTS_JSON_PATH}:`, error);
@@ -81,10 +84,8 @@ async function generateSitemap(): Promise<void> {
     // Get blog post URLs
     const blogPostUrls = await getBlogPostUrls();
     console.log(`📄 Found ${blogPostUrls.length} blog posts`);
-    const projectUrls = (await getAllProjects()).map((project) =>
-      urlAbs(`/projects/${project.slug}`)
-    );
-    console.log(`🛠️  Found ${projectUrls.length} projects`);
+    const projects = await getAllProjects();
+    console.log(`🛠️  Found ${projects.length} projects`);
 
     // Start XML
     const xmlLines = [
@@ -93,22 +94,28 @@ async function generateSitemap(): Promise<void> {
     ];
 
     // Add static routes
-    for (const route of STATIC_ROUTES) {
+    for (const [route, filePath] of STATIC_ROUTES) {
       const url = urlAbs(route);
+      const lastmod = await getLastModifiedDate(filePath);
       const priority = route === "/" ? "1.0" : "0.8";
       const changefreq = route === "/" ? "weekly" : "monthly";
 
-      xmlLines.push(generateSitemapEntry(url, undefined, changefreq, priority));
+      xmlLines.push(generateSitemapEntry(url, lastmod, changefreq, priority));
     }
 
     // Add blog post routes
-    for (const { url, lastmod } of blogPostUrls) {
+    for (const { url, filePath } of blogPostUrls) {
+      const lastmod = await getLastModifiedDate(filePath);
       xmlLines.push(generateSitemapEntry(url, lastmod, "monthly", "0.6"));
     }
 
     // Add published project routes
-    for (const url of projectUrls) {
-      xmlLines.push(generateSitemapEntry(url, undefined, "monthly", "0.7"));
+    for (const project of projects) {
+      const url = urlAbs(`/projects/${project.slug}`);
+      const lastmod = await getLastModifiedDate(
+        `./content/projects/${project.slug}.md`
+      );
+      xmlLines.push(generateSitemapEntry(url, lastmod, "monthly", "0.7"));
     }
 
     // Close XML
@@ -120,12 +127,12 @@ async function generateSitemap(): Promise<void> {
 
     console.log(
       `✅ Generated ${SITEMAP_OUTPUT_PATH} with ${
-        STATIC_ROUTES.length + blogPostUrls.length + projectUrls.length
+        STATIC_ROUTES.length + blogPostUrls.length + projects.length
       } URLs`
     );
     console.log(`   Static routes: ${STATIC_ROUTES.length}`);
     console.log(`   Blog posts: ${blogPostUrls.length}`);
-    console.log(`   Projects: ${projectUrls.length}`);
+    console.log(`   Projects: ${projects.length}`);
   } catch (error) {
     console.error("❌ Error generating sitemap:", error);
     process.exit(1);

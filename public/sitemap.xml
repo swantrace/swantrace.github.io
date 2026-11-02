@@ -1,54 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:4173/</loc>
+    <loc>https://swantrace.github.io/</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog</loc>
+    <loc>https://swantrace.github.io/blog</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/projects</loc>
+    <loc>https://swantrace.github.io/projects</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/cv</loc>
+    <loc>https://swantrace.github.io/cv</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/building-x509-trust-certificate-chain-and-revocation-validation-in-nodejs</loc>
+    <loc>https://swantrace.github.io/blog/building-x509-trust-certificate-chain-and-revocation-validation-in-nodejs</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/blog/trust-community-selection-in-fhir-udap</loc>
+    <loc>https://swantrace.github.io/blog/trust-community-selection-in-fhir-udap</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/projects/english-speaking-coach</loc>
+    <loc>https://swantrace.github.io/projects/english-speaking-coach</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/projects/luxebbq</loc>
+    <loc>https://swantrace.github.io/projects/luxebbq</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/projects/x509-trust</loc>
+    <loc>https://swantrace.github.io/projects/x509-trust</loc>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http://localhost:4173/projects/job-application-tracker</loc>
+    <loc>https://swantrace.github.io/projects/job-application-tracker</loc>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
