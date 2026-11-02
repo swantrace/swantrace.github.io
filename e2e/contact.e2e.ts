@@ -39,6 +39,54 @@ test("contact dialog supports validation, Escape, and focus restoration", async 
   await expect(dialog).toBeHidden();
 });
 
+test("email icons share the contact form across the sidebar and CV", async ({
+  page,
+}) => {
+  test.setTimeout(60_000);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  for (const route of ["/", "/cv", "/projects"]) {
+    await page.goto(route);
+    await expect(page.locator("contact-form dialog")).toBeAttached();
+    await expect(page.locator("contact-form")).toHaveCount(1);
+    const triggers = [
+      page
+        .locator(".site-header")
+        .getByRole("link", { name: "Email Fred Hong", exact: true }),
+    ];
+    if (route === "/cv") {
+      triggers.push(
+        page
+          .locator(".cv-contact")
+          .getByRole("link", { name: "Email Fred Hong", exact: true })
+      );
+      await expect(
+        page.getByRole("button", { name: "Let's connect", exact: true })
+      ).toBeHidden();
+    }
+    const dialog = page.getByRole("dialog", {
+      name: "Let's connect",
+      exact: true,
+    });
+    for (const [index, trigger] of triggers.entries()) {
+      await trigger.click();
+      await expect(page).toHaveURL(new RegExp(`${route}$`));
+      await expect(dialog).toBeVisible();
+      await expect(dialog.getByLabel("Name", { exact: true })).toBeFocused();
+      const message = dialog.getByLabel("Message", { exact: true });
+      if (index === 0) {
+        await message.fill("A draft shared between email icons.");
+      } else {
+        await expect(message).toHaveValue(
+          "A draft shared between email icons."
+        );
+      }
+      await page.keyboard.press("Escape");
+      await expect(dialog).toBeHidden();
+      await expect(trigger).toBeFocused();
+    }
+  }
+});
+
 test("direct submission retains failed messages and confirms only accepted submissions", async ({
   page,
 }) => {
@@ -130,6 +178,12 @@ test("contact falls back to email without JavaScript", async ({ browser }) => {
   await page.goto("/");
   await expect(
     page.getByRole("link", { name: "Let's connect by email", exact: true })
+  ).toHaveAttribute("href", "mailto:frederickhong.5@gmail.com");
+  await page.goto("/cv");
+  await expect(
+    page
+      .locator(".cv-contact")
+      .getByRole("link", { name: "Email Fred Hong", exact: true })
   ).toHaveAttribute("href", "mailto:frederickhong.5@gmail.com");
   await context.close();
 });

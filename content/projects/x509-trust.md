@@ -14,7 +14,7 @@ role: "Library design and implementation"
 featured: true
 draft: false
 sourceVisibility: public
-order: 3
+order: 1
 ---
 
 _Building a Policy-Driven X.509 Trust Validation Library_

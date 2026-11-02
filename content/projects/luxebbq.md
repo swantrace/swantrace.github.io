@@ -14,10 +14,10 @@ category: "Client work"
 status: "Historical implementation"
 role: "Requirements, solution design, and full-stack development"
 sourceNote: "Historical case study. The client used the custom solution for approximately two years before migrating to Shopify's native Search & Discovery. The current client website is a reference, not a live demonstration of my implementation."
-featured: true
+featured: false
 draft: false
 sourceVisibility: public
-order: 2
+order: 4
 ---
 
 ## At a glance

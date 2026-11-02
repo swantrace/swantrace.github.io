@@ -1,10 +1,10 @@
 import { expect, test } from "@playwright/test";
 
 const cases = [
-  ["english-speaking-coach", "English Speaking Coach"],
-  ["luxebbq", "Luxe BBQ — Product Discovery & Catalogue Management"],
   ["x509-trust", "x509-trust"],
+  ["english-speaking-coach", "English Speaking Coach"],
   ["job-application-tracker", "Job Application Tracker"],
+  ["luxebbq", "Luxe BBQ — Product Discovery & Catalogue Management"],
 ];
 
 test("featured work and all four project pages expose the intended links", async ({

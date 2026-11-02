@@ -20,7 +20,11 @@ test("the published catalogue has four illustrated case studies and three featur
     projects
       .filter((project) => project.featured)
       .map((project) => project.slug)
-  ).toEqual(["english-speaking-coach", "luxebbq", "x509-trust"]);
+  ).toEqual([
+    "x509-trust",
+    "english-speaking-coach",
+    "job-application-tracker",
+  ]);
   expect((await getPublishedProjectSlugs()).sort()).toEqual(
     projects.map((project) => project.slug).sort()
   );

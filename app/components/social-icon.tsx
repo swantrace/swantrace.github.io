@@ -9,13 +9,18 @@ export const SocialIcon = ({
   d: string;
   viewBox?: string;
 }) => {
+  const isEmail = href.startsWith("mailto:");
+
   return (
     <a
       className="btn btn-ghost btn-circle"
       href={href}
-      target="_blank"
-      rel="noreferrer"
+      target={isEmail ? undefined : "_blank"}
+      rel={isEmail ? undefined : "noreferrer"}
       aria-label={label}
+      data-contact-trigger={isEmail ? "" : undefined}
+      aria-haspopup={isEmail ? "dialog" : undefined}
+      aria-controls={isEmail ? "contact-dialog" : undefined}
     >
       <span className="sr-only">{label}</span>
       <svg

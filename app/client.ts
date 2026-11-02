@@ -78,6 +78,24 @@ function lazyDefine(
 }
 
 onDomReady(() => {
+  if (!document.querySelector("contact-form")) {
+    const form = document.createElement("contact-form");
+    form.setAttribute("hide-trigger", "");
+    form.setAttribute(
+      "service-id",
+      import.meta.env.VITE_EMAILJS_SERVICE_ID || ""
+    );
+    form.setAttribute(
+      "template-id",
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID || ""
+    );
+    form.setAttribute(
+      "public-key",
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ""
+    );
+    document.body.append(form);
+  }
+
   // === 在这里登记你要懒加载的 Web Components ===
   lazyDefine("theme-switcher", () => import("./wc/theme-switcher"), {
     whenVisible: true,
@@ -91,7 +109,7 @@ onDomReady(() => {
   });
 
   lazyDefine("contact-form", () => import("./wc/contact-form"), {
-    whenVisible: true,
+    whenVisible: false,
     onBeforeDefine: (element) => {
       element.replaceChildren();
     },

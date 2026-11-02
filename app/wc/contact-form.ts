@@ -6,19 +6,43 @@ function ContactForm(this: HTMLElement) {
   const serviceId = this.getAttribute("service-id")?.trim() || "";
   const templateId = this.getAttribute("template-id")?.trim() || "";
   const publicKey = this.getAttribute("public-key")?.trim() || "";
+  const hideTrigger = this.hasAttribute("hide-trigger");
   const configured = Boolean(serviceId && templateId && publicKey);
   const [status, setStatus] = useState<Status>("idle");
   const request = useRef<AbortController>();
 
   useEffect(() => () => request.current?.abort(), []);
 
-  const open = () => {
+  const open = (trigger: HTMLElement) => {
     if (status === "sent") setStatus("idle");
-    this.querySelector<HTMLButtonElement>("button")?.focus();
+    trigger.focus();
     const dialog = this.querySelector<HTMLDialogElement>("dialog");
     dialog?.showModal();
     dialog?.querySelector<HTMLInputElement>("input[name=name]")?.focus();
   };
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.ctrlKey ||
+        event.metaKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
+      const trigger =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>("[data-contact-trigger]")
+          : null;
+      if (!trigger) return;
+      event.preventDefault();
+      open(trigger);
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, [status]);
 
   const submit = async (event: SubmitEvent) => {
     event.preventDefault();
@@ -70,13 +94,13 @@ function ContactForm(this: HTMLElement) {
   };
 
   return html`
-    <button type="button" class="btn" aria-haspopup="dialog" @click=${open}>
+    <button type="button" class=${hideTrigger ? "hidden" : "btn"} aria-haspopup="dialog" aria-controls="contact-dialog" @click=${(event: MouseEvent) => open(event.currentTarget as HTMLElement)}>
       Let's connect <span aria-hidden="true">↗</span>
     </button>
     <p class="text-base-content/75 max-w-xs text-sm leading-relaxed" role="status" aria-live="polite">
       ${status === "sent" ? "Thanks! Your message has been submitted." : ""}
     </p>
-    <dialog class="modal p-4" aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-description">
+    <dialog id="contact-dialog" class="modal p-4" aria-labelledby="contact-dialog-title" aria-describedby="contact-dialog-description">
       <div class="modal-box w-full max-w-lg">
         <form method="dialog">
           <button type="submit" class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Close contact form">✕</button>

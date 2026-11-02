@@ -8,10 +8,10 @@ imageAlt: "Abstract job documents moving through analysis and review into a gene
 category: "AI workflow application"
 status: "Active personal project"
 role: "Product design and full-stack development"
-featured: false
+featured: true
 draft: false
 sourceVisibility: public
-order: 4
+order: 3
 ---
 
 ## At a glance
